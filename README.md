@@ -25,3 +25,17 @@ You can check out the [create-t3-app GitHub repository](https://github.com/t3-os
 ## How do I deploy this?
 
 Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+
+## To do
+
+[ ] - Support Login with Google, Twitter, Github
+[ ] - Support Stripe Payments
+[ ] - Add Mantine UI
+[ ] - Add SQL DB on PlanetScale/Supabase
+[ ] - Add Jotai/Zustand as state manager
+[ ] - Support sending e-mails with Sendgrid or other cheap option
+[ ] - Support File Upload S3/Supabase Storage
+[ ] - Add Analytics - free option
+[ ] - Add Sentry to catch errors or something similar that has a free tier
+[ ] - Deploy on Vercel
+[ ] - Buy the domain
