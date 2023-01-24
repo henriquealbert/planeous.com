@@ -1,6 +1,6 @@
-import { Button, Flex, Title } from "@mantine/core";
-import { type NextPage } from "next";
-import Link from "next/link";
+import { Button, Flex, Title } from '@mantine/core'
+import { type NextPage } from 'next'
+import Link from 'next/link'
 
 const HomePage: NextPage = () => {
   return (
@@ -12,7 +12,7 @@ const HomePage: NextPage = () => {
         </Link>
       </div>
     </Flex>
-  );
-};
+  )
+}
 
-export default HomePage;
+export default HomePage

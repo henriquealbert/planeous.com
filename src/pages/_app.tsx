@@ -1,16 +1,16 @@
-import { type AppType } from "next/app";
-import { type Session } from "next-auth";
+import { type AppType } from 'next/app'
+import { type Session } from 'next-auth'
 
-import Head from "next/head";
-import { MantineProvider } from "@mantine/core";
-import { SessionProvider } from "next-auth/react";
+import Head from 'next/head'
+import { MantineProvider } from '@mantine/core'
+import { SessionProvider } from 'next-auth/react'
 
-import { api } from "../utils/api";
-import { mantineTheme } from "../styles/mantineTheme";
+import { api } from '../utils/api'
+import { mantineTheme } from '../styles/mantineTheme'
 
 const MyApp: AppType<{ session: Session | null }> = ({
   Component,
-  pageProps: { session, ...pageProps },
+  pageProps: { session, ...pageProps }
 }) => {
   return (
     <>
@@ -28,7 +28,7 @@ const MyApp: AppType<{ session: Session | null }> = ({
         </SessionProvider>
       </MantineProvider>
     </>
-  );
-};
+  )
+}
 
-export default api.withTRPC(MyApp);
+export default api.withTRPC(MyApp)

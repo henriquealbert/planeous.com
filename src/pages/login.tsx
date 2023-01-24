@@ -1,5 +1,5 @@
-import { Flex, Text, Title } from "@mantine/core";
-import { type NextPage } from "next";
+import { Flex, Text, Title } from '@mantine/core'
+import { type NextPage } from 'next'
 
 const LoginPage: NextPage = () => {
   return (
@@ -7,7 +7,7 @@ const LoginPage: NextPage = () => {
       <Title order={1}>This is the Login page</Title>
       <Text>Choose your provider to Login:</Text>
     </Flex>
-  );
-};
+  )
+}
 
-export default LoginPage;
+export default LoginPage
