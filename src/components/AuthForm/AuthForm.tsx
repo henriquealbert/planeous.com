@@ -16,10 +16,10 @@ export const AuthForm = ({ type }: AuthFormProps) => {
 
       <Paper radius="md" p="xl" withBorder mt="xl" w={350}>
         <Flex direction="column" gap={16} mb="md">
-          <GoogleButton size="md" onClick={() => signIn('google')}>
+          <GoogleButton size="md" onClick={() => void signIn('google')}>
             Connect with Google
           </GoogleButton>
-          <GithubButton size="md" onClick={() => signIn('github')}>
+          <GithubButton size="md" onClick={() => void signIn('github')}>
             Connect with GitHub
           </GithubButton>
         </Flex>
