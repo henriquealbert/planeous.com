@@ -19,7 +19,9 @@ export const AuthForm = ({ type }: AuthFormProps) => {
           <GoogleButton size="md" onClick={() => signIn('google')}>
             Connect with Google
           </GoogleButton>
-          <GithubButton size="md">Connect with GitHub</GithubButton>
+          <GithubButton size="md" onClick={() => signIn('github')}>
+            Connect with GitHub
+          </GithubButton>
         </Flex>
 
         {type === 'signup' && (
