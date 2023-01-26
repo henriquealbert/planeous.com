@@ -1,8 +1,9 @@
 import NextAuth, { type NextAuthOptions } from 'next-auth'
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
-
+import GoogleProvider from 'next-auth/providers/google'
 import { prisma } from '../../../server/db'
+import { env } from '../../../env/server.mjs'
 
 export const authOptions: NextAuthOptions = {
   // Include user.id on session
@@ -17,6 +18,10 @@ export const authOptions: NextAuthOptions = {
   // Configure one or more authentication providers
   adapter: PrismaAdapter(prisma),
   providers: [
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID || '',
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET || ''
+    })
     /**
      * ...add more providers here
      *
@@ -26,7 +31,8 @@ export const authOptions: NextAuthOptions = {
      * NextAuth.js docs for the provider you want to use. Example:
      * @see https://next-auth.js.org/providers/github
      */
-  ]
+  ],
+  secret: env.NEXTAUTH_SECRET
 }
 
 export default NextAuth(authOptions)

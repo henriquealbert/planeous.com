@@ -30,7 +30,7 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 - [x] Add Mantine UI
 - [x] Deploy on Vercel
-- [ ] Support Login with Google, Twitter, Github
+- [ ] Support Login with Google, Github
 - [ ] Support Stripe Payments
 - [ ] Add SQL DB on PlanetScale/Supabase
 - [ ] Add Jotai/Zustand as state manager

@@ -2,7 +2,7 @@ import type { ButtonProps } from '@mantine/core'
 import { Button } from '@mantine/core'
 import { GoogleIcon } from './GoogleIcon'
 
-export function GoogleButton(props: ButtonProps) {
+export function GoogleButton(props: ButtonProps & { onClick?: () => void }) {
   return (
     <Button
       leftIcon={<GoogleIcon />}
