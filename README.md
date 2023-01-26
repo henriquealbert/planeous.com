@@ -30,12 +30,12 @@ Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/ver
 
 - [x] Add Mantine UI
 - [x] Deploy on Vercel
-- [ ] Support Login with Google, Github
+- [x] Support Login with Google, Github
+- [ ] Add SQL DB on PlanetScale/Supabase and localhost
 - [ ] Support Stripe Payments
-- [ ] Add SQL DB on PlanetScale/Supabase
-- [ ] Add Jotai/Zustand as state manager
 - [ ] Support sending e-mails with Sendgrid or other cheap option
 - [ ] Support File Upload S3/Supabase Storage
+- [ ] Add Jotai/Zustand as state manager
 - [ ] Add Analytics -> free option
 - [ ] Add Sentry to catch errors or something similar that has a free tier
 - [ ] Buy the domain
