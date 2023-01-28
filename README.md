@@ -1,41 +1,41 @@
-# Create T3 App
+# My SaaS
 
-This is a [T3 Stack](https://create.t3.gg/) project bootstrapped with `create-t3-app`.
+## How to run locally:
 
-## What's next? How do I make an app with this?
+- Clone the repository
 
-We try to keep this project as simple as possible, so you can start with just the scaffolding we set up for you, and add additional things later when they become necessary.
+- Install dependencies
 
-If you are not familiar with the different technologies used in this project, please refer to the respective docs. If you still are in the wind, please join our [Discord](https://t3.gg/discord) and ask for help.
+```bash
+pnpm install
+```
 
-- [Next.js](https://nextjs.org)
-- [NextAuth.js](https://next-auth.js.org)
-- [Prisma](https://prisma.io)
-- [tRPC](https://trpc.io)
+- Create a `.env` file based on `.env.example`
 
-## Learn More
+- Run prisma migrations
 
-To learn more about the [T3 Stack](https://create.t3.gg/), take a look at the following resources:
+```bash
+pnpm run db:push
+```
 
-- [Documentation](https://create.t3.gg/)
-- [Learn the T3 Stack](https://create.t3.gg/en/faq#what-learning-resources-are-currently-available) — Check out these awesome tutorials
+- Run the project
 
-You can check out the [create-t3-app GitHub repository](https://github.com/t3-oss/create-t3-app) — your feedback and contributions are welcome!
+```bash
+pnpm run dev
+```
 
-## How do I deploy this?
+## Tech stack
 
-Follow our deployment guides for [Vercel](https://create.t3.gg/en/deployment/vercel), [Netlify](https://create.t3.gg/en/deployment/netlify) and [Docker](https://create.t3.gg/en/deployment/docker) for more information.
+- [Next.js](https://nextjs.org/)
+- [Prisma](https://www.prisma.io/)
+- [PostgreSQL](https://www.postgresql.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Mantine](https://mantine.dev/)
+- [tRPC](https://trpc.io/)
+- [NextAuth.js](https://next-auth.js.org/)
 
-## To do
 
-- [x] Add Mantine UI
-- [x] Deploy on Vercel
-- [x] Support Login with Google, Github
-- [ ] Add SQL DB on PlanetScale/Supabase and localhost
-- [ ] Support Stripe Payments
-- [ ] Support sending e-mails with Sendgrid or other cheap option
-- [ ] Support File Upload S3/Supabase Storage
-- [ ] Add Jotai/Zustand as state manager
-- [ ] Add Analytics -> free option
-- [ ] Add Sentry to catch errors or something similar that has a free tier
-- [ ] Buy the domain
+## Project tasks
+
+- All the tasks are on [Linear board.](https://github.com/henriquealbert/my-saas)
+
