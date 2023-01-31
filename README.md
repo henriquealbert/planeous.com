@@ -3,7 +3,6 @@
 ## How to run locally:
 
 - Clone the repository
-
 - Install dependencies
 
 ```bash
