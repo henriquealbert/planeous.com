@@ -1,4 +1,4 @@
-# My SaaS
+# planeous.com
 
 ## How to run locally:
 
@@ -37,5 +37,5 @@ pnpm run dev
 
 ## Project tasks
 
-- All the tasks are on [Linear board.](https://github.com/henriquealbert/my-saas)
+- All the tasks are on [Linear board.](https://linear.app/hschmaiske/team/PLANE/all)
 
