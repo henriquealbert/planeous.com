@@ -1,6 +1,5 @@
 import { upperFirst } from '@mantine/hooks'
 import { Anchor, Flex, Paper, Text, Title } from '@mantine/core'
-import { GithubButton } from 'components/SocialButtons/GithubButton'
 import { GoogleButton } from 'components/SocialButtons/GoogleButton'
 import { signIn } from 'next-auth/react'
 import Link from 'next/link'
@@ -19,9 +18,6 @@ export const AuthForm = ({ type }: AuthFormProps) => {
           <GoogleButton size="md" onClick={() => void signIn('google')}>
             Connect with Google
           </GoogleButton>
-          <GithubButton size="md" onClick={() => void signIn('github')}>
-            Connect with GitHub
-          </GithubButton>
         </Flex>
 
         {type === 'signup' && (
