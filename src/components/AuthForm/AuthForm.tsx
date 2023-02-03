@@ -22,8 +22,7 @@ export const AuthForm = ({ type }: AuthFormProps) => {
 
         {type === 'signup' && (
           <Text size="xs" w="300px" align="center" mx="auto">
-            By clicking continue, you agree to our Terms of Service and Privacy
-            Policy.
+            By clicking continue, you agree to our Terms of Service and Privacy Policy.
           </Text>
         )}
 
