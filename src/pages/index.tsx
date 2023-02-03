@@ -1,25 +1,22 @@
 import { Button, Flex, Text, Title } from '@mantine/core'
+import { ProtectedRoute } from 'components/PrivateRoute/PrivateRoute'
+import { useAuth } from 'contexts/AuthContext'
 import { type NextPage } from 'next'
-import { signOut, useSession } from 'next-auth/react'
-import Link from 'next/link'
+import { signOut } from 'next-auth/react'
 
 const HomePage: NextPage = () => {
-  const { data: sessionData } = useSession()
-  console.log('sessionData', sessionData)
+  const { sessionData } = useAuth()
+
   return (
-    <Flex direction="column" justify="center" align="center" h="100vh">
-      <Title order={1}>Welcome to My SaaS</Title>
-      {sessionData && <Text mb="lg">Hello, {sessionData?.user?.name}</Text>}
-      <div>
-        {sessionData ? (
+    <ProtectedRoute>
+      <Flex direction="column" justify="center" align="center" h="100vh">
+        <Title order={1}>Welcome to My SaaS</Title>
+        <Text mb="lg">Hello, {sessionData?.user?.name}</Text>
+        <div>
           <Button onClick={() => void signOut()}>Sign out</Button>
-        ) : (
-          <Link href="/login">
-            <Button>Go to Login Page</Button>
-          </Link>
-        )}
-      </div>
-    </Flex>
+        </div>
+      </Flex>
+    </ProtectedRoute>
   )
 }
 
