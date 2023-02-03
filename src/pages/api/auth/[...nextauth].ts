@@ -14,6 +14,18 @@ export const authOptions: NextAuthOptions = {
         session.user.id = user.id
       }
       return session
+    },
+    redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      if (url.startsWith('/')) {
+        return Promise.resolve(`${baseUrl}${url}`)
+      }
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) {
+        return url
+      }
+
+      return Promise.resolve(baseUrl)
     }
   },
   // Configure one or more authentication providers
