@@ -15,10 +15,14 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <>
       <Head>
-        <title>My SaaS</title>
+        <title>Planeous</title>
         <meta
           name="viewport"
           content="minimum-scale=1, initial-scale=1, width=device-width"
+        />
+        <meta
+          name="description"
+          content="The missing toolkit for your Travel Agency."
         />
       </Head>
 
