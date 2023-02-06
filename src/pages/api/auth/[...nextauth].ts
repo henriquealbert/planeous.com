@@ -7,13 +7,26 @@ import { prisma } from '../../../server/db'
 import { env } from '../../../env/server.mjs'
 
 export const authOptions: NextAuthOptions = {
-  // Include user.id on session
+  // Include user.id on session and user.role
   callbacks: {
     session({ session, user }) {
       if (session.user) {
         session.user.id = user.id
+        session.user.role = user.role
       }
       return session
+    },
+    redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      if (url.startsWith('/')) {
+        return Promise.resolve(`${baseUrl}${url}`)
+      }
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) {
+        return url
+      }
+
+      return Promise.resolve(baseUrl)
     }
   },
   // Configure one or more authentication providers
