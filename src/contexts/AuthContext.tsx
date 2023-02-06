@@ -16,7 +16,7 @@ const AuthContext = createContext<AuthContextType>({
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const { data: sessionData, status } = useSession()
-
+  console.log('AuthProvider', sessionData, status)
   return (
     <AuthContext.Provider
       value={{
