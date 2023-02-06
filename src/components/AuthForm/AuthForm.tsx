@@ -15,15 +15,17 @@ export const AuthForm = ({ type }: AuthFormProps) => {
 
       <Paper radius="md" p="xl" withBorder mt="xl" w={350}>
         <Flex direction="column" gap={16} mb="md">
-          <GoogleButton size="md" onClick={() => void signIn('google')}>
+          <GoogleButton
+            size="md"
+            onClick={() => void signIn('google', { callbackUrl: '/dashboard' })}
+          >
             Connect with Google
           </GoogleButton>
         </Flex>
 
         {type === 'signup' && (
           <Text size="xs" w="300px" align="center" mx="auto">
-            By clicking continue, you agree to our Terms of Service and Privacy
-            Policy.
+            By clicking continue, you agree to our Terms of Service and Privacy Policy.
           </Text>
         )}
 

@@ -7,24 +7,24 @@ import { SessionProvider } from 'next-auth/react'
 
 import { api } from '../utils/api'
 import { mantineTheme } from '../styles/mantineTheme'
+import { AuthProvider } from 'contexts/AuthContext'
 
-const MyApp: AppType<{ session: Session | null }> = ({
-  Component,
-  pageProps: { session, ...pageProps }
-}) => {
+const MyApp: AppType<{
+  session: Session | null
+}> = ({ Component, pageProps: { session, ...pageProps } }) => {
   return (
     <>
       <Head>
-        <title>My SaaS</title>
-        <meta
-          name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width"
-        />
+        <title>Planeous</title>
+        <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+        <meta name="description" content="The missing toolkit for your Travel Agency." />
       </Head>
 
       <MantineProvider withGlobalStyles withNormalizeCSS theme={mantineTheme}>
         <SessionProvider session={session}>
-          <Component {...pageProps} />
+          <AuthProvider>
+            <Component {...pageProps} />
+          </AuthProvider>
         </SessionProvider>
       </MantineProvider>
     </>

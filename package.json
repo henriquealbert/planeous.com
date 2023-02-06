@@ -7,6 +7,8 @@
     "dev": "next dev",
     "postinstall": "prisma generate",
     "db:push": "npx prisma db push",
+    "db:seed": "NODE_ENV=development prisma db seed",
+    "db:format": "pnpx prisma format",
     "lint": "next lint",
     "start": "next start"
   },
@@ -45,9 +47,19 @@
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.8.3",
     "prisma": "^4.8.0",
+    "tsx": "^3.12.2",
     "typescript": "^4.9.4"
   },
   "ct3aMetadata": {
     "initVersion": "7.3.2"
+  },
+  "prisma": {
+    "seed": "tsx prisma/seedDev.ts",
+    "schema": "prisma/schema.prisma"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0",
+    "pnpm": ">=7.0.0"
   }
 }
