@@ -56,5 +56,10 @@
   "prisma": {
     "seed": "tsx prisma/seedDev.ts",
     "schema": "prisma/schema.prisma"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0",
+    "pnpm": ">=7.0.0"
   }
 }
