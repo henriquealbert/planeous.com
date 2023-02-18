@@ -1,7 +1,7 @@
 import { Avatar, Group, Menu, Text, UnstyledButton } from '@mantine/core'
-import { IconChevronDown, IconLogout, IconSettings } from '@tabler/icons-react'
+import { IconChevronDown } from '@tabler/icons-react'
 import { useAuth } from 'contexts/AuthContext'
-import { signOut } from 'next-auth/react'
+import { MenuDropdown } from './MenuDropdown'
 
 export const AvatarMenu = () => {
   const { sessionData } = useAuth()
@@ -23,13 +23,7 @@ export const AvatarMenu = () => {
           </Group>
         </UnstyledButton>
       </Menu.Target>
-      <Menu.Dropdown>
-        <Menu.Label>Settings</Menu.Label>
-        <Menu.Item icon={<IconSettings size={14} stroke={1.5} />}>Account settings</Menu.Item>
-        <Menu.Item onClick={() => void signOut()} icon={<IconLogout size={14} stroke={1.5} />}>
-          Logout
-        </Menu.Item>
-      </Menu.Dropdown>
+      <MenuDropdown />
     </Menu>
   )
 }
