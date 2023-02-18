@@ -1,14 +1,15 @@
-import { Flex } from '@mantine/core'
+import { Center } from '@mantine/core'
 import { AuthForm } from 'components/AuthForm/AuthForm'
+import { PublicRoute } from 'components/Layouts/PublicRoute/PublicRoute'
 import { type NextPage } from 'next'
 
 const SignUpPage: NextPage = () => {
   return (
-    <Flex direction="column" justify="center" align="center" h="100vh">
-      <Flex direction="column" justify="center" align="center" h="100vh">
+    <PublicRoute>
+      <Center mt={220}>
         <AuthForm type="signup" />
-      </Flex>
-    </Flex>
+      </Center>
+    </PublicRoute>
   )
 }
 
