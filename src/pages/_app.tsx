@@ -8,7 +8,6 @@ import { SessionProvider } from 'next-auth/react'
 import { api } from '../utils/api'
 import { mantineTheme } from '../styles/mantineTheme'
 import { AuthProvider } from 'contexts/AuthContext'
-import { appWithTranslation } from 'next-i18next'
 
 const MyApp: AppType<{
   session: Session | null
@@ -32,4 +31,4 @@ const MyApp: AppType<{
   )
 }
 
-export default api.withTRPC(appWithTranslation(MyApp))
+export default api.withTRPC(MyApp)
