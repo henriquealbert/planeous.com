@@ -1,36 +1,24 @@
 import { Flex, Title } from '@mantine/core'
-import { ProtectedRoute } from 'components/Layouts/PrivateRoute/PrivateRoute'
 import { PublicRoute } from 'components/Layouts/PublicRoute/PublicRoute'
-import { useAuth } from 'contexts/AuthContext'
-import { type NextPage } from 'next'
-
-const DashboardPage: NextPage = () => {
-  return (
-    <ProtectedRoute>
-      <Flex direction="column">
-        <Title order={1}>DashboardPage</Title>
-      </Flex>
-    </ProtectedRoute>
-  )
-}
+import type { GetStaticProps, NextPage } from 'next'
+import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 
 const HomePage: NextPage = () => {
+  const { t } = useTranslation('home')
   return (
     <PublicRoute>
       <Flex direction="column" justify="center" align="center" h="100vh">
-        <Title order={1}>Welcome to Planeous</Title>
+        <Title order={1}>{t('welcome')}</Title>
       </Flex>
     </PublicRoute>
   )
 }
 
-const IndexPage: NextPage = () => {
-  const { status } = useAuth()
+export default HomePage
 
-  if (status === 'unauthenticated') {
-    return <HomePage />
+export const getStaticProps: GetStaticProps = async ({ locale }) => ({
+  props: {
+    ...(await serverSideTranslations(locale ?? 'en', ['home']))
   }
-  return <DashboardPage />
-}
-
-export default IndexPage
+})
