@@ -1,5 +1,11 @@
 import type { SpotlightAction, SpotlightProviderProps } from '@mantine/spotlight'
-import { IconFileText, IconHome, IconSearch } from '@tabler/icons-react'
+import {
+  IconAddressBook,
+  IconFileText,
+  IconHome,
+  IconMoonStars,
+  IconSearch
+} from '@tabler/icons-react'
 import Router from 'next/router'
 
 const actions: SpotlightAction[] = [
@@ -10,10 +16,22 @@ const actions: SpotlightAction[] = [
     icon: <IconHome size={18} />
   },
   {
+    title: 'Contacts',
+    description: 'Get to contacts page',
+    onTrigger: () => void Router.push('/app/contacts'),
+    icon: <IconAddressBook size={18} />
+  },
+  {
     title: 'Documentation',
     description: 'Visit documentation to lean more about all features',
     onTrigger: () => console.log('Documentation'),
     icon: <IconFileText size={18} />
+  },
+  {
+    title: 'Dark Mode',
+    description: 'Enable dark mode',
+    onTrigger: () => void Router.push('/app/contacts'),
+    icon: <IconMoonStars size={18} />
   }
 ]
 
