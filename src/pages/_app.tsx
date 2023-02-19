@@ -2,14 +2,13 @@ import { type AppType } from 'next/app'
 import { type Session } from 'next-auth'
 
 import Head from 'next/head'
-import { MantineProvider } from '@mantine/core'
 import { SessionProvider } from 'next-auth/react'
 import type { AbstractIntlMessages } from 'next-intl'
 import { NextIntlProvider } from 'next-intl'
 
 import { api } from '../utils/api'
-import { mantineTheme } from '../styles/mantineTheme'
 import { AuthProvider } from 'contexts/AuthContext'
+import { UIProvider } from 'styles/UIProvider'
 
 const MyApp: AppType<{
   session: Session | null
@@ -24,13 +23,13 @@ const MyApp: AppType<{
       </Head>
 
       <NextIntlProvider messages={messages}>
-        <MantineProvider withGlobalStyles withNormalizeCSS theme={mantineTheme}>
+        <UIProvider>
           <SessionProvider session={session}>
             <AuthProvider>
               <Component {...pageProps} />
             </AuthProvider>
           </SessionProvider>
-        </MantineProvider>
+        </UIProvider>
       </NextIntlProvider>
     </>
   )

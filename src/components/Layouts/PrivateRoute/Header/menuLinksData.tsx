@@ -28,7 +28,7 @@ export const menuLinksData = [
         label: 'Logout',
         href: '',
         onClick: () => void signOut(),
-        color: 'blue.2'
+        color: 'blue'
       }
     ]
   }
