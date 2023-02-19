@@ -1,15 +1,15 @@
 import { Flex, Title } from '@mantine/core'
 import { PublicRoute } from 'components/Layouts/PublicRoute/PublicRoute'
 import type { GetStaticProps, NextPage } from 'next'
-import { useTranslation } from 'next-i18next'
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { getServerTranslation } from 'utils/serverTranslation'
+import { useTranslations } from 'next-intl'
 
 const HomePage: NextPage = () => {
-  const { t } = useTranslation('home')
+  const t = useTranslations('Home')
   return (
     <PublicRoute>
       <Flex direction="column" justify="center" align="center" h="100vh">
-        <Title order={1}>{t('welcome')}</Title>
+        <Title order={1}>{t('title')}</Title>
       </Flex>
     </PublicRoute>
   )
@@ -17,8 +17,10 @@ const HomePage: NextPage = () => {
 
 export default HomePage
 
-export const getStaticProps: GetStaticProps = async ({ locale }) => ({
-  props: {
-    ...(await serverSideTranslations(locale ?? 'en', ['home']))
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      messages: await getServerTranslation(locale ?? 'en')
+    }
   }
-})
+}
