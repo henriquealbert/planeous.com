@@ -18,7 +18,7 @@ export const AuthForm = ({ type }: AuthFormProps) => {
       <Center>
         <Paper radius="md" p="xl" withBorder mt="xs" w={350}>
           <Flex direction="column" gap={16} mb="md">
-            <GoogleButton size="md" onClick={() => void signIn('google', { callbackUrl: '/' })}>
+            <GoogleButton size="md" onClick={() => void signIn('google', { callbackUrl: '/app' })}>
               Connect with Google
             </GoogleButton>
           </Flex>
