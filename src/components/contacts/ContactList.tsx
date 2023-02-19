@@ -64,6 +64,14 @@ export const ContactList = ({ data }: ContactListProps) => {
       enableColumnOrdering
       enableStickyHeader
       enableRowSelection
+      initialState={{
+        pagination: {
+          pageSize: 20,
+          pageIndex: 0
+        },
+        density: 'sm',
+        sorting: [{ desc: false, id: 'name' }]
+      }}
       renderTopToolbarCustomActions={() => <CreateContact />}
       renderBottomToolbarCustomActions={({ table }) => (
         <ExportData table={table} columns={columns} data={data} />
