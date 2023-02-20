@@ -37,7 +37,7 @@
     "mantine-react-table": "^0.9.2",
     "next": "13.1.2",
     "next-auth": "^4.19.2",
-    "next-intl": "^2.10.2",
+    "next-intl": "^2.10.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "string-to-color": "^2.2.2",
