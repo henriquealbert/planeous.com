@@ -12,11 +12,11 @@ datasource db {
 
 // Necessary for Next auth
 model Account {
-  id                String   @id @default(cuid())
-  userId            String   @map("user_id")
+  id                String  @id @default(cuid())
+  userId            String  @map("user_id")
   type              String
   provider          String
-  providerAccountId String   @map("provider_account_id")
+  providerAccountId String  @map("provider_account_id")
   refresh_token     String?
   access_token      String?
   expires_at        Int?
@@ -24,11 +24,11 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
-  
-  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  createdAt         DateTime @default(now()) @map("created_at")
-  updatedAt         DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@unique([provider, providerAccountId])
 }
@@ -39,10 +39,10 @@ model Session {
   userId       String   @map("user_id")
   expires      DateTime
 
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-  
-  createdAt    DateTime @default(now()) @map("created_at")
-  updatedAt    DateTime @updatedAt @map("updated_at")
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 }
 
 model VerificationToken {
@@ -50,32 +50,32 @@ model VerificationToken {
   token      String   @unique
   expires    DateTime
 
-  createdAt  DateTime @default(now()) @map("created_at")
-  updatedAt  DateTime @updatedAt @map("updated_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 
   @@unique([identifier, token])
 }
 
 model User {
-  id             String        @id @default(cuid())
-  name           String?
-  email          String?       @unique
-  emailVerified  DateTime?     @map("email_verified")
-  image          String?
-  role           Role          @default(FREE)
+  id            String    @id @default(cuid())
+  name          String?
+  email         String?   @unique
+  emailVerified DateTime? @map("email_verified")
+  image         String?
 
   accounts       Account[]
   sessions       Session[]
   organization   Organization? @relation(fields: [organizationId], references: [id])
   organizationId String?       @map("organization_id")
 
-  createdAt      DateTime      @default(now()) @map("created_at")
-  updatedAt      DateTime      @updatedAt @map("updated_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
 }
 
-enum Role {
-  FREE
-  PRO
+enum Plan {
+  FREETRIAL
+  ESSENTIAL
+  PROFESSIONAL
   ADMIN
 }
 
@@ -83,6 +83,7 @@ model Organization {
   id   String @id @default(cuid())
   name String
   slug String @unique
+  plan Plan   @default(FREETRIAL)
 
   members  User[]
   contacts Contact[]
