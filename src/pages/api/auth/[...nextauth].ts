@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unsafe-assignment */
+/* eslint-disable @typescript-eslint/no-unsafe-member-access */
 import NextAuth, { type NextAuthOptions } from 'next-auth'
 // Prisma adapter for NextAuth, optional and can be removed
 import { PrismaAdapter } from '@next-auth/prisma-adapter'
@@ -7,12 +9,33 @@ import { prisma } from '../../../server/db'
 import { env } from '../../../env/server.mjs'
 
 export const authOptions: NextAuthOptions = {
-  // Include user.id on session and user.role
+  // Include user.id on session and organization on user
   callbacks: {
-    session({ session, user }) {
+    async session({ session, user }) {
       if (session.user) {
         session.user.id = user.id
-        session.user.role = user.role
+
+        const userOrg = await prisma.user.findUnique({
+          where: { id: user.id },
+          select: {
+            organization: {
+              select: {
+                plan: true,
+                id: true,
+                name: true
+              }
+            }
+          }
+        })
+
+        // Add organization to session
+        if (userOrg?.organization) {
+          session.user.organization = {
+            id: userOrg.organization.id,
+            name: userOrg.organization.name,
+            plan: userOrg.organization.plan
+          }
+        }
       }
       return session
     },
