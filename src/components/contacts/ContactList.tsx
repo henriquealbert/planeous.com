@@ -1,9 +1,9 @@
-import { Avatar, Group, Text } from '@mantine/core'
+import { Group, Text } from '@mantine/core'
+import { Avatar } from 'components/Avatar/Avatar'
 import type { MRT_ColumnDef } from 'mantine-react-table'
 import { MantineReactTable } from 'mantine-react-table'
+import { useTranslations } from 'next-intl'
 import { useMemo } from 'react'
-import { getNamesInitials } from 'utils/getNamesInitials'
-import { getRandomColorFromString } from 'utils/getRandomColorFromString'
 import { CreateContact } from './CreateContact'
 import { ExportData } from './ExportData'
 
@@ -19,11 +19,13 @@ interface ContactListProps {
 }
 
 export const ContactList = ({ data }: ContactListProps) => {
+  const t = useTranslations('Contacts.Table')
+
   const columns = useMemo<MRT_ColumnDef<Contact>[]>(
     () => [
       {
         accessorKey: 'name',
-        header: 'Name',
+        header: t('name'),
         Cell: ({
           cell: {
             getValue,
@@ -31,14 +33,7 @@ export const ContactList = ({ data }: ContactListProps) => {
           }
         }) => (
           <Group spacing="sm">
-            <Avatar
-              size={26}
-              src={original.avatar}
-              radius="xl"
-              sx={{ background: getRandomColorFromString(getValue<string>()) }}
-            >
-              {getNamesInitials(getValue<string>())}
-            </Avatar>
+            <Avatar size={26} src={original.avatar} name={getValue<string>()} />
             <Text size="sm" weight={500}>
               {getValue<string>()}
             </Text>
@@ -47,14 +42,14 @@ export const ContactList = ({ data }: ContactListProps) => {
       },
       {
         accessorKey: 'email',
-        header: 'Email'
+        header: t('email')
       },
       {
         accessorKey: 'company',
-        header: 'Company'
+        header: t('company')
       }
     ],
-    []
+    [t]
   )
 
   return (

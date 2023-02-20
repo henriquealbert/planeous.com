@@ -4,6 +4,7 @@ import type { MRT_ColumnDef, MRT_Row, MRT_TableInstance } from 'mantine-react-ta
 import type { Contact } from './ContactList'
 import { ExportToCsv } from 'export-to-csv'
 import { omit } from 'utils/omit'
+import { useTranslations } from 'next-intl'
 
 interface ExportDataProps {
   table: MRT_TableInstance<Contact>
@@ -27,6 +28,8 @@ const csvExporter = (columns: MRT_ColumnDef<Contact>[]) => {
 }
 
 export const ExportData = ({ table, columns, data }: ExportDataProps) => {
+  const t = useTranslations('Contacts')
+
   const handleExportSelectedRows = (rows: MRT_Row<Contact>[]) => {
     csvExporter(columns).generateCsv(rows.map((row) => omit(row.original, 'avatar')))
   }
@@ -44,7 +47,7 @@ export const ExportData = ({ table, columns, data }: ExportDataProps) => {
         color="gray"
         onClick={handleExportData}
       >
-        Export All Data
+        {t('exportAllData')}
       </Button>
       <Button
         leftIcon={<IconDownload size={16} />}
@@ -54,7 +57,7 @@ export const ExportData = ({ table, columns, data }: ExportDataProps) => {
         disabled={!table.getIsSomeRowsSelected() && !table.getIsAllRowsSelected()}
         onClick={() => handleExportSelectedRows(table.getSelectedRowModel().rows)}
       >
-        Export Selected Rows
+        {t('exportSelectedData')}
       </Button>
     </Flex>
   )

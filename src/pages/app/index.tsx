@@ -1,15 +1,17 @@
-import { Flex, Title } from '@mantine/core'
 import { ProtectedRoute } from 'components/Layouts/PrivateRoute/PrivateRoute'
-import type { NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
+import { getServerTranslation } from 'utils/serverTranslation'
 
 const DashboardPage: NextPage = () => {
-  return (
-    <ProtectedRoute>
-      <Flex direction="column">
-        <Title order={1}>DashboardPage</Title>
-      </Flex>
-    </ProtectedRoute>
-  )
+  return <ProtectedRoute pageTitle="Dashboard">Content</ProtectedRoute>
 }
 
 export default DashboardPage
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      messages: await getServerTranslation(locale ?? 'en')
+    }
+  }
+}
