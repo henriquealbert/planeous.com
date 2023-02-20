@@ -1,7 +1,9 @@
 import { PublicRoute } from 'components/Layouts/PublicRoute/PublicRoute'
+import type { GetStaticProps } from 'next'
 import { type NextPage } from 'next'
 import NextLink from 'next/link'
 import { createStyles, Title, Text, Button, Container, Group } from '@mantine/core'
+import { getServerTranslation } from 'utils/serverTranslation'
 
 const useStyles = createStyles((theme) => ({
   root: {
@@ -65,3 +67,11 @@ const Custom404Page: NextPage = () => {
 }
 
 export default Custom404Page
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      messages: await getServerTranslation(locale ?? 'en')
+    }
+  }
+}
