@@ -8,6 +8,7 @@ const useStyles = createStyles((theme) => ({
   header: {
     padding: theme.spacing.xs,
     display: 'flex',
+    alignItems: 'center',
     width: '100%'
   },
   rightContainer: {
@@ -35,7 +36,7 @@ export const Header = () => {
   const spotlight = useSpotlight()
 
   return (
-    <MantineHeader height={52} className={classes.header}>
+    <MantineHeader height={60} className={classes.header}>
       <Flex className={classes.logo}>
         <MantineLogo type="mark" size={30} />
         <Divider mx="md" size="sm" orientation="vertical" />
