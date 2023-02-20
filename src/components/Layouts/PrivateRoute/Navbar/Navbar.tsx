@@ -1,35 +1,30 @@
 import { useState } from 'react'
-import { Navbar as MantineNavbar, Stack } from '@mantine/core'
+import { Flex } from '@mantine/core'
 import { NavbarLink } from './NavbarLink'
-import { bottomLinksData, topLinksData } from './linksData'
 import { useRouter } from 'next/router'
+import { IconAddressBook, IconHome2 } from '@tabler/icons-react'
+import { useTranslations } from 'next-intl'
 
 export function Navbar() {
+  const t = useTranslations('Header.Navbar')
   const { pathname } = useRouter()
   const [active, setActive] = useState(pathname)
 
-  return (
-    <MantineNavbar width={{ base: 61 }} p="xs">
-      <MantineNavbar.Section grow>
-        <Stack justify="center" spacing={0}>
-          {topLinksData.map((link) => (
-            <NavbarLink
-              {...link}
-              key={link.label}
-              active={link.href === active}
-              onClick={() => setActive(link.href)}
-            />
-          ))}
-        </Stack>
-      </MantineNavbar.Section>
+  const topLinksData = [
+    { icon: <IconHome2 size={24} />, label: t('home'), href: '/app' },
+    { icon: <IconAddressBook size={24} />, label: t('contacts'), href: '/app/contacts' }
+  ]
 
-      <MantineNavbar.Section>
-        <Stack justify="center" spacing={0}>
-          {bottomLinksData.map((link) => (
-            <NavbarLink {...link} key={link.label} />
-          ))}
-        </Stack>
-      </MantineNavbar.Section>
-    </MantineNavbar>
+  return (
+    <Flex gap="sm">
+      {topLinksData.map((link) => (
+        <NavbarLink
+          {...link}
+          key={link.label}
+          active={link.href === active}
+          onClick={() => setActive(link.href)}
+        />
+      ))}
+    </Flex>
   )
 }

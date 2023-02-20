@@ -2,6 +2,7 @@ import { Box, createStyles, Divider, Flex, Header as MantineHeader } from '@mant
 import { ColorSchemeControl, MantineLogo, SearchControl } from '@mantine/ds'
 import { AvatarMenu } from './AvatarMenu'
 import { useSpotlight } from '@mantine/spotlight'
+import { Navbar } from '../Navbar/Navbar'
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -37,6 +38,8 @@ export const Header = () => {
     <MantineHeader height={52} className={classes.header}>
       <Flex className={classes.logo}>
         <MantineLogo type="mark" size={30} />
+        <Divider mx="md" size="sm" orientation="vertical" />
+        <Navbar />
       </Flex>
 
       <Flex className={classes.rightContainer}>

@@ -1,23 +1,61 @@
 import { Fragment } from 'react'
-import { menuLinksData } from './menuLinksData'
 import NextLink from 'next/link'
 import { Menu } from '@mantine/core'
+import { useTranslations } from 'next-intl'
+import { IconLogout, IconReceipt, IconSettings } from '@tabler/icons-react'
+import { signOut } from 'next-auth/react'
 
-export const MenuDropdown = () => (
-  <Menu.Dropdown>
-    {menuLinksData.map((menuItem, index) => (
-      <Fragment key={menuItem.label}>
-        {menuItem.label && <Menu.Label>{menuItem.label}</Menu.Label>}
+export const MenuDropdown = () => {
+  const t = useTranslations('Header.AvatarMenu')
+  const menuLinksData = [
+    {
+      label: t('settings'),
+      linksData: [
+        {
+          icon: <IconReceipt size={14} stroke={1.5} />,
+          label: t('billing'),
+          href: '/app/account-settings/billing',
+          onClick: () => undefined
+        },
+        {
+          icon: <IconSettings size={14} stroke={1.5} />,
+          label: t('accountSettings'),
+          href: '/app/account-settings',
+          onClick: () => undefined,
+          color: ''
+        }
+      ]
+    },
+    {
+      label: '',
+      linksData: [
+        {
+          icon: <IconLogout size={14} stroke={1.5} />,
+          label: t('logout'),
+          href: '',
+          onClick: () => void signOut(),
+          color: 'blue'
+        }
+      ]
+    }
+  ]
 
-        {menuItem.linksData.map((link) => (
-          <NextLink href={link.href} key={link.label} style={{ textDecoration: 'none' }}>
-            <Menu.Item onClick={link.onClick} color={link.color} icon={link.icon}>
-              {link.label}
-            </Menu.Item>
-          </NextLink>
-        ))}
-        {menuLinksData.length - index >= menuLinksData.length && <Menu.Divider />}
-      </Fragment>
-    ))}
-  </Menu.Dropdown>
-)
+  return (
+    <Menu.Dropdown>
+      {menuLinksData.map((menuItem, index) => (
+        <Fragment key={menuItem.label}>
+          {menuItem.label && <Menu.Label>{menuItem.label}</Menu.Label>}
+
+          {menuItem.linksData.map((link) => (
+            <NextLink href={link.href} key={link.label} style={{ textDecoration: 'none' }}>
+              <Menu.Item onClick={link.onClick} color={link.color} icon={link.icon}>
+                {link.label}
+              </Menu.Item>
+            </NextLink>
+          ))}
+          {menuLinksData.length - index >= menuLinksData.length && <Menu.Divider />}
+        </Fragment>
+      ))}
+    </Menu.Dropdown>
+  )
+}

@@ -13,7 +13,7 @@ export const NavbarLink = ({ icon, label, active, onClick, href }: NavbarLinkPro
   const { classes, cx } = useStyles()
   return (
     <NextLink href={href}>
-      <Tooltip label={label} position="right" transitionDuration={0}>
+      <Tooltip label={label} position="bottom">
         <UnstyledButton
           onClick={onClick}
           className={cx(classes.link, { [classes.active]: active })}
@@ -27,13 +27,17 @@ export const NavbarLink = ({ icon, label, active, onClick, href }: NavbarLinkPro
 
 const useStyles = createStyles((theme) => ({
   link: {
-    width: 40,
-    height: 40,
+    width: 34,
+    height: 34,
     borderRadius: theme.radius.md,
+    border: `1px solid ${
+      theme.colorScheme === 'dark' ? theme.colors.dark[4] : theme.colors.gray[3]
+    }`,
     display: 'flex',
-    alignItems: 'center',
     justifyContent: 'center',
-    color: theme.colorScheme === 'dark' ? theme.colors.dark[0] : theme.colors.gray[7],
+    alignItems: 'center',
+    color: theme.colorScheme === 'dark' ? theme.white : theme.colors.gray[7],
+    backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[6] : theme.white,
 
     '&:hover': {
       backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[0]
