@@ -1,5 +1,29 @@
 {
-    "Home": {
-        "title": "Bem vindo Planeous.com"
+  "Home": {
+    "title": "Bem vindo Planeous.com"
+  },
+  "Header": {
+    "AvatarMenu":{
+      "logout": "Sair",
+      "billing": "Fatura",
+      "settings": "Configurações",
+      "accountSettings": "Configurações da conta"
+    },
+    "Navbar": {
+      "home": "Início",
+      "contacts": "Contatos"
     }
+  },
+  "Contacts": {
+    "title": "Contatos",
+    "createContact": "Criar contato",
+    "exportAllData":"Exportar todos os dados",
+    "exportSelectedData":"Exportar linhas selecionadas",
+    "Table": {
+      "name": "Nome",
+      "email": "Email",
+      "phone": "Telefone",
+      "company": "Empresa"
+    }
+  }
 }
