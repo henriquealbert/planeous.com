@@ -32,16 +32,16 @@ const AuthContext = createContext<AuthContextType>({
 })
 
 const getStatus = (status: Status, isLoading: boolean) => {
-  if (isLoading) return 'loading'
+  if (status === 'authenticated' && isLoading) return 'loading'
   return status
 }
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const { data: sessionData, status } = useSession()
+  const { data: session, status } = useSession()
 
   const { data, refetch, isLoading } = api.user.getById.useQuery(
-    { userId: sessionData?.user?.id as string },
-    { enabled: !!sessionData?.user?.id }
+    { userId: session?.user?.id as string },
+    { enabled: !!session?.user?.id }
   )
 
   return (
