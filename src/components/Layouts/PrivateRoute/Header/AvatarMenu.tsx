@@ -5,7 +5,7 @@ import { useAuth } from 'contexts/AuthContext'
 import { MenuDropdown } from './MenuDropdown'
 
 export const AvatarMenu = () => {
-  const { sessionData } = useAuth()
+  const { user } = useAuth()
   const { classes } = useStyles()
   return (
     <Menu position="bottom-end" transition="pop-top-right">
@@ -13,18 +13,18 @@ export const AvatarMenu = () => {
         <UnstyledButton className={classes.container}>
           <Group spacing={6} h={34}>
             <Avatar
-              src={sessionData?.user?.image}
-              alt={sessionData?.user?.name || 'User avatar'}
+              src={user?.image}
+              alt={user?.name || 'User avatar'}
               size={32}
               mt={2.5}
-              name={sessionData?.user?.name || 'Unnamed'}
+              name={user?.name || 'Unnamed'}
             />
             <Stack spacing={0} mr="md">
               <Text className={classes.name} size="sm">
-                {sessionData?.user?.name}
+                {user?.name}
               </Text>
               <Text size="xs" className={classes.organization}>
-                {sessionData?.user?.organization?.name}
+                {user?.organization?.name}
               </Text>
             </Stack>
             <IconChevronDown size={14} stroke={3} />
