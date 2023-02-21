@@ -30,6 +30,7 @@ export const authOptions: NextAuthOptions = {
 
         // Add organization to session
         if (userOrg?.organization) {
+          session.user.organizationId = userOrg.organization.id
           session.user.organization = {
             id: userOrg.organization.id,
             name: userOrg.organization.name,
