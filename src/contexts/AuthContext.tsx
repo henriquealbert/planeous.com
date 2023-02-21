@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { User } from '@prisma/client'
-import type { Session } from 'next-auth'
+import type { Plan, User } from '@prisma/client'
 import { useSession } from 'next-auth/react'
 import type { ReactNode } from 'react'
 import { useContext } from 'react'
@@ -8,32 +7,39 @@ import { createContext } from 'react'
 import { api } from 'utils/api'
 import type { RefetchOptions, RefetchQueryFilters } from '@tanstack/react-query'
 
+type Status = 'authenticated' | 'loading' | 'unauthenticated'
+type UserOrg =
+  | (User & {
+      organization: {
+        name: string
+        plan: Plan
+      } | null
+    })
+  | null
+
 type AuthContextType = {
-  sessionData: Session | null
-  status: 'authenticated' | 'loading' | 'unauthenticated'
-  user?:
-    | (User & {
-        organization: {
-          name: string
-        } | null
-      })
-    | null
+  status: Status
+  user?: UserOrg
   refetchUser: <TPageData>(
     options?: RefetchOptions & RefetchQueryFilters<TPageData>
   ) => Promise<any>
 }
 
 const AuthContext = createContext<AuthContextType>({
-  sessionData: null,
   status: 'loading',
   user: null,
   refetchUser: () => Promise.resolve()
 })
 
+const getStatus = (status: Status, isLoading: boolean) => {
+  if (isLoading) return 'loading'
+  return status
+}
+
 const AuthProvider = ({ children }: { children: ReactNode }) => {
   const { data: sessionData, status } = useSession()
 
-  const { data, refetch } = api.user.getById.useQuery(
+  const { data, refetch, isLoading } = api.user.getById.useQuery(
     { userId: sessionData?.user?.id as string },
     { enabled: !!sessionData?.user?.id }
   )
@@ -41,8 +47,7 @@ const AuthProvider = ({ children }: { children: ReactNode }) => {
   return (
     <AuthContext.Provider
       value={{
-        sessionData,
-        status,
+        status: getStatus(status, isLoading),
         user: data?.user,
         refetchUser: refetch
       }}

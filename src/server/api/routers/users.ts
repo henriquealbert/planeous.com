@@ -16,7 +16,8 @@ export const userRouter = createTRPCRouter({
         include: {
           organization: {
             select: {
-              name: true
+              name: true,
+              plan: true
             }
           }
         }
