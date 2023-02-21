@@ -4,7 +4,7 @@ import { z } from 'zod'
 export const onboardingFormSchema = z.object({
   user: z.object({
     name: z.string().min(1),
-    terms: z.boolean().optional()
+    terms: z.boolean()
   }),
   organization: z.object({
     name: z.string().min(1),
@@ -18,12 +18,7 @@ export const onboardingFormSchema = z.object({
           .replace(/[^\w-]+/g, '')
         return `${parsedSlug}${randomId().replace(/mantine/g, '')}`
       }),
-    size: z.string().min(1),
-    members: z.array(
-      z.object({
-        userId: z.string().min(1)
-      })
-    )
+    size: z.string().min(1)
   })
 })
 export type OnboardingFormType = z.infer<typeof onboardingFormSchema>

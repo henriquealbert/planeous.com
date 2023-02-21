@@ -7,10 +7,14 @@ import { Controller, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import type { OnboardingFormType } from './validation'
 import { onboardingFormSchema } from './validation'
+import { api } from 'utils/api'
+import { useRouter } from 'next/router'
 
 export const OnboardingForm = () => {
   const t = useTranslations('OnboardingForm')
-  const { sessionData } = useAuth()
+  const { user, refetchUser } = useAuth()
+  const { push } = useRouter()
+  const createOrgMutation = api.organization.create.useMutation()
 
   const {
     register,
@@ -21,21 +25,32 @@ export const OnboardingForm = () => {
   } = useForm<OnboardingFormType>({
     defaultValues: {
       user: {
-        name: sessionData?.user?.name || ''
+        name: user?.name || '',
+        terms: true
       },
       organization: {
         name: '',
         slug: '',
-        size: '',
-        members: [{ userId: sessionData?.user?.id }]
+        size: ''
       }
     },
     resolver: zodResolver(onboardingFormSchema)
   })
-  const onSubmit = handleSubmit((data) => {
-    console.log(data)
+  const onSubmit = handleSubmit(async (formData) => {
+    await createOrgMutation.mutateAsync(formData, {
+      onSuccess: async (data) => {
+        await refetchUser()
+        void push({
+          pathname: '/app',
+          // If the organization is SOLO, we don't want to show the invite members modal
+          query: { inviteMembers: data?.organization?.size !== 'solo' }
+        })
+      },
+      onError: (error) => {
+        alert(error)
+      }
+    })
   })
-  console.log(errors)
 
   return (
     <form onSubmit={onSubmit}>
@@ -90,8 +105,14 @@ export const OnboardingForm = () => {
         <Text size="xs" w="300px" align="center">
           {t('terms')}
         </Text>
+        <input type="hidden" {...register('user.terms')} />
 
-        <Button type="submit" mt="md" rightIcon={<IconArrowRight size={14} />}>
+        <Button
+          type="submit"
+          mt="md"
+          rightIcon={<IconArrowRight size={14} />}
+          loading={createOrgMutation.isLoading}
+        >
           {t('submitBtn')}
         </Button>
       </Stack>
