@@ -65,12 +65,13 @@ model User {
   email         String?   @unique
   emailVerified DateTime? @map("email_verified")
   image         String?
+  terms         Boolean   @default(false)
 
   accounts       Account[]
   sessions       Session[]
   organization   Organization? @relation(fields: [organizationId], references: [id])
   organizationId String?       @map("organization_id")
-  
+
   isActive  Boolean  @default(true) @map("is_active")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
@@ -87,6 +88,7 @@ model Organization {
   id   String @id @default(cuid())
   name String
   slug String @unique
+  size String
   plan Plan   @default(FREETRIAL)
 
   members  User[]
