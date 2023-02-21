@@ -85,11 +85,12 @@ enum Plan {
 }
 
 model Organization {
-  id   String @id @default(cuid())
-  name String
-  slug String @unique
-  size String
-  plan Plan   @default(FREETRIAL)
+  id      String @id @default(cuid())
+  name    String
+  slug    String @unique
+  size    String
+  plan    Plan   @default(FREETRIAL)
+  ownerId String @map("owner_id")
 
   members  User[]
   contacts Contact[]
