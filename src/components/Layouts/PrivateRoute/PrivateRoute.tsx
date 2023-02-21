@@ -10,8 +10,8 @@ interface ProtectedRouteProps {
 }
 
 export const ProtectedRoute = ({ children, pageTitle }: ProtectedRouteProps): JSX.Element => {
-  const { status } = useAuth()
-  const { push } = useRouter()
+  const { status, user } = useAuth()
+  const { push, pathname } = useRouter()
 
   if (status === 'unauthenticated') {
     void push('/login')
@@ -28,6 +28,19 @@ export const ProtectedRoute = ({ children, pageTitle }: ProtectedRouteProps): JS
         <Loader size="xl" />
       </Center>
     )
+  }
+
+  if (!user?.organizationId && status === 'authenticated') {
+    void push('/onboarding')
+    return (
+      <Center h="100vh">
+        <Loader size="xl" />
+      </Center>
+    )
+  }
+
+  if (!user?.organizationId && pathname.includes('onboarding') && status === 'authenticated') {
+    return <>{children}</>
   }
 
   return (

@@ -3,7 +3,7 @@
     "title": "Bem vindo Planeous.com"
   },
   "Header": {
-    "AvatarMenu":{
+    "AvatarMenu": {
       "logout": "Sair",
       "billing": "Fatura",
       "settings": "Configurações",
@@ -17,13 +17,35 @@
   "Contacts": {
     "title": "Contatos",
     "createContact": "Criar contato",
-    "exportAllData":"Exportar todos os dados",
-    "exportSelectedData":"Exportar linhas selecionadas",
+    "exportAllData": "Exportar todos os dados",
+    "exportSelectedData": "Exportar linhas selecionadas",
     "Table": {
       "name": "Nome",
       "email": "Email",
       "phone": "Telefone",
       "company": "Empresa"
     }
+  },
+  "OnboardingForm": {
+    "title": "Configure sua conta",
+    "description": "Preencha os detalhes do seu perfil",
+    "fullName": "Nome completo",
+    "fullNamePlaceholder": "John Doe",
+    "fullNameError": "Nome completo é obrigatório",
+    "organizationName": "Nome da conta",
+    "organizationNamePlaceholder": "Empresa Acme",
+    "organizationNameError": "Nome da conta é obrigatório",
+    "companySize": "Tamanho da empresa",
+    "companySizePlaceholder": "Selecione uma opção",
+    "companySizeOptions": {
+      "solo": "Solo (1 pessoa)",
+      "small": "Small (2-10 pessoas)",
+      "medium": "Medium (11-50 pessoas)",
+      "large": "Large (51-200 pessoas)",
+      "enterprise": "Enterprise (200+ pessoas)"
+    },
+    "companySizeError": "Selecione o tamanho da empresa",
+    "submitBtn": "Começar",
+    "terms": "Por continuar, você concorda com nossos Termos de Serviço e Política de Privacidade."
   }
 }

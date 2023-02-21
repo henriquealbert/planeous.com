@@ -25,5 +25,27 @@
       "phone": "Phone",
       "company": "Company"
     }
+  },
+  "OnboardingForm": {
+    "title": "Set up your account",
+    "description": "Fill in your profile details",
+    "fullName": "Full name",
+    "fullNamePlaceholder": "John Doe",
+    "fullNameError": "Please enter your full name",
+    "organizationName": "Account name",
+    "organizationNamePlaceholder": "Acme Inc.",
+    "organizationNameError": "Please enter your organization name",
+    "companySize": "Company size",
+    "companySizePlaceholder": "Pick one",
+    "companySizeOptions": {
+      "solo": "Solo (1 employee)",
+      "small": "Small (2-10 employees)",
+      "medium": "Medium (11-50 employees)",
+      "large": "Large (51-200 employees)",
+      "enterprise": "Enterprise (200+ employees)"
+    },
+    "companySizeError": "Please select your company size",
+    "submitBtn": "Get started",
+    "terms": "By continuing, you agree to our Terms of Service and Privacy Policy."
   }
 }

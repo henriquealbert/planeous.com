@@ -1,27 +1,32 @@
-import { createStyles, Group, Menu, Text, UnstyledButton } from '@mantine/core'
+import { createStyles, Group, Menu, Stack, Text, UnstyledButton } from '@mantine/core'
 import { IconChevronDown } from '@tabler/icons-react'
 import { Avatar } from 'components/Avatar/Avatar'
 import { useAuth } from 'contexts/AuthContext'
 import { MenuDropdown } from './MenuDropdown'
 
 export const AvatarMenu = () => {
-  const { sessionData } = useAuth()
+  const { user } = useAuth()
   const { classes } = useStyles()
   return (
     <Menu position="bottom-end" transition="pop-top-right">
       <Menu.Target>
         <UnstyledButton className={classes.container}>
-          <Group spacing={6}>
+          <Group spacing={6} h={34}>
             <Avatar
-              src={sessionData?.user?.image}
-              alt={sessionData?.user?.name || 'User avatar'}
+              src={user?.image}
+              alt={user?.name || 'User avatar'}
               size={32}
               mt={2.5}
-              name={sessionData?.user?.name || 'Unnamed'}
+              name={user?.name || 'Unnamed'}
             />
-            <Text weight={500} size="sm" sx={{ lineHeight: 1 }} mr={3}>
-              {sessionData?.user?.name}
-            </Text>
+            <Stack spacing={0} mr="md">
+              <Text className={classes.name} size="sm">
+                {user?.name}
+              </Text>
+              <Text size="xs" className={classes.organization}>
+                {user?.organization?.name}
+              </Text>
+            </Stack>
             <IconChevronDown size={14} stroke={3} />
           </Group>
         </UnstyledButton>
@@ -42,5 +47,13 @@ const useStyles = createStyles((theme) => ({
     '&:hover': {
       color: theme.colorScheme === 'light' ? theme.colors.dark[4] : theme.colors.gray[0]
     }
+  },
+  name: {
+    fontWeight: 500
+  },
+  organization: {
+    lineHeight: 1.2,
+    fontWeight: 300,
+    color: theme.colorScheme === 'light' ? theme.colors.dark[6] : theme.colors.gray[6]
   }
 }))
