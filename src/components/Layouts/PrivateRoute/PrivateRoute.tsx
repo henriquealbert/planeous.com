@@ -13,6 +13,14 @@ export const ProtectedRoute = ({ children, pageTitle }: ProtectedRouteProps): JS
   const { status, user } = useAuth()
   const { push, pathname } = useRouter()
 
+  if (status === 'loading') {
+    return (
+      <Center h="100vh">
+        <Loader size="xl" />
+      </Center>
+    )
+  }
+
   if (status === 'unauthenticated') {
     void push('/login')
     return (
@@ -22,15 +30,7 @@ export const ProtectedRoute = ({ children, pageTitle }: ProtectedRouteProps): JS
     )
   }
 
-  if (status === 'loading') {
-    return (
-      <Center h="100vh">
-        <Loader size="xl" />
-      </Center>
-    )
-  }
-
-  if (!user?.organizationId && status === 'authenticated') {
+  if (!user?.organizationId && !pathname.includes('onboarding')) {
     void push('/onboarding')
     return (
       <Center h="100vh">
