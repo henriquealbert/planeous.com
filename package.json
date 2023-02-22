@@ -67,7 +67,6 @@
     "initVersion": "7.3.2"
   },
   "prisma": {
-    "seed": "tsx prisma/seedDev.ts",
     "schema": "prisma/schema.prisma"
   }
 }
