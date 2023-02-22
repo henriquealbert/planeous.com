@@ -30,7 +30,7 @@ export const ProtectedRoute = ({ children, pageTitle }: ProtectedRouteProps): JS
     )
   }
 
-  if (!user?.organizationId && status === 'authenticated') {
+  if (!user?.organizationId && !pathname.includes('onboarding')) {
     void push('/onboarding')
     return (
       <Center h="100vh">
