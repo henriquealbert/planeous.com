@@ -47,5 +47,10 @@
     "companySizeError": "Selecione o tamanho da empresa",
     "submitBtn": "Começar",
     "terms": "Por continuar, você concorda com nossos Termos de Serviço e Política de Privacidade."
+  },
+  "Organizations": {
+    "InviteMembersModal": {
+      "title": "Invite Members"
+    }
   }
 }
