@@ -49,8 +49,18 @@
     "terms": "Por continuar, você concorda com nossos Termos de Serviço e Política de Privacidade."
   },
   "Organizations": {
-    "InviteMembersModal": {
-      "title": "Invite Members"
+    "InviteMembersModal":{
+      "title": "Convidar Membros"
+    },
+    "InviteMembers":{
+      "description": "Colabore como uma equipe e aproveite ao máximo nossa ferramenta",
+      "email": "Email",
+      "emailPlaceholder": "Adicione o email do seu colega aqui",
+      "emailError": "Por favor insira um email válido",
+      "addAnother": "Adicionar outro",
+      "maxAllowed": "Você só pode convidar até 5 membros de uma vez.",
+      "skipBtn": "Pular por enquanto",
+      "submitBtn": "Convidar meu time"
     }
   }
 }
