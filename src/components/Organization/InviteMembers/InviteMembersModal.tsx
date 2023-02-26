@@ -1,4 +1,4 @@
-import { Modal } from '@mantine/core'
+import { Box, Modal, Title } from '@mantine/core'
 import { useStore } from 'contexts/store'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/router'
@@ -17,8 +17,21 @@ export const InviteMembersModal = () => {
   }, [query.inviteMembers, openModal])
 
   return (
-    <Modal opened={open} onClose={closeModal} title={t('title')}>
-      <InviteMembers />
+    <Modal
+      opened={open}
+      onClose={closeModal}
+      title={<Title fz="xl">{t('title')}</Title>}
+      closeOnEscape={false}
+      centered
+      size="lg"
+      padding={32}
+      closeOnClickOutside={false}
+      overlayBlur={3}
+      withCloseButton={false}
+    >
+      <Box>
+        <InviteMembers showCancelBtn />
+      </Box>
     </Modal>
   )
 }
