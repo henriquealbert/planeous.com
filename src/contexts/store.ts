@@ -20,10 +20,11 @@ export const useStore = create<Store>()(
           set((state) => {
             state.inviteMembersModal.open = true
           }),
-        closeModal: () =>
+        closeModal: () => {
           set((state) => {
             state.inviteMembersModal.open = false
           })
+        }
       }
     }))
   )
