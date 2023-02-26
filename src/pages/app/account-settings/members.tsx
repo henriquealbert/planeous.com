@@ -1,21 +1,21 @@
-import { Button } from '@mantine/core'
+import { Flex } from '@mantine/core'
 import { ProtectedRoute } from 'components/Layouts/PrivateRoute/PrivateRoute'
+import { InviteMembers } from 'components/Organization/InviteMembers/InviteMembers'
 import type { GetStaticProps } from 'next'
 import { type NextPage } from 'next'
 import { getServerTranslation } from 'utils/serverTranslation'
-import NextLink from 'next/link'
 
-const AccountSettingsPage: NextPage = () => {
+const InviteMembersPage: NextPage = () => {
   return (
-    <ProtectedRoute pageTitle="Account Settings">
-      <NextLink href="/app/account-settings/members">
-        <Button>Invite Members</Button>
-      </NextLink>
+    <ProtectedRoute pageTitle="Invite Members">
+      <Flex direction="column" maw="400px">
+        <InviteMembers />
+      </Flex>
     </ProtectedRoute>
   )
 }
 
-export default AccountSettingsPage
+export default InviteMembersPage
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
