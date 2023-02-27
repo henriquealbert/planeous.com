@@ -6,7 +6,7 @@ import { useLayoutEffect } from 'react'
 import { InviteMembers } from './InviteMembers'
 
 export const InviteMembersModal = () => {
-  const { query } = useRouter()
+  const { query, push } = useRouter()
   const t = useTranslations('Organizations.InviteMembersModal')
   const { open, closeModal, openModal } = useStore((state) => state.inviteMembersModal)
 
@@ -15,6 +15,13 @@ export const InviteMembersModal = () => {
       openModal()
     }
   }, [query.inviteMembers, openModal])
+
+  const handleCloseModal = () => {
+    closeModal()
+    void push('/app', {
+      query: {}
+    })
+  }
 
   return (
     <Modal
@@ -30,7 +37,7 @@ export const InviteMembersModal = () => {
       withCloseButton={false}
     >
       <Box>
-        <InviteMembers showCancelBtn />
+        <InviteMembers isModal handleCloseModal={handleCloseModal} />
       </Box>
     </Modal>
   )

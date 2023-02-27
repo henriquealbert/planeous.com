@@ -1,23 +1,20 @@
 import { Box, Button, Flex, Stack, Text, TextInput } from '@mantine/core'
-import { IconAt, IconCheck, IconPlus, IconUserPlus, IconX } from '@tabler/icons-react'
+import { IconAt, IconCheck, IconPlus, IconUserPlus } from '@tabler/icons-react'
 import { useAuth } from 'contexts/AuthContext'
-import { useStore } from 'contexts/store'
 import { useTranslations } from 'next-intl'
-import { useRouter } from 'next/router'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { api } from 'utils/api'
 import type { InviteMembersFormType } from './validation'
 import { showNotification } from '@mantine/notifications'
 
 interface InviteMembersProps {
-  showCancelBtn?: boolean
+  isModal?: boolean
+  handleCloseModal?: () => void
 }
 
-export const InviteMembers = ({ showCancelBtn }: InviteMembersProps) => {
-  const { push } = useRouter()
+export const InviteMembers = ({ handleCloseModal, isModal }: InviteMembersProps) => {
   const { user } = useAuth()
   const t = useTranslations('Organizations.InviteMembers')
-  const { closeModal } = useStore((state) => state.inviteMembersModal)
   const createMemberAndInvite = api.user.createMemberAndInvite.useMutation()
 
   const {
@@ -48,6 +45,9 @@ export const InviteMembers = ({ showCancelBtn }: InviteMembersProps) => {
           autoClose: 5000
         })
         setValue('members', [{ email: '' }])
+        if (isModal && typeof handleCloseModal === 'function') {
+          handleCloseModal()
+        }
       },
       onError: (error) => {
         let errorMessage = 'Something went wrong. Please try again later.'
@@ -105,17 +105,9 @@ export const InviteMembers = ({ showCancelBtn }: InviteMembersProps) => {
           )}
         </Stack>
 
-        <Flex justify={showCancelBtn ? 'space-between' : 'flex-end'} mt="xl">
-          {showCancelBtn && (
-            <Button
-              variant="default"
-              onClick={() => {
-                closeModal()
-                void push('/app', {
-                  query: {}
-                })
-              }}
-            >
+        <Flex justify={isModal ? 'space-between' : 'flex-end'} mt="xl">
+          {isModal && (
+            <Button variant="default" onClick={handleCloseModal}>
               {t('skipBtn')}
             </Button>
           )}
