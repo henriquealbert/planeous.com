@@ -21,6 +21,7 @@
     "@mantine/ds": "^5.10.5",
     "@mantine/hooks": "^5.10.5",
     "@mantine/next": "^5.10.5",
+    "@mantine/notifications": "^5.10.5",
     "@mantine/prism": "^5.10.5",
     "@mantine/spotlight": "^5.10.5",
     "@mantine/utils": "^5.10.5",
@@ -47,7 +48,7 @@
     "string-to-color": "^2.2.2",
     "superjson": "1.9.1",
     "zod": "^3.20.6",
-    "zustand": "^4.3.3"
+    "zustand": "^4.3.4"
   },
   "devDependencies": {
     "@types/node": "^18.14.2",
