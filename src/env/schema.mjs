@@ -18,7 +18,10 @@ export const serverSchema = z.object({
     process.env.VERCEL ? z.string() : z.string().url()
   ),
   GOOGLE_CLIENT_ID: z.string(),
-  GOOGLE_CLIENT_SECRET: z.string()
+  GOOGLE_CLIENT_SECRET: z.string(),
+  MAILJET_API_KEY: z.string(),
+  MAILJET_API_SECRET: z.string(),
+  APP_HOSTNAME: z.string().url()
 })
 
 /**
@@ -32,7 +35,10 @@ export const serverEnv = {
   NEXTAUTH_SECRET: process.env.NEXTAUTH_SECRET,
   NEXTAUTH_URL: process.env.NEXTAUTH_URL,
   GOOGLE_CLIENT_ID: process.env.GOOGLE_CLIENT_ID,
-  GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET
+  GOOGLE_CLIENT_SECRET: process.env.GOOGLE_CLIENT_SECRET,
+  MAILJET_API_KEY: process.env.MAILJET_API_KEY,
+  MAILJET_API_SECRET: process.env.MAILJET_API_SECRET,
+  APP_HOSTNAME: process.env.APP_HOSTNAME
 }
 
 /**
