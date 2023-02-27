@@ -32,24 +32,45 @@ export const userRouter = createTRPCRouter({
   createMemberAndInvite: protectedProcedure
     .input(inviteMembersFormSchema)
     .mutation(async ({ input, ctx }) => {
-      const members = await ctx.prisma.$transaction(
-        input.members.map((m) =>
-          ctx.prisma.user.create({
-            data: {
-              email: m.email,
-              organization: {
-                connect: {
-                  id: input.organizationId
+      const members = await ctx.prisma.$transaction(async (txPrisma) => {
+        const _members = await Promise.all(
+          input.members.map(async (m) => {
+            const user = await txPrisma.user.create({
+              data: {
+                email: m.email,
+                isActive: false,
+                organization: {
+                  connect: {
+                    id: input.organizationId
+                  }
                 }
               }
-            }
+            })
+
+            await txPrisma.account.create({
+              data: {
+                userId: user.id,
+                providerAccountId: 'invite' + user.id,
+                provider: 'google',
+                type: 'oauth'
+              }
+            })
+
+            return user
           })
         )
-      )
+
+        return _members
+      })
 
       const emailsSent = await sendEmail({
         to: members.map((m: User) => ({ email: m.email })),
         subject: 'You have been invited to join Planeous',
+        textPart: `Hi there, ${
+          ctx.session?.user?.name || 'Someone'
+        } invited you to join his team on Planeous.com. Click ${
+          env.APP_HOSTNAME
+        }/signup?from=invite-email to join}`,
         htmlPart: `
           <p>Hi there,</p>
           <p>${
