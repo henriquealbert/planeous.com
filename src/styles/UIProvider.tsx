@@ -5,6 +5,7 @@ import { useLocalStorage } from '@mantine/hooks'
 import { SpotlightProvider } from '@mantine/spotlight'
 import { spotlightArgs } from 'utils/spotlightActions'
 import { mantineTheme } from './mantineTheme'
+import { NotificationsProvider } from '@mantine/notifications'
 
 export const UIProvider = ({ children }: { children: React.ReactNode }) => {
   const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -18,7 +19,11 @@ export const UIProvider = ({ children }: { children: React.ReactNode }) => {
   return (
     <ColorSchemeProvider colorScheme={colorScheme} toggleColorScheme={toggleColorScheme}>
       <MantineProvider withGlobalStyles withNormalizeCSS theme={{ colorScheme, ...mantineTheme }}>
-        <SpotlightProvider {...spotlightArgs}>{children}</SpotlightProvider>
+        <SpotlightProvider {...spotlightArgs}>
+          <NotificationsProvider position="bottom-right" zIndex={2077}>
+            {children}
+          </NotificationsProvider>
+        </SpotlightProvider>
       </MantineProvider>
     </ColorSchemeProvider>
   )

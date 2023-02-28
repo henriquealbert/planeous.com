@@ -47,5 +47,20 @@
     "companySizeError": "Please select your company size",
     "submitBtn": "Get started",
     "terms": "By continuing, you agree to our Terms of Service and Privacy Policy."
+  },
+  "Organizations": {
+    "InviteMembersModal":{
+      "title": "Invite Members"
+    },
+    "InviteMembers":{
+      "description": "Collaborate as a team and make the most of our tool",
+      "email": "Email",
+      "emailPlaceholder": "Add your teammate's email here",
+      "emailError": "Please enter a valid email",
+      "addAnother": "Add another",
+      "maxAllowed": "You can only invite up to 5 members at the same time.",
+      "skipBtn": "Skip for now",
+      "submitBtn": "Invite my team"
+    }
   }
 }

@@ -6,7 +6,7 @@ import { SessionProvider } from 'next-auth/react'
 import type { AbstractIntlMessages } from 'next-intl'
 import { NextIntlProvider } from 'next-intl'
 
-import { api } from '../utils/api'
+import { api } from 'utils/api'
 import { AuthProvider } from 'contexts/AuthContext'
 import { UIProvider } from 'styles/UIProvider'
 

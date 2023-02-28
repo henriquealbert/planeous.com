@@ -1,9 +1,15 @@
 import { ProtectedRoute } from 'components/Layouts/PrivateRoute/PrivateRoute'
+import { InviteMembersModal } from 'components/Organization/InviteMembers/InviteMembersModal'
 import type { GetStaticProps, NextPage } from 'next'
 import { getServerTranslation } from 'utils/serverTranslation'
 
 const DashboardPage: NextPage = () => {
-  return <ProtectedRoute pageTitle="Dashboard">Content</ProtectedRoute>
+  return (
+    <ProtectedRoute pageTitle="Dashboard">
+      Content
+      <InviteMembersModal />
+    </ProtectedRoute>
+  )
 }
 
 export default DashboardPage

@@ -13,8 +13,7 @@ export const ProtectedRoute = ({ children, pageTitle }: ProtectedRouteProps): JS
   const { status, user } = useAuth()
   const { push, pathname } = useRouter()
 
-  if (status === 'unauthenticated') {
-    void push('/login')
+  if (status === 'loading') {
     return (
       <Center h="100vh">
         <Loader size="xl" />
@@ -22,7 +21,8 @@ export const ProtectedRoute = ({ children, pageTitle }: ProtectedRouteProps): JS
     )
   }
 
-  if (status === 'loading') {
+  if (status === 'unauthenticated') {
+    void push('/login')
     return (
       <Center h="100vh">
         <Loader size="xl" />

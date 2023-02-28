@@ -1,11 +1,11 @@
 import { Flex } from '@mantine/core'
-import { mockData } from 'components/contacts/mockData'
-import { ProtectedRoute } from 'components/Layouts/PrivateRoute/PrivateRoute'
 import type { GetStaticProps } from 'next'
 import { type NextPage } from 'next'
-import { ContactList } from 'components/contacts/ContactList'
 import { getServerTranslation } from 'utils/serverTranslation'
 import { useTranslations } from 'next-intl'
+import { mockData } from 'components/Contact/mockData'
+import { ContactList } from 'components/Contact/ContactList'
+import { ProtectedRoute } from 'components/Layouts/PrivateRoute/PrivateRoute'
 
 const ContactsPage: NextPage = () => {
   const t = useTranslations('Contacts')
