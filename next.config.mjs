@@ -14,6 +14,9 @@ const config = {
     defaultLocale: 'en',
     locales: ['en', 'pt']
   },
-  trailingSlash: true
+  trailingSlash: true,
+  experimental: {
+    typedRoutes: true
+  }
 }
 export default config
