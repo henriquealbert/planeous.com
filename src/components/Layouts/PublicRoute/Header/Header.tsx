@@ -21,15 +21,16 @@ import {
 import { MantineLogo } from '@mantine/ds'
 import { useDisclosure } from '@mantine/hooks'
 import NextLink from 'next/link'
+import type { TablerIconsProps } from '@tabler/icons-react'
 import {
-  IconNotification,
-  IconCode,
   IconBook,
   IconChartPie3,
-  IconFingerprint,
+  IconChevronDown,
+  IconCode,
   IconCoin,
-  IconChevronDown
-} from '@tabler/icons'
+  IconFingerprint,
+  IconNotification
+} from '@tabler/icons-react'
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -71,7 +72,7 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
     margin: -theme.spacing.md,
     marginTop: theme.spacing.sm,
-    padding: `${theme.spacing.md}px ${theme.spacing.md * 2}px`,
+    padding: `${theme.spacing.md}px ${theme.spacing.xl}px`,
     paddingBottom: theme.spacing.xl,
     borderTop: `1px solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
@@ -91,34 +92,36 @@ const useStyles = createStyles((theme) => ({
   }
 }))
 
+type IconProps = JSX.IntrinsicAttributes & TablerIconsProps
+
 const mockdata = [
   {
-    icon: IconCode,
+    icon: (props: IconProps) => <IconCode {...props} />,
     title: 'Open source',
     description: 'This Pokémon’s cry is very loud and distracting'
   },
   {
-    icon: IconCoin,
+    icon: (props: IconProps) => <IconCoin {...props} />,
     title: 'Free for everyone',
     description: 'The fluid of Smeargle’s tail secretions changes'
   },
   {
-    icon: IconBook,
+    icon: (props: IconProps) => <IconBook {...props} />,
     title: 'Documentation',
     description: 'Yanma is capable of seeing 360 degrees without'
   },
   {
-    icon: IconFingerprint,
+    icon: (props: IconProps) => <IconFingerprint {...props} />,
     title: 'Security',
     description: 'The shell’s rounded shape and the grooves on its.'
   },
   {
-    icon: IconChartPie3,
+    icon: (props: IconProps) => <IconChartPie3 {...props} />,
     title: 'Analytics',
     description: 'This Pokémon uses its flying ability to quickly chase'
   },
   {
-    icon: IconNotification,
+    icon: (props: IconProps) => <IconNotification {...props} />,
     title: 'Notifications',
     description: 'Combusken battles with the intensely hot flames it spews'
   }

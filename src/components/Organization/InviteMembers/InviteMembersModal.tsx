@@ -27,15 +27,19 @@ export const InviteMembersModal = () => {
     <Modal
       opened={open}
       onClose={closeModal}
-      title={<Title fz="xl">{t('title')}</Title>}
       closeOnEscape={false}
       centered
       size="lg"
       padding={32}
       closeOnClickOutside={false}
-      overlayBlur={3}
+      overlayProps={{
+        blur: 3
+      }}
       withCloseButton={false}
     >
+      <Modal.Header p="0" mb="md">
+        <Title fz="xl">{t('title')}</Title>
+      </Modal.Header>
       <Box>
         <InviteMembers isModal handleCloseModal={handleCloseModal} />
       </Box>

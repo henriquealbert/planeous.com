@@ -31,7 +31,7 @@ export const AuthForm = ({ type }: AuthFormProps) => {
 
           <Flex justify="center" mt="xl">
             <Link href={type === 'login' ? '/signup' : '/login'}>
-              <Anchor component="button" type="button" color="dimmed" size="xs">
+              <Anchor component="button" type="button" color="gray.6" size="xs">
                 {type === 'signup'
                   ? 'Already have an account? Login'
                   : "Don't have an account? Register"}
