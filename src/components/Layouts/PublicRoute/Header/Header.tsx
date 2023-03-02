@@ -16,7 +16,8 @@ import {
   Burger,
   Drawer,
   Collapse,
-  ScrollArea
+  ScrollArea,
+  rem
 } from '@mantine/core'
 import { MantineLogo } from '@mantine/ds'
 import { useDisclosure } from '@mantine/hooks'
@@ -45,7 +46,7 @@ const useStyles = createStyles((theme) => ({
     fontSize: theme.fontSizes.sm,
 
     [theme.fn.smallerThan('sm')]: {
-      height: 42,
+      height: rem(42),
       display: 'flex',
       alignItems: 'center',
       width: '100%'
@@ -58,7 +59,7 @@ const useStyles = createStyles((theme) => ({
 
   subLink: {
     width: '100%',
-    padding: `${theme.spacing.xs}px ${theme.spacing.md}px`,
+    padding: `${theme.spacing.xs} ${theme.spacing.md}`,
     borderRadius: theme.radius.md,
 
     ...theme.fn.hover({
@@ -70,11 +71,11 @@ const useStyles = createStyles((theme) => ({
 
   dropdownFooter: {
     backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.colors.gray[0],
-    margin: -theme.spacing.md,
+    margin: `calc(${theme.spacing.md} * -1)`,
     marginTop: theme.spacing.sm,
-    padding: `${theme.spacing.md}px ${theme.spacing.xl}px`,
+    padding: `${theme.spacing.md} calc(${theme.spacing.md} * 2)`,
     paddingBottom: theme.spacing.xl,
-    borderTop: `1px solid ${
+    borderTop: `${rem(1)} solid ${
       theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[1]
     }`
   },
