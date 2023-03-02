@@ -44,7 +44,16 @@ export const ProtectedRoute = ({ children, pageTitle }: ProtectedRouteProps): JS
   }
 
   return (
-    <AppShell padding="xl" header={<Header />}>
+    <AppShell
+      m="xl"
+      header={<Header />}
+      sx={{
+        '.mantine-AppShell-main': {
+          paddingTop: '60px',
+          minHeight: 'calc(100vh - 60px)'
+        }
+      }}
+    >
       {pageTitle && (
         <Title order={1} mb="xl" ff="'IBM Plex Serif', serif" fw="300">
           {pageTitle}

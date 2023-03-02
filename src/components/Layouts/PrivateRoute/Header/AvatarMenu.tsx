@@ -8,7 +8,12 @@ export const AvatarMenu = () => {
   const { user } = useAuth()
   const { classes } = useStyles()
   return (
-    <Menu position="bottom-end" transition="pop-top-right">
+    <Menu
+      position="bottom-end"
+      transitionProps={{
+        transition: 'pop-top-right'
+      }}
+    >
       <Menu.Target>
         <UnstyledButton className={classes.container}>
           <Group spacing={6} h={34}>
