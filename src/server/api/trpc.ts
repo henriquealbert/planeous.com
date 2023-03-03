@@ -66,6 +66,7 @@ export const createTRPCContext = async (opts: CreateNextContextOptions) => {
  */
 import { initTRPC, TRPCError } from '@trpc/server'
 import superjson from 'superjson'
+import type { UserOrg } from 'types/user'
 
 const t = initTRPC.context<typeof createTRPCContext>().create({
   transformer: superjson,
@@ -100,14 +101,35 @@ export const publicProcedure = t.procedure
  * Reusable middleware that enforces users are logged in before running the
  * procedure
  */
-const enforceUserIsAuthed = t.middleware(({ ctx, next }) => {
+const enforceUserIsAuthed = t.middleware(async ({ ctx, next }) => {
   if (!ctx.session || !ctx.session.user) {
     throw new TRPCError({ code: 'UNAUTHORIZED' })
   }
+
+  const user: UserOrg = await ctx.prisma.user.findFirst({
+    where: {
+      id: ctx.session.user.id,
+      isActive: true
+    },
+    include: {
+      organization: {
+        select: {
+          id: true,
+          name: true,
+          plan: true
+        }
+      }
+    }
+  })
+
+  if (!user?.id) {
+    throw new TRPCError({ code: 'UNAUTHORIZED' })
+  }
+
   return next({
     ctx: {
       // infers the `session` as non-nullable
-      session: { ...ctx.session, user: ctx.session.user }
+      session: { ...ctx.session, user }
     }
   })
 })

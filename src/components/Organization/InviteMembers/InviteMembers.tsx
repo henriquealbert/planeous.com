@@ -1,6 +1,5 @@
 import { Box, Button, Flex, Stack, Text, TextInput } from '@mantine/core'
 import { IconAt, IconCheck, IconPlus, IconUserPlus } from '@tabler/icons-react'
-import { useAuth } from 'contexts/AuthContext'
 import { useTranslations } from 'next-intl'
 import { useFieldArray, useForm } from 'react-hook-form'
 import { api } from 'utils/api'
@@ -13,7 +12,6 @@ interface InviteMembersProps {
 }
 
 export const InviteMembers = ({ handleCloseModal, isModal }: InviteMembersProps) => {
-  const { user } = useAuth()
   const t = useTranslations('Organizations.InviteMembers')
   const createMemberAndInvite = api.user.createMemberAndInvite.useMutation()
 
@@ -26,7 +24,7 @@ export const InviteMembers = ({ handleCloseModal, isModal }: InviteMembersProps)
   } = useForm<InviteMembersFormType>({
     defaultValues: {
       members: [{ email: '' }],
-      organizationId: user?.organizationId || ''
+      provider: 'google'
     }
   })
   const { fields, append } = useFieldArray({

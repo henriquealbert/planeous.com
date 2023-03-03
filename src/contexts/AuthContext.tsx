@@ -1,21 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import type { Plan, User } from '@prisma/client'
 import { useSession } from 'next-auth/react'
 import type { ReactNode } from 'react'
 import { useContext } from 'react'
 import { createContext } from 'react'
 import { api } from 'utils/api'
 import type { RefetchOptions, RefetchQueryFilters } from '@tanstack/react-query'
+import type { UserOrg } from 'types/user'
 
 type Status = 'authenticated' | 'loading' | 'unauthenticated'
-type UserOrg =
-  | (User & {
-      organization: {
-        name: string
-        plan: Plan
-      } | null
-    })
-  | null
 
 type AuthContextType = {
   status: Status
@@ -37,12 +29,8 @@ const getStatus = (status: Status, isLoading: boolean) => {
 }
 
 const AuthProvider = ({ children }: { children: ReactNode }) => {
-  const { data: session, status } = useSession()
-
-  const { data, refetch, isLoading } = api.user.getById.useQuery(
-    { userId: session?.user?.id as string },
-    { enabled: !!session?.user?.id }
-  )
+  const { status } = useSession()
+  const { data, refetch, isLoading } = api.user.getMe.useQuery()
 
   return (
     <AuthContext.Provider
