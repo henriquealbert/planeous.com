@@ -19,12 +19,24 @@
     "createContact": "Criar contato",
     "exportAllData": "Exportar todos os dados",
     "exportSelectedData": "Exportar linhas selecionadas",
+    "importCsv": "Importar CSV",
+    "createASingleContact": "Criar um único contato",
     "Table": {
       "name": "Nome",
       "email": "Email",
       "phone": "Telefone",
       "company": "Empresa"
     }
+  },
+  "ImportContacts": {
+    "title": "Importar contatos",
+    "description": "Importe seus contatos de um arquivo CSV usando o arrastar e soltar abaixo.",
+    "selectFile": "Selecione um arquivo",
+    "uploadFile": "Faça upload dos seus contatos",
+    "uploadFilePlaceholder": "Arraste e solte um arquivo aqui para fazer upload. Nós só podemos aceitar arquivos .csv.",
+    "uploadFileError": "Por favor, selecione um arquivo .csv válido.",
+    "uploadFileAccept": "Solte o arquivo aqui",
+    "submitBtn": "Importar contatos"
   },
   "OnboardingForm": {
     "title": "Configure sua conta",
@@ -49,10 +61,10 @@
     "terms": "Por continuar, você concorda com nossos Termos de Serviço e Política de Privacidade."
   },
   "Organizations": {
-    "InviteMembersModal":{
+    "InviteMembersModal": {
       "title": "Convidar Membros"
     },
-    "InviteMembers":{
+    "InviteMembers": {
       "description": "Colabore como uma equipe e aproveite ao máximo nossa ferramenta",
       "email": "Email",
       "emailPlaceholder": "Adicione o email do seu colega aqui",

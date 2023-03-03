@@ -3,7 +3,7 @@
     "title": "Welcome to Planeous.com"
   },
   "Header": {
-    "AvatarMenu":{
+    "AvatarMenu": {
       "logout": "Logout",
       "billing": "Billing",
       "settings": "Settings",
@@ -17,14 +17,26 @@
   "Contacts": {
     "title": "Contacts",
     "createContact": "Create contact",
-    "exportAllData":"Export all data",
-    "exportSelectedData":"Export selected rows",
+    "exportAllData": "Export all data",
+    "exportSelectedData": "Export selected rows",
+    "importCsv": "Import CSV",
+    "createASingleContact": "Create a single contact",
     "Table": {
       "name": "Name",
       "email": "Email",
       "phone": "Phone",
       "company": "Company"
     }
+  },
+  "ImportContacts":{
+    "title": "Import contacts",
+    "description": "Import your contacts from a CSV file using the drag and drop below.",
+    "selectFile": "Select a file",
+    "uploadFile": "Upload your contacts",
+    "uploadFilePlaceholder": "Drag'n'drop a file here to upload. We can accept only .csv files.",
+    "uploadFileError": "Please upload a CSV file",
+    "uploadFileAccept": "Drop the file here",
+    "submitBtn": "Import contacts"
   },
   "OnboardingForm": {
     "title": "Set up your account",
@@ -49,10 +61,10 @@
     "terms": "By continuing, you agree to our Terms of Service and Privacy Policy."
   },
   "Organizations": {
-    "InviteMembersModal":{
+    "InviteMembersModal": {
       "title": "Invite Members"
     },
-    "InviteMembers":{
+    "InviteMembers": {
       "description": "Collaborate as a team and make the most of our tool",
       "email": "Email",
       "emailPlaceholder": "Add your teammate's email here",
