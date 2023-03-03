@@ -1,17 +1,11 @@
 import { useTranslations } from 'next-intl'
 import { Button, Menu } from '@mantine/core'
 import { IconChevronDown, IconPlus, IconUpload } from '@tabler/icons-react'
+import { useStore } from 'contexts/store'
 
 export const CreateContact = () => {
   const t = useTranslations('Contacts')
-
-  const handleCreateSingleContact = () => {
-    prompt('Create new contact modal')
-  }
-
-  const handleImportCSV = () => {
-    alert('Import CSV')
-  }
+  const { handleCreateSingleContact, handleImportCSV } = useStore((state) => state.createContact)
 
   return (
     <Menu withinPortal position="bottom-start">
@@ -22,10 +16,10 @@ export const CreateContact = () => {
       </Menu.Target>
       <Menu.Dropdown>
         <Menu.Item icon={<IconPlus size="1rem" stroke={1.5} />} onClick={handleCreateSingleContact}>
-          Create a single contact
+          {t('createASingleContact')}
         </Menu.Item>
         <Menu.Item icon={<IconUpload size="1rem" stroke={1.5} />} onClick={handleImportCSV}>
-          Import CSV
+          {t('importCsv')}
         </Menu.Item>
       </Menu.Dropdown>
     </Menu>
