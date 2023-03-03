@@ -5,15 +5,20 @@ export const contactRouter = createTRPCRouter({
   create: protectedProcedure
     .input(
       z.object({
-        firstName: z.string().min(1) // um unico contato -> lembrar de deixar todos os fields opcionais
+        firstName: z.string().min(1)
       })
     )
     .mutation(async ({ input, ctx }) => {
-      // const contact = await ctx.prisma.contact.create({
-      //   data: {
-      //     organizationId: ctx.session.user.organizationId ?? undefined
-      //   }
-      // })
-      // return { contact }
+      if (!ctx.session.user.organizationId) {
+        throw new Error('No organization ID')
+      }
+
+      const contact = await ctx.prisma.contact.create({
+        data: {
+          organizationId: ctx.session.user.organizationId,
+          ...input
+        }
+      })
+      return { contact }
     })
 })
