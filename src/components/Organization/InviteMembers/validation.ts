@@ -6,6 +6,6 @@ export const inviteMembersFormSchema = z.object({
       email: z.string().email()
     })
   ),
-  organizationId: z.string().min(1)
+  provider: z.string().min(1)
 })
 export type InviteMembersFormType = z.infer<typeof inviteMembersFormSchema>

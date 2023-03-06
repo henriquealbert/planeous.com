@@ -3,7 +3,7 @@
     "title": "Welcome to Planeous.com"
   },
   "Header": {
-    "AvatarMenu":{
+    "AvatarMenu": {
       "logout": "Logout",
       "billing": "Billing",
       "settings": "Settings",
@@ -17,13 +17,62 @@
   "Contacts": {
     "title": "Contacts",
     "createContact": "Create contact",
-    "exportAllData":"Export all data",
-    "exportSelectedData":"Export selected rows",
+    "exportAllData": "Export all data",
+    "exportSelectedData": "Export selected rows",
+    "importCsv": "Import CSV",
+    "createASingleContact": "Create a single contact",
     "Table": {
       "name": "Name",
       "email": "Email",
       "phone": "Phone",
       "company": "Company"
+    }
+  },
+  "DropzoneFileInput": {
+    "accept":"Drop the file here",
+    "reject":"Please upload a CSV file",
+    "idle":"Upload your contacts",
+    "placeholder":"Drag'n'drop a file here to upload. We can accept only .csv files.",
+    "button":"Select a file"
+  },
+  "ImportContacts": {
+    "title": "Import contacts",
+    "description": "Getting your contacts imported correctly is an important step in setting up a CRM. You can run the import yourself if you feel comfortable with that, or use the option at the bottom to send us a file and we can import it for you.",
+    "titleRunImport": "Run the import yourself:",
+    "ImportingHelp": {
+      "title": "Importing help:",
+      "description": "If you're looking to import your initial data and don't think you'll need to know how to run imports in the future, click the button below to upload your file to Planeous. We'll run your import for you!",
+      "button": "Securely send your file(s) to Planeous for import!"
+    },
+    "Instructions": {
+      "title": "Instructions:",
+      "step1": "Step 1: Ensure that your file is properly formatted for importing",
+      "step1_1": "This import tool is designed to guide you step-by-step through your import process, but your spreadsheet does need to meet some basic formatting requirements for the CRM to be able to read it. Take a minute and review your file, making sure that it’s neatly organized with one contact per line, one piece of information about each contact per column, and headers for each column of data in the very first row of the sheet.",
+      "step1_2": "You can read a full tutorial on how to prepare your spreadsheet for import here.",
+      "step1_2_link": "https://www.planeous.com/help/importing-contacts",
+      "step1_3": "A properly-formatted file usually takes only about a minute to import, so taking the time to prepare the file will set you up for a straightforward, quick import process.",
+      "step1_4": "<strong>NOTE:</strong> If you request that the Planeous team handle your import, your file will need to meet these basic preparatory formatting standards. If it does not, we’ll likely ask you to format your file properly before we can import it for you.",
+      "step2": "Step 2: Upload your data to your CRM",
+      "step2_1": "Once your file is properly formatted, drag'n'drop or click to Select a file on the left to browse for your file and begin the importing wizard. The importer will help you pair each column from your spreadsheet with your CRM’s fields to create your contacts!"
+    },
+    "AlignFields":{
+      "description": "Map the fields from your spreadsheet into the CRM fields.",
+      "importingFile": "Importing the file",
+      "cancelButton": "Cancel import",
+      "Table": {
+        "button":"Finalize the import",
+        "csvHeader": "Spreadsheet Field",
+        "crmField": "CRM Field",
+        "crmFieldPlaceholder": "Select a field",
+        "crmFieldErrorNotMapped": "This field is not mapped",
+        "crmFieldErrorDuplicate": "This field is already selected"
+      },
+      "Instructions": {
+        "title": "Important notes:",
+        "note1": "For every row in your spreadsheet, we'll create a new contact record in the CRM.",
+        "note2": "<strong>NOTE:</strong> If you don't see a field that you need, please create it in the Custom Field section",
+        "note3": "<strong>NOTE:</strong> If you don't want to import a field, please select the '--' option"
+      }
     }
   },
   "OnboardingForm": {
@@ -49,10 +98,10 @@
     "terms": "By continuing, you agree to our Terms of Service and Privacy Policy."
   },
   "Organizations": {
-    "InviteMembersModal":{
+    "InviteMembersModal": {
       "title": "Invite Members"
     },
-    "InviteMembers":{
+    "InviteMembers": {
       "description": "Collaborate as a team and make the most of our tool",
       "email": "Email",
       "emailPlaceholder": "Add your teammate's email here",

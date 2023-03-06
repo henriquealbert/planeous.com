@@ -19,11 +19,41 @@
     "createContact": "Criar contato",
     "exportAllData": "Exportar todos os dados",
     "exportSelectedData": "Exportar linhas selecionadas",
+    "importCsv": "Importar CSV",
+    "createASingleContact": "Criar um único contato",
     "Table": {
       "name": "Nome",
       "email": "Email",
       "phone": "Telefone",
       "company": "Empresa"
+    }
+  },
+  "DropzoneFileInput": {
+    "accept":"Solte o arquivo aqui",
+    "reject":"Por favor faça o upload de um arquivo CSV",
+    "idle":"Faça o upload dos seus contatos",
+    "placeholder":"Arraste e solte o arquivo aqui para fazer o upload. Nós aceitamos somente arquivos .csv",
+    "button":"Selecione um arquivo"
+  },
+  "ImportContacts": {
+    "title": "Importar contatos",
+    "description": "Importar seus contatos corretamente é uma etapa importante na configuração de um CRM. Você mesmo pode executar a importação, se quiser, ou usar a opção na parte inferior para nos enviar um arquivo, e podemos importá-lo para você.",
+    "titleRunImport": "Faça você mesmo a importação:",
+    "ImportingHelp": {
+      "title": "Ajuda de importação:",
+      "description": "Se você deseja importar seus dados iniciais e acha que não precisará saber como executar importações no futuro, clique no botão abaixo para enviar seu arquivo para o Planeous. Faremos sua importação para você!",
+      "button": "Envie com segurança seu(s) arquivo(s) para o Planeous para importar!"
+    },
+    "Instructions": {
+      "title": "Instruções:",
+      "step1": "Passo 1: verifique se o arquivo está formatado corretamente para importação",
+      "step1_1": "Essa ferramenta de importação foi projetada para guiá-lo passo a passo pelo processo de importação, mas sua planilha precisa atender a alguns requisitos básicos de formatação para que o CRM possa lê-la. Reserve um minuto para revisar seu arquivo, certificando-se de que esteja bem organizado com um contato por linha, uma informação sobre cada contato por coluna e cabeçalhos para cada coluna de dados na primeira linha da planilha.",
+      "step1_2": "Você pode ler um tutorial completo sobre como preparar sua planilha para importação aqui.",
+      "step1_2_link": "https://www.planeous.com/help/importing-contacts",
+      "step1_3": "Um arquivo formatado corretamente geralmente leva apenas cerca de um minuto para ser importado, portanto, reservar um tempo para preparar o arquivo irá prepará-lo para um processo de importação rápido e direto.",
+      "step1_4": "<strong>OBSERVAÇÃO:</strong> Se você solicitar que a equipe Planeous cuide de sua importação, seu arquivo precisará atender a esses padrões básicos de formatação preparatória. Caso contrário, provavelmente solicitaremos que você formate seu arquivo corretamente antes de podermos importá-lo para você.",
+      "step2": "Passo 2: Carregue seus dados para o seu CRM",
+      "step2_1": "Depois que o arquivo estiver formatado corretamente, arraste e solte ou clique para selecionar um arquivo à esquerda para procurar seu arquivo e iniciar o assistente de importação. O importador ajudará você a parear cada coluna da sua planilha com os campos do seu CRM para criar seus contatos!"
     }
   },
   "OnboardingForm": {
@@ -49,10 +79,10 @@
     "terms": "Por continuar, você concorda com nossos Termos de Serviço e Política de Privacidade."
   },
   "Organizations": {
-    "InviteMembersModal":{
+    "InviteMembersModal": {
       "title": "Convidar Membros"
     },
-    "InviteMembers":{
+    "InviteMembers": {
       "description": "Colabore como uma equipe e aproveite ao máximo nossa ferramenta",
       "email": "Email",
       "emailPlaceholder": "Adicione o email do seu colega aqui",

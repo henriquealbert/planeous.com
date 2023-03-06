@@ -2,33 +2,12 @@ import type { User } from '@prisma/client'
 import { inviteMembersFormSchema } from 'components/Organization/InviteMembers/validation'
 import { env } from 'env/server.mjs'
 import { sendEmail } from 'server/email/emailClient'
-import { z } from 'zod'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
 
 export const userRouter = createTRPCRouter({
-  getById: protectedProcedure
-    .input(
-      z.object({
-        userId: z.string().min(1)
-      })
-    )
-    .query(async ({ input, ctx }) => {
-      const user = await ctx.prisma.user.findUnique({
-        where: {
-          id: input.userId
-        },
-        include: {
-          organization: {
-            select: {
-              name: true,
-              plan: true
-            }
-          }
-        }
-      })
-
-      return { user }
-    }),
+  getMe: protectedProcedure.query(({ ctx }) => {
+    return { user: ctx.session.user }
+  }),
   createMemberAndInvite: protectedProcedure
     .input(inviteMembersFormSchema)
     .mutation(async ({ input, ctx }) => {
@@ -41,7 +20,7 @@ export const userRouter = createTRPCRouter({
                 isActive: false,
                 organization: {
                   connect: {
-                    id: input.organizationId
+                    id: ctx.session.user?.organizationId ?? undefined
                   }
                 }
               }
@@ -50,8 +29,8 @@ export const userRouter = createTRPCRouter({
             await txPrisma.account.create({
               data: {
                 userId: user.id,
-                providerAccountId: 'invite' + user.id,
-                provider: 'google',
+                providerAccountId: `${input.provider}_invite` + user.id,
+                provider: input.provider,
                 type: 'oauth'
               }
             })

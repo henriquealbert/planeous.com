@@ -41,5 +41,6 @@ export const spotlightArgs: SpotlightProviderProps = {
   highlightQuery: true,
   searchPlaceholder: 'Search...',
   searchIcon: <IconSearch size={18} />,
-  cleanQueryOnClose: true
+  cleanQueryOnClose: true,
+  shortcut: ['mod + K', '/']
 }
