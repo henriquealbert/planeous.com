@@ -8,8 +8,7 @@ import { useTranslations } from 'next-intl'
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: 'relative',
-    marginBottom: rem(30),
-    maxWidth: rem(650)
+    marginBottom: rem(30)
   },
 
   dropzone: {
@@ -34,7 +33,7 @@ type DropzoneFileInputProps = Omit<DropzoneProps, 'children'> & {
 }
 
 export const DropzoneFileInput = (props: DropzoneFileInputProps) => {
-  const t = useTranslations('ImportContacts')
+  const t = useTranslations('DropzoneFileInput')
   const { classes, theme } = useStyles()
   const openRef = useRef<() => void>(null)
 
@@ -65,12 +64,12 @@ export const DropzoneFileInput = (props: DropzoneFileInputProps) => {
           </Group>
 
           <Text ta="center" fw={700} fz="lg" mt="xl">
-            <Dropzone.Accept>{t('uploadFileAccept')}</Dropzone.Accept>
-            <Dropzone.Reject>{t('uploadFileError')}</Dropzone.Reject>
-            <Dropzone.Idle>{t('uploadFile')}</Dropzone.Idle>
+            <Dropzone.Accept>{t('accept')}</Dropzone.Accept>
+            <Dropzone.Reject>{t('reject')}</Dropzone.Reject>
+            <Dropzone.Idle>{t('idle')}</Dropzone.Idle>
           </Text>
           <Text ta="center" fz="sm" mt="xs" c="dimmed">
-            {t('uploadFilePlaceholder')}
+            {t('placeholder')}
           </Text>
         </div>
       </Dropzone>
@@ -82,7 +81,7 @@ export const DropzoneFileInput = (props: DropzoneFileInputProps) => {
           radius="md"
           onClick={() => openRef.current?.()}
         >
-          {t('selectFile')}
+          {t('button')}
         </Button>
       )}
     </div>
