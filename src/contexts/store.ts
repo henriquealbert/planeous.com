@@ -4,7 +4,8 @@ import { immer } from 'zustand/middleware/immer'
 
 import Router from 'next/router'
 import type { FileWithPath } from '@mantine/dropzone'
-import type { FileRejection } from 'types/Dropzone'
+import type { ParsedCsvResult } from 'utils/parseCsv'
+import { parseCsv } from 'utils/parseCsv'
 
 interface Store {
   inviteMembersModal: {
@@ -17,9 +18,15 @@ interface Store {
     handleCreateSingleContact: () => void
   }
   importContact: {
+    showPageTitle: string | null
     isLoading: boolean
-    onDrop: (files: FileWithPath[]) => void
-    onReject: (fileRejections: FileRejection[]) => void
+    csvData: ParsedCsvResult | null
+    step: number
+    onDrop: (files: FileWithPath[], nextPageTitle: string) => Promise<void>
+    handleStepBack: () => void
+    handleStepForward: () => void
+    resetImport: () => void
+    updatePageTitle: (newPageTitle: string | null) => void
   }
 }
 
@@ -48,12 +55,47 @@ export const useStore = create<Store>()(
         }
       },
       importContact: {
+        showPageTitle: '',
+        step: 1,
         isLoading: false,
-        onDrop: (files) => {
-          console.log('drop', files)
+        csvData: null,
+        onDrop: async (files, nextPageTitle) => {
+          if (!files[0]) return
+          // Set loading state
+          set((state) => {
+            state.importContact.isLoading = true
+          })
+
+          const parsed = await parseCsv(files[0])
+
+          set((state) => {
+            state.importContact.isLoading = false
+            state.importContact.csvData = parsed
+            state.importContact.showPageTitle = nextPageTitle
+            state.importContact.step += 1
+          })
         },
-        onReject: (fileRejections) => {
-          console.log('reject', fileRejections)
+        handleStepBack: () => {
+          set((state) => {
+            state.importContact.step -= 1
+          })
+        },
+        handleStepForward: () => {
+          set((state) => {
+            state.importContact.step += 1
+          })
+        },
+        resetImport: () => {
+          set((state) => {
+            state.importContact.step = 1
+            state.importContact.csvData = null
+            state.importContact.showPageTitle = ''
+          })
+        },
+        updatePageTitle: (newPageTitle) => {
+          set((state) => {
+            state.importContact.showPageTitle = newPageTitle
+          })
         }
       }
     }))
