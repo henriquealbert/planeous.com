@@ -39,7 +39,7 @@ specifiers:
   mantine-react-table: ^0.9.3
   next: 13.2.3
   next-auth: ^4.20.1
-  next-intl: ^2.10.4
+  next-intl: ^2.11.0
   node-mailjet: ^6.0.2
   papaparse: ^5.4.0
   prettier: ^2.8.4
@@ -83,7 +83,7 @@ dependencies:
   mantine-react-table: 0.9.3_tgpimnevhony547u7rmhjtj25m
   next: 13.2.3_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.20.1_nvzgbose6yf6w7ijjprgspqefi
-  next-intl: 2.10.4_next@13.2.3+react@18.2.0
+  next-intl: 2.11.0_next@13.2.3+react@18.2.0
   node-mailjet: 6.0.2
   papaparse: 5.4.0
   react: 18.2.0
@@ -3161,8 +3161,8 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /next-intl/2.10.4_next@13.2.3+react@18.2.0:
-    resolution: {integrity: sha512-qutpLRdu8YEczjXmdiDh2GZ0+vsJnL4qD25dlQDICP3glwNKZAiY348C6DYM5dYTL/2i19C5pggRAAPuv0qyEg==}
+  /next-intl/2.11.0_next@13.2.3+react@18.2.0:
+    resolution: {integrity: sha512-p+rYbNtVvZdenpU2RV8n2VjCNivzUq6DRC50DklU08S3OpQhwoaBVD5P+L5bIAZoUB9VBBS04PQj8ofbcEW0kQ==}
     engines: {node: '>=10'}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
@@ -3171,7 +3171,7 @@ packages:
       accept-language-parser: 1.5.0
       next: 13.2.3_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
-      use-intl: 2.10.4_react@18.2.0
+      use-intl: 2.11.0_react@18.2.0
     dev: false
 
   /next/13.2.3_biqbaboplfbrettd7655fr4n2y:
@@ -4085,8 +4085,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /use-intl/2.10.4_react@18.2.0:
-    resolution: {integrity: sha512-wTE9eTjgRQi3PzSTIPXgAj/jgvYYnsuj1IE+L/Ng1nAIAfm+Ab0l5aQp2rXMph2SqusV/GdroO+FjRNwd41JBw==}
+  /use-intl/2.11.0_react@18.2.0:
+    resolution: {integrity: sha512-EVdve8I11kKITzDsjt7nvNFGhzAykNrL1Z4ULJxri4OnYAlMqM5VyQeRBPJhPltTek8fK5tSFD9TKwWf6U+DEQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
