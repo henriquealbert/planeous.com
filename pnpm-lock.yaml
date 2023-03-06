@@ -24,6 +24,7 @@ specifiers:
   '@trpc/react-query': ^10.13.2
   '@trpc/server': ^10.13.2
   '@types/node': ^18.14.5
+  '@types/papaparse': ^5.3.7
   '@types/react': ^18.0.28
   '@types/react-dom': ^18.0.11
   '@typescript-eslint/eslint-plugin': ^5.54.0
@@ -40,6 +41,7 @@ specifiers:
   next-auth: ^4.20.1
   next-intl: ^2.10.4
   node-mailjet: ^6.0.2
+  papaparse: ^5.4.0
   prettier: ^2.8.4
   prisma: ^4.11.0
   react: 18.2.0
@@ -83,6 +85,7 @@ dependencies:
   next-auth: 4.20.1_nvzgbose6yf6w7ijjprgspqefi
   next-intl: 2.10.4_next@13.2.3+react@18.2.0
   node-mailjet: 6.0.2
+  papaparse: 5.4.0
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.43.3_react@18.2.0
@@ -93,6 +96,7 @@ dependencies:
 
 devDependencies:
   '@types/node': 18.14.5
+  '@types/papaparse': 5.3.7
   '@types/react': 18.0.28
   '@types/react-dom': 18.0.11
   '@typescript-eslint/eslint-plugin': 5.54.0_6mj2wypvdnknez7kws2nfdgupi
@@ -1249,6 +1253,12 @@ packages:
 
   /@types/node/18.14.5:
     resolution: {integrity: sha512-CRT4tMK/DHYhw1fcCEBwME9CSaZNclxfzVMe7GsO6ULSwsttbj70wSiX6rZdIjGblu93sTJxLdhNIT85KKI7Qw==}
+    dev: true
+
+  /@types/papaparse/5.3.7:
+    resolution: {integrity: sha512-f2HKmlnPdCvS0WI33WtCs5GD7X1cxzzS/aduaxSu3I7TbhWlENjSPs6z5TaB9K0J+BH1jbmqTaM+ja5puis4wg==}
+    dependencies:
+      '@types/node': 18.14.5
     dev: true
 
   /@types/parse-json/4.0.0:
@@ -3354,6 +3364,10 @@ packages:
     dependencies:
       p-limit: 3.1.0
     dev: true
+
+  /papaparse/5.4.0:
+    resolution: {integrity: sha512-ZBQABWG09p+u8rFoJVl/GhgxZ5zy9Zh1Lu/LVc7VX5T4nljjC14/YTcpebYwqP218B9X307eBOP7Tuhoqv7v7w==}
+    dev: false
 
   /parent-module/1.0.1:
     resolution: {integrity: sha512-GQ2EWRpQV8/o+Aw8YqtfZZPfNRWZYkbidE9k5rpl/hC3vtHHBfGm2Ifi6qWV+coDGkrUKZAxE3Lot5kcsRlh+g==}
