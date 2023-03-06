@@ -9,16 +9,34 @@ export const contactRouter = createTRPCRouter({
       })
     )
     .mutation(async ({ input, ctx }) => {
-      if (!ctx.session.user.organizationId) {
+      const organizationId = ctx.session?.user?.organizationId
+      if (!organizationId) {
         throw new Error('No organization ID')
       }
 
       const contact = await ctx.prisma.contact.create({
         data: {
-          organizationId: ctx.session.user.organizationId,
+          organizationId,
           ...input
         }
       })
       return { contact }
+    }),
+  createBatch: protectedProcedure
+    .input(z.array(z.record(z.string().optional())))
+    .mutation(async ({ input, ctx }) => {
+      const organizationId = ctx.session?.user?.organizationId
+      if (!organizationId) {
+        throw new Error('No organization ID')
+      }
+
+      const contacts = await ctx.prisma.contact.createMany({
+        data: input.map((contact) => ({
+          organizationId,
+          ...contact
+        })),
+        skipDuplicates: true
+      })
+      return { contacts }
     })
 })
