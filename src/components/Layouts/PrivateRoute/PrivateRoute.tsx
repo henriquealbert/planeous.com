@@ -1,15 +1,20 @@
 import { Loader, Center, AppShell, Title } from '@mantine/core'
 import { useAuth } from 'contexts/AuthContext'
 import { useRouter } from 'next/router'
-import type { ReactNode } from 'react'
+import type { JSXElementConstructor, ReactElement, ReactNode } from 'react'
 import { Header } from './Header/Header'
 
 interface ProtectedRouteProps {
   children: ReactNode
   pageTitle?: string
+  navbar?: ReactElement<any, string | JSXElementConstructor<any>> | undefined
 }
 
-export const ProtectedRoute = ({ children, pageTitle }: ProtectedRouteProps): JSX.Element => {
+export const ProtectedRoute = ({
+  children,
+  pageTitle,
+  navbar
+}: ProtectedRouteProps): JSX.Element => {
   const { status, user } = useAuth()
   const { push, pathname } = useRouter()
 
@@ -47,6 +52,7 @@ export const ProtectedRoute = ({ children, pageTitle }: ProtectedRouteProps): JS
     <AppShell
       m="xl"
       header={<Header />}
+      navbar={navbar}
       sx={{
         '.mantine-AppShell-main': {
           paddingTop: '60px',

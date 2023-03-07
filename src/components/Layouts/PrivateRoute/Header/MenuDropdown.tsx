@@ -15,12 +15,13 @@ export const MenuDropdown = () => {
           icon: <IconReceipt size={14} stroke={1.5} />,
           label: t('billing'),
           href: '/app/account-settings/billing',
-          onClick: () => undefined
+          onClick: () => undefined,
+          color: ''
         },
         {
           icon: <IconSettings size={14} stroke={1.5} />,
           label: t('accountSettings'),
-          href: '/app/account-settings',
+          href: '/app/account-settings/profile',
           onClick: () => undefined,
           color: ''
         }

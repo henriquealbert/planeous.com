@@ -1,21 +1,20 @@
-import { Flex } from '@mantine/core'
+import { Flex, Title } from '@mantine/core'
 import { PrivateRouteAccountSettings } from 'components/Layouts/PrivateRoute/PrivateRouteAccountSettings'
-import { InviteMembers } from 'components/Organization/InviteMembers/InviteMembers'
 import type { GetStaticProps } from 'next'
 import { type NextPage } from 'next'
 import { getServerTranslation } from 'utils/serverTranslation'
 
-const InviteMembersPage: NextPage = () => {
+const FieldsPage: NextPage = () => {
   return (
-    <PrivateRouteAccountSettings pageTitle="Members">
-      <Flex direction="column" maw="400px">
-        <InviteMembers />
+    <PrivateRouteAccountSettings pageTitle="Custom Fields">
+      <Flex direction="column">
+        <Title order={1}>Custom Fields</Title>
       </Flex>
     </PrivateRouteAccountSettings>
   )
 }
 
-export default InviteMembersPage
+export default FieldsPage
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
