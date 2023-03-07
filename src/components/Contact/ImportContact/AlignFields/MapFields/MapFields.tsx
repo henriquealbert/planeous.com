@@ -28,7 +28,7 @@ export const MapsFields = () => {
     }
   })
 
-  const onSubmit = handleSubmit(async (formData) => {
+  const onSubmit = handleSubmit((formData) => {
     if (!formData.crmFields || !csvData?.data || !csvData.meta.fields) return
 
     checkForUnmappedFields({
@@ -48,15 +48,15 @@ export const MapsFields = () => {
     // TODO: validate against Custom Fields types
     // example: if the user selects a custom field of type "number" and the csv data is a string, we should show an error
 
-    await mutateAsync(mappedData, {
-      onSuccess: () => {
-        handleStepForward()
-        updatePageTitle(null)
-      },
-      onError: (e) => {
-        alert(e.message)
-      }
-    })
+    // await mutateAsync(mappedData, {
+    //   onSuccess: () => {
+    //     handleStepForward()
+    //     updatePageTitle(null)
+    //   },
+    //   onError: (e) => {
+    //     alert(e.message)
+    //   }
+    // })
   })
 
   return (
