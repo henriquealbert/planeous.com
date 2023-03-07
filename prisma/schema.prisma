@@ -10,6 +10,29 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Plan {
+  FREETRIAL
+  ESSENTIAL
+  PROFESSIONAL
+  ADMIN
+}
+
+enum FieldsType {
+  TEXT
+  TEXTAREA
+  NUMBER
+  CURRENCY
+  DATE
+  SELECT
+  CHECKBOX
+  CONTACT_LINK
+  RADIO
+  EMAIL
+  PHONE
+  URL
+  FILE
+}
+
 // Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())
@@ -77,13 +100,6 @@ model User {
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
-enum Plan {
-  FREETRIAL
-  ESSENTIAL
-  PROFESSIONAL
-  ADMIN
-}
-
 model Organization {
   id      String @id @default(cuid())
   name    String
@@ -98,20 +114,53 @@ model Organization {
   isActive  Boolean  @default(true) @map("is_active")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+  fields    Fields[]
 
   @@unique([name, slug])
 }
 
 model Contact {
-  id        String @id @default(cuid())
+  id        String  @id @default(cuid())
   firstName String? @map("first_name")
   lastName  String? @map("last_name")
   phone     String?
   email     String?
   avatarUrl String? @map("avatar_url")
 
-  organizationId String       @map("organization_id")
-  organization   Organization @relation(fields: [organizationId], references: [id])
+  organizationId String          @map("organization_id")
+  organization   Organization    @relation(fields: [organizationId], references: [id])
+  contactFields  ContactFields[]
+
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Fields {
+  id       String     @id @default(cuid())
+  name     String
+  type     FieldsType
+  required Boolean
+  order    Int
+  options  String[]
+
+  organizationId String          @map("organization_id")
+  organization   Organization    @relation(fields: [organizationId], references: [id])
+  contactFields  ContactFields[]
+
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model ContactFields {
+  id   String @id @default(cuid())
+  data Json
+
+  contactId String  @map("contact_id")
+  fieldId   String  @map("field_id")
+  contact   Contact @relation(fields: [contactId], references: [id])
+  field     Fields  @relation(fields: [fieldId], references: [id])
 
   isActive  Boolean  @default(true) @map("is_active")
   createdAt DateTime @default(now()) @map("created_at")
