@@ -38,7 +38,7 @@
     "dayjs": "^1.11.7",
     "export-to-csv": "^0.2.1",
     "immer": "^9.0.19",
-    "mantine-react-table": "^0.9.4",
+    "mantine-react-table": "0.9.3",
     "next": "13.2.3",
     "next-auth": "^4.20.1",
     "next-intl": "^2.11.0",

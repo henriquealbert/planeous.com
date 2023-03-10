@@ -36,7 +36,7 @@ specifiers:
   eslint-plugin-prettier: ^4.2.1
   export-to-csv: ^0.2.1
   immer: ^9.0.19
-  mantine-react-table: ^0.9.4
+  mantine-react-table: 0.9.3
   next: 13.2.3
   next-auth: ^4.20.1
   next-intl: ^2.11.0
@@ -80,7 +80,7 @@ dependencies:
   dayjs: 1.11.7
   export-to-csv: 0.2.1
   immer: 9.0.19
-  mantine-react-table: 0.9.4_w6xmlfmxicmhgo35lqmwgieoam
+  mantine-react-table: 0.9.3_w6xmlfmxicmhgo35lqmwgieoam
   next: 13.2.3_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.20.1_nvzgbose6yf6w7ijjprgspqefi
   next-intl: 2.11.0_next@13.2.3+react@18.2.0
@@ -3038,8 +3038,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /mantine-react-table/0.9.4_w6xmlfmxicmhgo35lqmwgieoam:
-    resolution: {integrity: sha512-zkHIiryU+KSJ8RNsdMUHjkBKtSvcuF/3I/UEGNKYjli0VMeve/tS7WYrOhbgkZIZgTuHOO5boBTz6RRi4+zdZg==}
+  /mantine-react-table/0.9.3_w6xmlfmxicmhgo35lqmwgieoam:
+    resolution: {integrity: sha512-btMCV6ZPSYJBPnAlFd10EEuWjRuF7fEGN0Dqqob9yu8vbjRgIqUWk0+yuO+qIxP91z+q6q87o+ljURNzmUsvhw==}
     engines: {node: '>=14'}
     peerDependencies:
       '@emotion/react': '>=11'
