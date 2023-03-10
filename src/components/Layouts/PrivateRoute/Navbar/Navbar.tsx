@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Flex } from '@mantine/core'
 import { NavbarLink } from './NavbarLink'
 import { useRouter } from 'next/router'
-import { IconAddressBook, IconHome2 } from '@tabler/icons-react'
+import { IconAddressBook, IconAdjustments, IconHome2 } from '@tabler/icons-react'
 import { useTranslations } from 'next-intl'
 
 export function Navbar() {
@@ -12,7 +12,8 @@ export function Navbar() {
 
   const topLinksData = [
     { icon: <IconHome2 size={24} />, label: t('home'), href: '/app' },
-    { icon: <IconAddressBook size={24} />, label: t('contacts'), href: '/app/contacts' }
+    { icon: <IconAddressBook size={24} />, label: t('contacts'), href: '/app/contacts' },
+    { icon: <IconAdjustments size={24} />, label: t('settings'), href: '/app/settings/profile' }
   ]
 
   return (

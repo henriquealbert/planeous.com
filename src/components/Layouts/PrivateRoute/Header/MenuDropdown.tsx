@@ -2,7 +2,7 @@ import { Fragment } from 'react'
 import NextLink from 'next/link'
 import { Menu } from '@mantine/core'
 import { useTranslations } from 'next-intl'
-import { IconLogout, IconReceipt, IconSettings } from '@tabler/icons-react'
+import { IconLogout, IconReceipt, IconAdjustments } from '@tabler/icons-react'
 import { signOut } from 'next-auth/react'
 
 export const MenuDropdown = () => {
@@ -14,14 +14,14 @@ export const MenuDropdown = () => {
         {
           icon: <IconReceipt size={14} stroke={1.5} />,
           label: t('billing'),
-          href: '/app/account-settings/billing',
+          href: '/app/settings/billing',
           onClick: () => undefined,
           color: ''
         },
         {
-          icon: <IconSettings size={14} stroke={1.5} />,
+          icon: <IconAdjustments size={14} stroke={1.5} />,
           label: t('accountSettings'),
-          href: '/app/account-settings/profile',
+          href: '/app/settings/profile',
           onClick: () => undefined,
           color: ''
         }
