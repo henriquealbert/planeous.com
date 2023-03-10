@@ -1,20 +1,18 @@
-import { Flex, Title } from '@mantine/core'
+import { Flex } from '@mantine/core'
 import { PrivateRouteAccountSettings } from 'components/Layouts/PrivateRoute/PrivateRouteAccountSettings'
 import type { GetStaticProps } from 'next'
 import { type NextPage } from 'next'
 import { getServerTranslation } from 'utils/serverTranslation'
 
-const FieldsPage: NextPage = () => {
+const BillingPage: NextPage = () => {
   return (
-    <PrivateRouteAccountSettings pageTitle="Custom Fields">
-      <Flex direction="column">
-        <Title order={1}>Custom Fields</Title>
-      </Flex>
+    <PrivateRouteAccountSettings pageTitle="Billing">
+      <Flex direction="column">content</Flex>
     </PrivateRouteAccountSettings>
   )
 }
 
-export default FieldsPage
+export default BillingPage
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
