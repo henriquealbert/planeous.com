@@ -1,5 +1,5 @@
 import { Button, Text } from '@mantine/core'
-import { PrivateRouteAccountSettings } from 'components/Layouts/PrivateRoute/PrivateRouteAccountSettings'
+import { PrivateRouteSettings } from 'components/Layouts/PrivateRoute/PrivateRouteSettings'
 import type { GetStaticProps } from 'next'
 import { type NextPage } from 'next'
 import { useTranslations } from 'next-intl'
@@ -11,7 +11,7 @@ const FieldsPage: NextPage = () => {
   const t = useTranslations('Settings.CustomFields.Contacts')
 
   return (
-    <PrivateRouteAccountSettings
+    <PrivateRouteSettings
       pageTitle={t('title')}
       rightAction={
         <Button variant="default" compact component={NextLink} href="/app/settings/fields">
@@ -21,7 +21,7 @@ const FieldsPage: NextPage = () => {
     >
       <Text mb="xl">{t('description')}</Text>
       <CustomContactFields />
-    </PrivateRouteAccountSettings>
+    </PrivateRouteSettings>
   )
 }
 

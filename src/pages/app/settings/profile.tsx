@@ -1,14 +1,14 @@
 import { Flex } from '@mantine/core'
-import { PrivateRouteAccountSettings } from 'components/Layouts/PrivateRoute/PrivateRouteAccountSettings'
+import { PrivateRouteSettings } from 'components/Layouts/PrivateRoute/PrivateRouteSettings'
 import type { GetStaticProps } from 'next'
 import { type NextPage } from 'next'
 import { getServerTranslation } from 'utils/serverTranslation'
 
 const ProfilePage: NextPage = () => {
   return (
-    <PrivateRouteAccountSettings pageTitle="Profile">
+    <PrivateRouteSettings pageTitle="Profile">
       <Flex direction="column">content</Flex>
-    </PrivateRouteAccountSettings>
+    </PrivateRouteSettings>
   )
 }
 

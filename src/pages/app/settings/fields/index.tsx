@@ -1,6 +1,6 @@
 import { Button, Text, Title } from '@mantine/core'
 import { IconChevronRight } from '@tabler/icons-react'
-import { PrivateRouteAccountSettings } from 'components/Layouts/PrivateRoute/PrivateRouteAccountSettings'
+import { PrivateRouteSettings } from 'components/Layouts/PrivateRoute/PrivateRouteSettings'
 import type { GetStaticProps } from 'next'
 import { type NextPage } from 'next'
 import { useTranslations } from 'next-intl'
@@ -15,7 +15,7 @@ const FieldsPage: NextPage = () => {
     { title: t('companies'), href: '/app/settings/fields/companies' }
   ]
   return (
-    <PrivateRouteAccountSettings pageTitle={t('title')}>
+    <PrivateRouteSettings pageTitle={t('title')}>
       <Text mb="xl">{t('description')}</Text>
       <Title order={3} fw="normal" mb="md">
         {t('primaryRecords')}
@@ -42,7 +42,7 @@ const FieldsPage: NextPage = () => {
           </Button>
         ))}
       </Button.Group>
-    </PrivateRouteAccountSettings>
+    </PrivateRouteSettings>
   )
 }
 
