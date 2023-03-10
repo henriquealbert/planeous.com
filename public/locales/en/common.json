@@ -11,7 +11,8 @@
     },
     "Navbar": {
       "home": "Home",
-      "contacts": "Contacts"
+      "contacts": "Contacts",
+      "settings": "Settings"
     }
   },
   "Contacts": {
@@ -29,11 +30,11 @@
     }
   },
   "DropzoneFileInput": {
-    "accept":"Drop the file here",
-    "reject":"Please upload a CSV file",
-    "idle":"Upload your contacts",
-    "placeholder":"Drag'n'drop a file here to upload. We can accept only .csv files.",
-    "button":"Select a file"
+    "accept": "Drop the file here",
+    "reject": "Please upload a CSV file",
+    "idle": "Upload your contacts",
+    "placeholder": "Drag'n'drop a file here to upload. We can accept only .csv files.",
+    "button": "Select a file"
   },
   "ImportContacts": {
     "title": "Import contacts",
@@ -55,12 +56,12 @@
       "step2": "Step 2: Upload your data to your CRM",
       "step2_1": "Once your file is properly formatted, drag'n'drop or click to Select a file on the left to browse for your file and begin the importing wizard. The importer will help you pair each column from your spreadsheet with your CRM’s fields to create your contacts!"
     },
-    "AlignFields":{
+    "AlignFields": {
       "description": "Map the fields from your spreadsheet into the CRM fields.",
       "importingFile": "Importing the file",
       "cancelButton": "Cancel import",
       "Table": {
-        "button":"Finalize the import",
+        "button": "Finalize the import",
         "csvHeader": "Spreadsheet Field",
         "crmField": "CRM Field",
         "crmFieldPlaceholder": "Select a field",
@@ -110,6 +111,35 @@
       "maxAllowed": "You can only invite up to 5 members at the same time.",
       "skipBtn": "Skip for now",
       "submitBtn": "Invite my team"
+    }
+  },
+  "Settings": {
+    "title": "Settings",
+    "SidebarNav": {
+      "profile": "Profile",
+      "billing": "Billing",
+      "members": "Members",
+      "customFields": "Custom Fields"
+    },
+    "CustomFields": {
+      "title": "Custom Fields",
+      "description": "On this page, you're able to create different custom field types for your contacts to store and track all the different things you need to stay organized.",
+      "primaryRecords": "Primary records",
+      "contacts": "Contacts",
+      "companies": "Companies",
+      "Contacts": {
+        "title": "Custom Contact Fields",
+        "description": "Use this page to manage the fields for contact records. These are fields you'll see any time you add or edit a contact record. Click on a field to edit its settings, or click-and-drag to move it.",
+        "backBtn": "Back to custom fields",
+        "createNewCustomField": "Create new custom field",
+        "FieldsList": {
+          "note": "NOTE: these are the only fields that can't be moved. They must always be at the top of the form."
+        },
+        "DeletedFields": {
+          "note": "These fields aren't used in your CRM at all. If you see a field in this section, the data is effectively deleted, although you can restore the field later.",
+          "noData": "You have no deleted fields."
+        }
+      }
     }
   }
 }
