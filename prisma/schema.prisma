@@ -117,7 +117,7 @@ model Organization {
   isActive  Boolean  @default(true) @map("is_active")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
-  fields    Fields[]
+  fields    Field[]
 
   @@unique([name, slug])
 }
@@ -131,40 +131,40 @@ model Contact {
   suffix     String?
   avatarUrl  String? @map("avatar_url")
 
-  organizationId String          @map("organization_id")
-  organization   Organization    @relation(fields: [organizationId], references: [id])
-  contactFields  ContactFields[]
+  organizationId String         @map("organization_id")
+  organization   Organization   @relation(fields: [organizationId], references: [id])
+  contactField   ContactField[]
 
   isActive  Boolean  @default(true) @map("is_active")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
-model Fields {
+model Field {
   id       String     @id @default(cuid())
   name     String
   type     FieldsType
-  required Boolean
-  order    Int
-  options  String[]
+  required Boolean    @default(false)
+  order    Int?
+  options  Json
 
-  organizationId String          @map("organization_id")
-  organization   Organization    @relation(fields: [organizationId], references: [id])
-  contactFields  ContactFields[]
+  organizationId String         @map("organization_id")
+  organization   Organization   @relation(fields: [organizationId], references: [id])
+  contactField   ContactField[]
 
   isActive  Boolean  @default(true) @map("is_active")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
-model ContactFields {
+model ContactField {
   id   String @id @default(cuid())
   data Json
 
   contactId String  @map("contact_id")
   fieldId   String  @map("field_id")
   contact   Contact @relation(fields: [contactId], references: [id])
-  field     Fields  @relation(fields: [fieldId], references: [id])
+  field     Field   @relation(fields: [fieldId], references: [id])
 
   isActive  Boolean  @default(true) @map("is_active")
   createdAt DateTime @default(now()) @map("created_at")
