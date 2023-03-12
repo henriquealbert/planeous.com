@@ -1,8 +1,12 @@
 import { Avatar, Card, Divider, Flex, Grid, Input, Text } from '@mantine/core'
 import { useTranslations } from 'next-intl'
+import { api } from 'utils/api'
+import { FieldComponent } from './FieldComponent'
 
 export const FieldsList = () => {
   const t = useTranslations('Settings.CustomFields.Contacts.FieldsList')
+  const { data } = api.field.listAll.useQuery()
+
   return (
     <Card withBorder p="xl" maw="850px" shadow="sm">
       <Grid grow gutter="xl">
@@ -35,17 +39,11 @@ export const FieldsList = () => {
           <Divider mt="xl" />
         </Grid.Col>
 
-        <Grid.Col span={6}>
-          <Input.Wrapper label="Email">
-            <Input type="email" disabled />
-          </Input.Wrapper>
-        </Grid.Col>
-
-        <Grid.Col span={6}>
-          <Input.Wrapper label="Company Name">
-            <Input disabled />
-          </Input.Wrapper>
-        </Grid.Col>
+        {data?.fields.map((field) => (
+          <Grid.Col span={6} key={field.id}>
+            <FieldComponent field={field} />
+          </Grid.Col>
+        ))}
       </Grid>
     </Card>
   )
