@@ -1,5 +1,5 @@
 import { Stack } from '@mantine/core'
-import { CreateNewCustomField } from './CreateNewCustomField'
+import { CreateNewCustomField } from './CreateNewCustomField/CreateNewCustomField'
 import { DeletedFields } from './DeletedFields'
 import { FieldsList } from './FieldsList'
 
