@@ -9,3 +9,17 @@ export const createFieldValidation = z.object({
 })
 
 export type FieldValidation = z.infer<typeof createFieldValidation>
+
+export const showRequired = (type: FieldsType) => {
+  switch (type) {
+    case FieldsType.TEXTAREA:
+      return false
+    case FieldsType.CHECKBOX:
+      return false
+    case FieldsType.RATING:
+      return false
+
+    default:
+      return true
+  }
+}

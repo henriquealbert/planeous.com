@@ -7,6 +7,7 @@ import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { api } from 'utils/api'
 import type { FieldValidation } from './utils'
+import { showRequired } from './utils'
 import { createFieldValidation } from './utils'
 import { SelectFieldType } from './SelectFieldType'
 
@@ -102,18 +103,4 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
       </form>
     </Modal>
   )
-}
-
-const showRequired = (type: FieldsType) => {
-  switch (type) {
-    case FieldsType.TEXTAREA:
-      return false
-    case FieldsType.CHECKBOX:
-      return false
-    case FieldsType.RATING:
-      return false
-
-    default:
-      return true
-  }
 }
