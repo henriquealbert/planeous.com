@@ -6,7 +6,6 @@ import {
   Group,
   Input,
   MultiSelect,
-  NativeSelect,
   NumberInput,
   Rating,
   rem,
@@ -31,6 +30,7 @@ import {
   IconUpload
 } from '@tabler/icons-react'
 import { DateTimePicker } from '@mantine/dates'
+import { CurrencyInput } from 'components/Inputs'
 
 interface FieldComponentProps {
   field: Field
@@ -61,41 +61,7 @@ const getField = (field: Field) => {
         />
       )
     case FieldsType.CURRENCY:
-      return (
-        <Flex w="100%">
-          <NativeSelect
-            data={[
-              { value: 'eur', label: '🇪🇺 EUR' },
-              { value: 'usd', label: '🇺🇸 USD' },
-              { value: 'cad', label: '🇨🇦 CAD' },
-              { value: 'gbp', label: '🇬🇧 GBP' },
-              { value: 'aud', label: '🇦🇺 AUD' }
-            ]}
-            styles={{
-              input: {
-                fontWeight: 500,
-                borderTopRightRadius: 0,
-                borderBottomRightRadius: 0,
-                width: rem(100)
-              }
-            }}
-          />
-          <NumberInput
-            w="100%"
-            hideControls
-            placeholder="1,000.00"
-            precision={2}
-            formatter={(value) => value.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-            parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
-            styles={{
-              input: {
-                borderTopLeftRadius: 0,
-                borderBottomLeftRadius: 0
-              }
-            }}
-          />
-        </Flex>
-      )
+      return <CurrencyInput />
     case FieldsType.DATETIME:
       return (
         <DateTimePicker
