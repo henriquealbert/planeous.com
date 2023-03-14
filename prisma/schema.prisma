@@ -10,6 +10,31 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Plan {
+  FREETRIAL
+  ESSENTIAL
+  PROFESSIONAL
+  ADMIN
+}
+
+enum FieldsType {
+  TEXT
+  TEXTAREA
+  NUMBER
+  CURRENCY
+  DATETIME
+  SELECT
+  MULTI_SELECT
+  CHECKBOX
+  CONTACT_LINK
+  SEGMENTED_CONTROL
+  EMAIL
+  PHONE
+  URL
+  FILE
+  RATING
+}
+
 // Necessary for Next auth
 model Account {
   id                String  @id @default(cuid())
@@ -77,13 +102,6 @@ model User {
   updatedAt DateTime @updatedAt @map("updated_at")
 }
 
-enum Plan {
-  FREETRIAL
-  ESSENTIAL
-  PROFESSIONAL
-  ADMIN
-}
-
 model Organization {
   id      String @id @default(cuid())
   name    String
@@ -98,20 +116,54 @@ model Organization {
   isActive  Boolean  @default(true) @map("is_active")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
+  fields    Field[]
 
   @@unique([name, slug])
 }
 
 model Contact {
-  id        String @id @default(cuid())
-  firstName String? @map("first_name")
-  lastName  String? @map("last_name")
-  phone     String?
-  email     String?
-  avatarUrl String? @map("avatar_url")
+  id         String  @id @default(cuid())
+  salutation String?
+  firstName  String  @map("first_name")
+  middleName String? @map("middle_name")
+  lastName   String? @map("last_name")
+  suffix     String?
+  avatarUrl  String? @map("avatar_url")
 
-  organizationId String       @map("organization_id")
-  organization   Organization @relation(fields: [organizationId], references: [id])
+  organizationId String         @map("organization_id")
+  organization   Organization   @relation(fields: [organizationId], references: [id])
+  contactField   ContactField[]
+
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model Field {
+  id       String     @id @default(cuid())
+  name     String
+  type     FieldsType
+  required Boolean    @default(false)
+  order    Int?
+  options  Json
+
+  organizationId String         @map("organization_id")
+  organization   Organization   @relation(fields: [organizationId], references: [id])
+  contactField   ContactField[]
+
+  isActive  Boolean  @default(true) @map("is_active")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+}
+
+model ContactField {
+  id   String @id @default(cuid())
+  data Json
+
+  contactId String  @map("contact_id")
+  fieldId   String  @map("field_id")
+  contact   Contact @relation(fields: [contactId], references: [id])
+  field     Field   @relation(fields: [fieldId], references: [id])
 
   isActive  Boolean  @default(true) @map("is_active")
   createdAt DateTime @default(now()) @map("created_at")

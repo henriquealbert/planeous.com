@@ -1,16 +1,14 @@
-import { Flex, Title } from '@mantine/core'
-import { ProtectedRoute } from 'components/Layouts/PrivateRoute/PrivateRoute'
+import { Flex } from '@mantine/core'
+import { PrivateRouteSettings } from 'components/Layouts/PrivateRoute/PrivateRouteSettings'
 import type { GetStaticProps } from 'next'
 import { type NextPage } from 'next'
 import { getServerTranslation } from 'utils/serverTranslation'
 
 const BillingPage: NextPage = () => {
   return (
-    <ProtectedRoute>
-      <Flex direction="column">
-        <Title order={1}>Billing</Title>
-      </Flex>
-    </ProtectedRoute>
+    <PrivateRouteSettings pageTitle="Billing">
+      <Flex direction="column">content</Flex>
+    </PrivateRouteSettings>
   )
 }
 

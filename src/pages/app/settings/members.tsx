@@ -1,5 +1,5 @@
 import { Flex } from '@mantine/core'
-import { ProtectedRoute } from 'components/Layouts/PrivateRoute/PrivateRoute'
+import { PrivateRouteSettings } from 'components/Layouts/PrivateRoute/PrivateRouteSettings'
 import { InviteMembers } from 'components/Organization/InviteMembers/InviteMembers'
 import type { GetStaticProps } from 'next'
 import { type NextPage } from 'next'
@@ -7,11 +7,11 @@ import { getServerTranslation } from 'utils/serverTranslation'
 
 const InviteMembersPage: NextPage = () => {
   return (
-    <ProtectedRoute pageTitle="Invite Members">
+    <PrivateRouteSettings pageTitle="Members">
       <Flex direction="column" maw="400px">
         <InviteMembers />
       </Flex>
-    </ProtectedRoute>
+    </PrivateRouteSettings>
   )
 }
 
