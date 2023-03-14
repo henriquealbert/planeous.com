@@ -1,9 +1,12 @@
 import {
+  Autocomplete,
   Checkbox,
   FileInput,
+  Flex,
   Group,
   Input,
   MultiSelect,
+  NativeSelect,
   NumberInput,
   Rating,
   rem,
@@ -56,7 +59,40 @@ const getField = (field: Field) => {
         />
       )
     case FieldsType.CURRENCY:
-      return <Input disabled />
+      return (
+        <Flex w="100%">
+          <NativeSelect
+            data={[
+              { value: 'eur', label: '🇪🇺 EUR' },
+              { value: 'usd', label: '🇺🇸 USD' },
+              { value: 'cad', label: '🇨🇦 CAD' },
+              { value: 'gbp', label: '🇬🇧 GBP' },
+              { value: 'aud', label: '🇦🇺 AUD' }
+            ]}
+            styles={{
+              input: {
+                fontWeight: 500,
+                borderTopRightRadius: 0,
+                borderBottomRightRadius: 0,
+                width: rem(100)
+              }
+            }}
+          />
+          <NumberInput
+            w="100%"
+            hideControls
+            precision={2}
+            formatter={(value) => value.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
+            parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+            styles={{
+              input: {
+                borderTopLeftRadius: 0,
+                borderBottomLeftRadius: 0
+              }
+            }}
+          />
+        </Flex>
+      )
     case FieldsType.DATETIME:
       return (
         <DateTimePicker
@@ -78,6 +114,8 @@ const getField = (field: Field) => {
             { value: 'next', label: 'Next.js' },
             { value: 'blitz', label: 'Blitz.js' }
           ]}
+          clearable
+          searchable
           icon={<IconList size={rem(16)} />}
         />
       )
@@ -93,6 +131,8 @@ const getField = (field: Field) => {
             { value: 'next', label: 'Next.js' },
             { value: 'blitz', label: 'Blitz.js' }
           ]}
+          clearable
+          searchable
           icon={<IconPlaylistAdd size={rem(16)} />}
         />
       )
@@ -108,7 +148,7 @@ const getField = (field: Field) => {
         </Checkbox.Group>
       )
     case FieldsType.CONTACT_LINK:
-      return <Input disabled />
+      return <Autocomplete data={[]} />
     case FieldsType.SEGMENTED_CONTROL:
       return (
         <div>
@@ -127,7 +167,7 @@ const getField = (field: Field) => {
     case FieldsType.PHONE:
       return <TextInput icon={<IconPhone size={rem(14)} />} />
     case FieldsType.URL:
-      return <Input disabled />
+      return <Input />
     case FieldsType.FILE:
       return <FileInput placeholder="Upload file" icon={<IconUpload size={rem(14)} />} />
     case FieldsType.COUNTRY:
@@ -135,7 +175,7 @@ const getField = (field: Field) => {
     case FieldsType.RATING:
       return <Rating value={3.5} fractions={2} readOnly />
     default:
-      return <Input disabled />
+      return <Input />
   }
 }
 
