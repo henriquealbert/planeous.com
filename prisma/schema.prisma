@@ -32,7 +32,6 @@ enum FieldsType {
   PHONE
   URL
   FILE
-  COUNTRY
   RATING
 }
 

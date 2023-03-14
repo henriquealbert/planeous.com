@@ -180,7 +180,6 @@
         "phone": "Phone Field",
         "url": "URL Field",
         "file": "File Field",
-        "country": "Country Field",
         "rating": "Rating Field"
       }
     }
