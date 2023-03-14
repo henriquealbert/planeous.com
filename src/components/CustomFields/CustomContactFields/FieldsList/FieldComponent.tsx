@@ -13,7 +13,8 @@ import {
   SegmentedControl,
   Select,
   Textarea,
-  TextInput
+  TextInput,
+  UnstyledButton
 } from '@mantine/core'
 import type { Field } from '@prisma/client'
 import { FieldsType } from '@prisma/client'
@@ -21,7 +22,7 @@ import {
   Icon123,
   IconAt,
   IconCalendar,
-  IconFlag,
+  IconExternalLink,
   IconForms,
   IconList,
   IconPhone,
@@ -46,12 +47,13 @@ export const FieldComponent = ({ field }: FieldComponentProps) => {
 const getField = (field: Field) => {
   switch (field.type) {
     case FieldsType.TEXT:
-      return <TextInput icon={<IconTypography size={rem(14)} />} />
+      return <TextInput placeholder="Single line text" icon={<IconTypography size={rem(14)} />} />
     case FieldsType.NUMBER:
-      return <NumberInput icon={<Icon123 size={rem(18)} />} />
+      return <NumberInput placeholder="1234567890" icon={<Icon123 size={rem(18)} />} />
     case FieldsType.TEXTAREA:
       return (
         <Textarea
+          placeholder="Multi line text"
           icon={<IconForms style={{ marginBottom: 'auto', marginTop: rem(14) }} size={rem(14)} />}
           minRows={2}
           maxRows={4}
@@ -81,6 +83,7 @@ const getField = (field: Field) => {
           <NumberInput
             w="100%"
             hideControls
+            placeholder="1,000.00"
             precision={2}
             formatter={(value) => value.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
             parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
@@ -163,35 +166,37 @@ const getField = (field: Field) => {
         </div>
       )
     case FieldsType.EMAIL:
-      return <TextInput placeholder="Your email" icon={<IconAt size={rem(14)} />} />
+      return <TextInput type="email" placeholder="Your email" icon={<IconAt size={rem(14)} />} />
     case FieldsType.PHONE:
       return <TextInput icon={<IconPhone size={rem(14)} />} />
     case FieldsType.URL:
-      return <Input />
+      return (
+        <Flex w="100%" pos="relative">
+          <UnstyledButton
+            sx={{
+              cursor: 'pointer',
+              zIndex: 99,
+              width: 36,
+              height: 36,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              '&:hover': {
+                color: 'rgba(255, 255, 255,0.5)'
+              }
+            }}
+            pos="absolute"
+          >
+            <IconExternalLink size={rem(14)} />
+          </UnstyledButton>
+          <TextInput placeholder="https://www.planeous.com" w="100%" icon={<></>} />
+        </Flex>
+      )
     case FieldsType.FILE:
       return <FileInput placeholder="Upload file" icon={<IconUpload size={rem(14)} />} />
-    case FieldsType.COUNTRY:
-      return <Input icon={<IconFlag size={rem(14)} />} />
     case FieldsType.RATING:
       return <Rating value={3.5} fractions={2} readOnly />
     default:
       return <Input />
   }
 }
-
-// TEXT: 'TEXT',
-//   TEXTAREA: 'TEXTAREA',
-//   NUMBER: 'NUMBER',
-//   CURRENCY: 'CURRENCY',
-//   DATETIME: 'DATETIME',
-//   SELECT: 'SELECT',
-//   MULTI_SELECT: 'MULTI_SELECT',
-//   CHECKBOX: 'CHECKBOX',
-//   CONTACT_LINK: 'CONTACT_LINK',
-//   SEGMENTED_CONTROL: 'SEGMENTED_CONTROL',
-//   EMAIL: 'EMAIL',
-//   PHONE: 'PHONE',
-//   URL: 'URL',
-//   FILE: 'FILE',
-//   COUNTRY: 'COUNTRY',
-//   RATING: 'RATING'
