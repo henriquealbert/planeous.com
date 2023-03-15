@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { Select } from '@mantine/core'
 import { FieldsType } from '@prisma/client'
 import { useTranslations } from 'next-intl'
@@ -14,8 +13,7 @@ export const SelectFieldType = ({ control }: SelectFieldTypeProps) => {
 
   const FIELD_TYPE_DATA = Object.keys(FieldsType).map((key) => ({
     value: key,
-    // @ts-ignore
-    label: t(key.toLowerCase())
+    label: t(key as keyof typeof FieldsType)
   }))
   return (
     <Controller

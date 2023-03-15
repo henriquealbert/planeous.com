@@ -11,7 +11,8 @@
     },
     "Navbar": {
       "home": "Início",
-      "contacts": "Contatos"
+      "contacts": "Contatos",
+      "settings": "Configurações"
     }
   },
   "Contacts": {
@@ -29,11 +30,11 @@
     }
   },
   "DropzoneFileInput": {
-    "accept":"Solte o arquivo aqui",
-    "reject":"Por favor faça o upload de um arquivo CSV",
-    "idle":"Faça o upload dos seus contatos",
-    "placeholder":"Arraste e solte o arquivo aqui para fazer o upload. Nós aceitamos somente arquivos .csv",
-    "button":"Selecione um arquivo"
+    "accept": "Solte o arquivo aqui",
+    "reject": "Por favor faça o upload de um arquivo CSV",
+    "idle": "Faça o upload dos seus contatos",
+    "placeholder": "Arraste e solte o arquivo aqui para fazer o upload. Nós aceitamos somente arquivos .csv",
+    "button": "Selecione um arquivo"
   },
   "ImportContacts": {
     "title": "Importar contatos",
@@ -54,6 +55,25 @@
       "step1_4": "<strong>OBSERVAÇÃO:</strong> Se você solicitar que a equipe Planeous cuide de sua importação, seu arquivo precisará atender a esses padrões básicos de formatação preparatória. Caso contrário, provavelmente solicitaremos que você formate seu arquivo corretamente antes de podermos importá-lo para você.",
       "step2": "Passo 2: Carregue seus dados para o seu CRM",
       "step2_1": "Depois que o arquivo estiver formatado corretamente, arraste e solte ou clique para selecionar um arquivo à esquerda para procurar seu arquivo e iniciar o assistente de importação. O importador ajudará você a parear cada coluna da sua planilha com os campos do seu CRM para criar seus contatos!"
+    },
+    "AlignFields": {
+      "description": "Map the fields from your spreadsheet into the CRM fields.",
+      "importingFile": "Importing the file",
+      "cancelButton": "Cancel import",
+      "Table": {
+        "button": "Finalize the import",
+        "csvHeader": "Spreadsheet Field",
+        "crmField": "CRM Field",
+        "crmFieldPlaceholder": "Select a field",
+        "crmFieldErrorNotMapped": "This field is not mapped",
+        "crmFieldErrorDuplicate": "This field is already selected"
+      },
+      "Instructions": {
+        "title": "Important notes:",
+        "note1": "For every row in your spreadsheet, we'll create a new contact record in the CRM.",
+        "note2": "<strong>NOTE:</strong> If you don't see a field that you need, please create it in the Custom Field section",
+        "note3": "<strong>NOTE:</strong> If you don't want to import a field, please select the '--' option"
+      }
     }
   },
   "OnboardingForm": {
@@ -91,6 +111,77 @@
       "maxAllowed": "Você só pode convidar até 5 membros de uma vez.",
       "skipBtn": "Pular por enquanto",
       "submitBtn": "Convidar meu time"
+    }
+  },
+  "Settings": {
+    "title": "Settings",
+    "SidebarNav": {
+      "profile": "Profile",
+      "billing": "Billing",
+      "members": "Members",
+      "customFields": "Custom Fields"
+    },
+    "CustomFields": {
+      "title": "Custom Fields",
+      "description": "On this page, you're able to create different custom field types for your contacts to store and track all the different things you need to stay organized.",
+      "primaryRecords": "Primary records",
+      "contacts": "Contacts",
+      "companies": "Companies",
+      "Contacts": {
+        "title": "Custom Contact Fields",
+        "description": "Use this page to manage the fields for contact records. These are fields you'll see any time you add or edit a contact record. Click on a field to edit its settings, or click-and-drag to move it.",
+        "backBtn": "Back to custom fields",
+        "createNewCustomFieldBtn": "Create new custom field",
+        "CreateNewCustomField": {
+          "cancel": "Cancel",
+          "createModalTitle": "Create custom contact field",
+          "createCustomField": "Create custom field",
+          "editCustomField": "Edit custom field",
+          "deleteCustomField": "Delete custom field",
+          "deleteCustomFieldConfirmation": "Are you sure you want to delete this custom field? This action cannot be undone.",
+          "deleteCustomFieldConfirmationYes": "Yes, delete this field",
+          "deleteCustomFieldConfirmationNo": "No, keep this field",
+          "deleteCustomFieldSuccess": "The custom field was deleted successfully.",
+          "deleteCustomFieldError": "There was an error deleting the custom field.",
+          "createCustomFieldSuccessTitle": "The custom field was created successfully.",
+          "createCustomFieldSuccess": "You can now use this field to store and track any information you need to stay organized.",
+          "createCustomFieldError": "There was an error creating the custom field.",
+          "editCustomFieldSuccess": "The custom field was edited successfully.",
+          "editCustomFieldError": "There was an error editing the custom field.",
+          "fieldName": "Field name",
+          "fieldNamePlaceholder": "Enter a name for the field",
+          "fieldNameError": "Please enter a name for the field",
+          "markAsRequired": "Mark this field as required",
+          "numberOption": "Use European number format (9.999,99) instead of American (9,999.99)"
+        },
+        "FieldsList": {
+          "note": "NOTE: these are the only fields that can't be moved. They must always be at the top of the form."
+        },
+        "DeletedFields": {
+          "title": "Deleted Fields",
+          "note": "These fields aren't used in your CRM at all. If you see a field in this section, the data is effectively deleted, although you can restore the field later.",
+          "noData": "You have no deleted fields."
+        }
+      },
+      "FieldsType": {
+        "fieldType": "Field type",
+        "fieldTypePlaceholder": "Select a field type",
+        "TEXT": "Text (single-line)",
+        "TEXTAREA": "Text Area (multi-line)",
+        "NUMBER": "Number Field",
+        "CURRENCY": "Currency Field",
+        "DATETIME": "Date & Time Field",
+        "SELECT": "Dropdown List",
+        "MULTI_SELECT": "Multi Dropdown List",
+        "CHECKBOX": "Checkbox List",
+        "CONTACT_LINK": "Contact Link",
+        "SEGMENTED_CONTROL": "Segmented Control List",
+        "EMAIL": "Email Field",
+        "PHONE": "Phone Field",
+        "URL": "URL Field",
+        "FILE": "File Field",
+        "RATING": "Rating Field"
+      }
     }
   }
 }

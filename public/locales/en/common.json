@@ -166,21 +166,21 @@
       "FieldsType": {
         "fieldType": "Field type",
         "fieldTypePlaceholder": "Select a field type",
-        "text": "Text (single-line)",
-        "textarea": "Text Area (multi-line)",
-        "number": "Number Field",
-        "currency": "Currency Field",
-        "datetime": "Date & Time Field",
-        "select": "Dropdown List",
-        "multi_select": "Multi Dropdown List",
-        "checkbox": "Checkbox List",
-        "segmented_control": "Segmented Control List",
-        "contact_link": "Contact Link",
-        "email": "Email Field",
-        "phone": "Phone Field",
-        "url": "URL Field",
-        "file": "File Field",
-        "rating": "Rating Field"
+        "TEXT": "Text (single-line)",
+        "TEXTAREA": "Text Area (multi-line)",
+        "NUMBER": "Number Field",
+        "CURRENCY": "Currency Field",
+        "DATETIME": "Date & Time Field",
+        "SELECT": "Dropdown List",
+        "MULTI_SELECT": "Multi Dropdown List",
+        "CHECKBOX": "Checkbox List",
+        "CONTACT_LINK": "Contact Link",
+        "SEGMENTED_CONTROL": "Segmented Control List",
+        "EMAIL": "Email Field",
+        "PHONE": "Phone Field",
+        "URL": "URL Field",
+        "FILE": "File Field",
+        "RATING": "Rating Field"
       }
     }
   }
