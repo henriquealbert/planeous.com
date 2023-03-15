@@ -9,6 +9,7 @@ import type { FieldValidation } from './utils'
 import { showRequired } from './utils'
 import { createFieldValidation } from './utils'
 import { SelectFieldType } from './SelectFieldType'
+import { CustomFieldWithOptions } from './CustomFieldWithOptions'
 
 interface CreateNewCustomFieldModalProps {
   opened: boolean
@@ -33,7 +34,9 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
       name: '',
       type: FieldsType.TEXT,
       required: false,
-      options: {}
+      options: {
+        data: [{ value: '' }, { value: '' }, { value: '' }]
+      }
     },
     resolver: zodResolver(createFieldValidation)
   })
@@ -80,10 +83,6 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
           <SelectFieldType control={control} />
 
           <Stack spacing="xs">
-            {showRequired(type) ? (
-              <Checkbox {...register('required')} size="xs" label={t('markAsRequired')} />
-            ) : null}
-
             {type.includes(FieldsType.NUMBER) && (
               <>
                 <Checkbox
@@ -110,11 +109,15 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
             )}
 
             {type.includes(FieldsType.CURRENCY) && (
-              <Checkbox
-                size="xs"
-                label="Use European number format (9.999,99) instead of American (9,999.99)"
-              />
+              <>
+                <CustomFieldWithOptions control={control} register={register} />
+                <Checkbox size="xs" label={t('CurrencyOptions.format')} />
+              </>
             )}
+
+            {showRequired(type) ? (
+              <Checkbox {...register('required')} size="xs" label={t('markAsRequired')} />
+            ) : null}
           </Stack>
           <Divider />
           <Flex justify="flex-end">

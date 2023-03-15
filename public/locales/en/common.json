@@ -155,6 +155,9 @@
           "NumberOptions": {
             "negativeNumbers": "Allow negative numbers",
             "decimalNumbers": "Allow decimal numbers"
+          },
+          "CurrencyOptions":{
+            "format": "Use European number format (9.999,99) instead of American (9,999.99)"
           }
         },
         "FieldsList": {
