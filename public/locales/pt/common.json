@@ -152,7 +152,10 @@
           "fieldNamePlaceholder": "Enter a name for the field",
           "fieldNameError": "Please enter a name for the field",
           "markAsRequired": "Mark this field as required",
-          "numberOption": "Use European number format (9.999,99) instead of American (9,999.99)"
+          "NumberOptions": {
+            "negativeNumbers": "Allow negative numbers",
+            "decimalNumbers": "Allow decimal numbers"
+          }
         },
         "FieldsList": {
           "note": "NOTE: these are the only fields that can't be moved. They must always be at the top of the form."

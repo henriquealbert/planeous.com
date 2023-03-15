@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Button, Checkbox, Divider, Flex, Input, Modal, Stack } from '@mantine/core'
 import { notifications } from '@mantine/notifications'
@@ -27,6 +26,7 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
     handleSubmit,
     reset,
     watch,
+    setValue,
     formState: { errors, isSubmitting }
   } = useForm<FieldValidation>({
     defaultValues: {
@@ -83,7 +83,33 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
             {showRequired(type) ? (
               <Checkbox {...register('required')} size="xs" label={t('markAsRequired')} />
             ) : null}
+
             {type.includes(FieldsType.NUMBER) && (
+              <>
+                <Checkbox
+                  size="xs"
+                  label={t('NumberOptions.negativeNumbers')}
+                  onChange={(e) =>
+                    setValue('options', {
+                      ...watch('options'),
+                      negative: e.currentTarget.checked
+                    })
+                  }
+                />
+                <Checkbox
+                  size="xs"
+                  label={t('NumberOptions.decimalNumbers')}
+                  onChange={(e) =>
+                    setValue('options', {
+                      ...watch('options'),
+                      decimal: e.currentTarget.checked
+                    })
+                  }
+                />
+              </>
+            )}
+
+            {type.includes(FieldsType.CURRENCY) && (
               <Checkbox
                 size="xs"
                 label="Use European number format (9.999,99) instead of American (9,999.99)"
