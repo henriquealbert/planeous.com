@@ -1,7 +1,8 @@
 import { Flex, NativeSelect, NumberInput, rem } from '@mantine/core'
+import type { Field } from '@prisma/client'
 
-interface CurrencyInputProps {
-  data?: { value: string; label: string }[]
+interface CurrencyFieldProps {
+  field: Field
 }
 
 const defaultOptions = [
@@ -12,14 +13,14 @@ const defaultOptions = [
   { value: 'aud', label: '🇦🇺 AUD' }
 ]
 
-export const CurrencyInput = ({ data = defaultOptions }: CurrencyInputProps) => {
+export const CurrencyField = ({ field }: CurrencyFieldProps) => {
   // TODO: Update placeholder according to selected currency format
   // TODO: Update formatter according to selected currency format
   // TODO: Update parser according to selected currency format
   return (
     <Flex w="100%">
       <NativeSelect
-        data={data}
+        data={defaultOptions}
         styles={{
           input: {
             fontWeight: 500,

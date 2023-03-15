@@ -1,36 +1,24 @@
-import {
-  Autocomplete,
-  Checkbox,
-  FileInput,
-  Flex,
-  Group,
-  Input,
-  MultiSelect,
-  NumberInput,
-  Rating,
-  rem,
-  SegmentedControl,
-  Select,
-  Textarea,
-  TextInput,
-  UnstyledButton
-} from '@mantine/core'
+import { Input } from '@mantine/core'
 import type { Field } from '@prisma/client'
 import { FieldsType } from '@prisma/client'
+
 import {
-  Icon123,
-  IconAt,
-  IconCalendar,
-  IconExternalLink,
-  IconForms,
-  IconList,
-  IconPhone,
-  IconPlaylistAdd,
-  IconTypography,
-  IconUpload
-} from '@tabler/icons-react'
-import { DateTimePicker } from '@mantine/dates'
-import { CurrencyInput } from 'components/Inputs'
+  CheckboxField,
+  ContactLinkField,
+  CurrencyField,
+  DatetimeField,
+  EmailField,
+  FileField,
+  MultiSelectField,
+  NumberField,
+  PhoneField,
+  RatingField,
+  SegmentedControlField,
+  SelectField,
+  TextAreaField,
+  TextField,
+  UrlField
+} from 'components/Fields'
 
 interface FieldComponentProps {
   field: Field
@@ -47,122 +35,34 @@ export const FieldComponent = ({ field }: FieldComponentProps) => {
 const getField = (field: Field) => {
   switch (field.type) {
     case FieldsType.TEXT:
-      return <TextInput placeholder="Single line text" icon={<IconTypography size={rem(14)} />} />
+      return <TextField field={field} />
     case FieldsType.NUMBER:
-      return <NumberInput placeholder="1234567890" icon={<Icon123 size={rem(18)} />} />
+      return <NumberField field={field} />
     case FieldsType.TEXTAREA:
-      return (
-        <Textarea
-          placeholder="Multi line text"
-          icon={<IconForms style={{ marginBottom: 'auto', marginTop: rem(14) }} size={rem(14)} />}
-          minRows={2}
-          maxRows={4}
-          autosize
-        />
-      )
+      return <TextAreaField field={field} />
     case FieldsType.CURRENCY:
-      return <CurrencyInput />
+      return <CurrencyField field={field} />
     case FieldsType.DATETIME:
-      return (
-        <DateTimePicker
-          icon={<IconCalendar size={rem(14)} />}
-          placeholder="dd/mm/yyyy"
-          clearable
-          defaultValue={new Date()}
-        />
-      )
+      return <DatetimeField field={field} />
     case FieldsType.SELECT:
-      return (
-        <Select
-          data={[
-            { value: 'react', label: 'React' },
-            { value: 'ng', label: 'Angular' },
-            { value: 'svelte', label: 'Svelte' },
-            { value: 'vue', label: 'Vue' },
-            { value: 'riot', label: 'Riot' },
-            { value: 'next', label: 'Next.js' },
-            { value: 'blitz', label: 'Blitz.js' }
-          ]}
-          clearable
-          searchable
-          icon={<IconList size={rem(16)} />}
-        />
-      )
+      return <SelectField field={field} />
     case FieldsType.MULTI_SELECT:
-      return (
-        <MultiSelect
-          data={[
-            { value: 'react', label: 'React' },
-            { value: 'ng', label: 'Angular' },
-            { value: 'svelte', label: 'Svelte' },
-            { value: 'vue', label: 'Vue' },
-            { value: 'riot', label: 'Riot' },
-            { value: 'next', label: 'Next.js' },
-            { value: 'blitz', label: 'Blitz.js' }
-          ]}
-          clearable
-          searchable
-          icon={<IconPlaylistAdd size={rem(16)} />}
-        />
-      )
+      return <MultiSelectField field={field} />
     case FieldsType.CHECKBOX:
-      return (
-        <Checkbox.Group defaultValue={['react']}>
-          <Group mt="xs">
-            <Checkbox value="react" label="React" />
-            <Checkbox value="svelte" label="Svelte" />
-            <Checkbox value="ng" label="Angular" />
-            <Checkbox value="vue" label="Vue" />
-          </Group>
-        </Checkbox.Group>
-      )
+      return <CheckboxField field={field} />
     case FieldsType.CONTACT_LINK:
-      return <Autocomplete data={[]} />
+      return <ContactLinkField field={field} />
     case FieldsType.SEGMENTED_CONTROL:
-      return (
-        <div>
-          <SegmentedControl
-            data={[
-              { label: 'React', value: 'react' },
-              { label: 'Angular', value: 'ng' },
-              { label: 'Vue', value: 'vue' },
-              { label: 'Svelte', value: 'svelte' }
-            ]}
-          />
-        </div>
-      )
+      return <SegmentedControlField field={field} />
     case FieldsType.EMAIL:
-      return <TextInput type="email" placeholder="Your email" icon={<IconAt size={rem(14)} />} />
+      return <EmailField field={field} />
     case FieldsType.PHONE:
-      return <TextInput icon={<IconPhone size={rem(14)} />} />
+      return <PhoneField field={field} />
     case FieldsType.URL:
-      return (
-        <Flex w="100%" pos="relative">
-          <UnstyledButton
-            sx={{
-              cursor: 'pointer',
-              zIndex: 99,
-              width: 36,
-              height: 36,
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              '&:hover': {
-                color: 'rgba(255, 255, 255,0.5)'
-              }
-            }}
-            pos="absolute"
-          >
-            <IconExternalLink size={rem(14)} />
-          </UnstyledButton>
-          <TextInput placeholder="https://www.planeous.com" w="100%" icon={<></>} />
-        </Flex>
-      )
+      return <UrlField field={field} />
     case FieldsType.FILE:
-      return <FileInput placeholder="Upload file" icon={<IconUpload size={rem(14)} />} />
+      return <FileField field={field} />
     case FieldsType.RATING:
-      return <Rating value={3.5} fractions={2} readOnly />
-    default:
-      return <Input />
+      return <RatingField field={field} />
   }
 }
