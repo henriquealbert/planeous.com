@@ -1,32 +1,31 @@
-import { Flex, NativeSelect, NumberInput, rem } from '@mantine/core'
+import { Flex, NativeSelect, NumberInput } from '@mantine/core'
 import type { Field } from '@prisma/client'
 
 interface CurrencyFieldProps {
   field: Field
 }
 
-const defaultOptions = [
-  { value: 'eur', label: '🇪🇺 EUR' },
-  { value: 'usd', label: '🇺🇸 USD' },
-  { value: 'cad', label: '🇨🇦 CAD' },
-  { value: 'gbp', label: '🇬🇧 GBP' },
-  { value: 'aud', label: '🇦🇺 AUD' }
-]
-
 export const CurrencyField = ({ field }: CurrencyFieldProps) => {
   // TODO: Update placeholder according to selected currency format
   // TODO: Update formatter according to selected currency format
   // TODO: Update parser according to selected currency format
+  const options = field?.options as { data?: { value: string }[] }
+  const data =
+    options.data?.map((option) => ({
+      value: option.value,
+      label: option.value
+    })) || []
+
   return (
     <Flex w="100%">
       <NativeSelect
-        data={defaultOptions}
+        data={data}
         styles={{
           input: {
             fontWeight: 500,
             borderTopRightRadius: 0,
             borderBottomRightRadius: 0,
-            width: rem(100)
+            width: 'fit-content'
           }
         }}
       />
