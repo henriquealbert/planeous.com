@@ -18,6 +18,8 @@ export const showRequired = (type: FieldsType) => {
       return false
     case FieldsType.RATING:
       return false
+    case FieldsType.SEGMENTED_CONTROL:
+      return false
 
     default:
       return true
@@ -33,6 +35,8 @@ export const showOptions = (type: FieldsType) => {
     case FieldsType.MULTI_SELECT:
       return true
     case FieldsType.CURRENCY:
+      return true
+    case FieldsType.SEGMENTED_CONTROL:
       return true
 
     default:

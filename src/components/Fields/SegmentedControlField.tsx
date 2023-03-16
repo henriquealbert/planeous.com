@@ -1,20 +1,21 @@
 import { SegmentedControl } from '@mantine/core'
 import type { Field } from '@prisma/client'
 
+interface FieldProps extends Field {
+  options: { data?: { value: string }[] }
+}
 interface SegmentedControlFieldProps {
-  field: Field
+  field: FieldProps
 }
 export const SegmentedControlField = ({ field }: SegmentedControlFieldProps) => {
+  const data =
+    field.options.data?.map((option) => ({
+      value: option.value,
+      label: option.value
+    })) || []
   return (
     <div>
-      <SegmentedControl
-        data={[
-          { label: 'React', value: 'react' },
-          { label: 'Angular', value: 'ng' },
-          { label: 'Vue', value: 'vue' },
-          { label: 'Svelte', value: 'svelte' }
-        ]}
-      />
+      <SegmentedControl data={data} />
     </div>
   )
 }
