@@ -1,20 +1,24 @@
 import { Flex, NativeSelect, NumberInput } from '@mantine/core'
 import type { Field } from '@prisma/client'
+import { currencyFormatter, currencyParser } from './utils'
 
+interface FieldProps extends Field {
+  options: {
+    data?: { value: string }[]
+    europeanFormat?: boolean
+  }
+}
 interface CurrencyFieldProps {
-  field: Field
+  field: FieldProps
 }
 
 export const CurrencyField = ({ field }: CurrencyFieldProps) => {
-  // TODO: Update placeholder according to selected currency format
-  // TODO: Update formatter according to selected currency format
-  // TODO: Update parser according to selected currency format
-  const options = field?.options as { data?: { value: string }[] }
   const data =
-    options.data?.map((option) => ({
+    field.options.data?.map((option) => ({
       value: option.value,
       label: option.value
     })) || []
+  const europeanFormat = !!field.options?.europeanFormat
 
   return (
     <Flex w="100%">
@@ -32,10 +36,11 @@ export const CurrencyField = ({ field }: CurrencyFieldProps) => {
       <NumberInput
         w="100%"
         hideControls
-        placeholder="1,000.00"
+        placeholder={europeanFormat ? '9.999,99' : '9,999.99'}
         precision={2}
-        formatter={(value) => value.replace(/\B(?=(\d{3})+(?!\d))/g, ',')}
-        parser={(value) => value.replace(/\$\s?|(,*)/g, '')}
+        formatter={(value) => currencyFormatter(value, europeanFormat)}
+        parser={currencyParser}
+        decimalSeparator={europeanFormat ? ',' : '.'}
         styles={{
           input: {
             borderTopLeftRadius: 0,

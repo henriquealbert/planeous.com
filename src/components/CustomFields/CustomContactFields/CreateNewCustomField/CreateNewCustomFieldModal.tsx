@@ -111,7 +111,16 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
             {type.includes(FieldsType.CURRENCY) && (
               <>
                 <CustomFieldWithOptions control={control} register={register} />
-                <Checkbox size="xs" label={t('CurrencyOptions.format')} />
+                <Checkbox
+                  size="xs"
+                  label={t('CurrencyOptions.format')}
+                  onChange={(e) =>
+                    setValue('options', {
+                      ...watch('options'),
+                      europeanFormat: e.currentTarget.checked
+                    })
+                  }
+                />
               </>
             )}
 
