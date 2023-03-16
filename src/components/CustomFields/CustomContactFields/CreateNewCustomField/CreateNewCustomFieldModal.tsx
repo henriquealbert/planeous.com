@@ -124,6 +124,12 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
               </>
             )}
 
+            {type.includes(FieldsType.SELECT) && (
+              <>
+                <CustomFieldWithOptions control={control} register={register} />
+              </>
+            )}
+
             {showRequired(type) ? (
               <Checkbox {...register('required')} size="xs" label={t('markAsRequired')} />
             ) : null}
