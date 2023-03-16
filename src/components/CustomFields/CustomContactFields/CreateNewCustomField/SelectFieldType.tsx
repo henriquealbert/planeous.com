@@ -26,6 +26,7 @@ export const SelectFieldType = ({ control }: SelectFieldTypeProps) => {
           placeholder={t('fieldTypePlaceholder')}
           withinPortal
           withAsterisk
+          searchable
           {...field}
         />
       )}

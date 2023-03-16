@@ -159,7 +159,11 @@
             "optionPlaceholder": "Option",
             "noteDragndrop": "You can re-order the options by dragging and dropping them",
             "dragme": "Drag me!",
-            "delete": "Remove Option"
+            "delete": "Remove option"
+          },
+          "RatingOptions": {
+            "isNps": "Use this field as a Net Promoter Score (NPS) field",
+            "starCount": "Star count"
           },
           "NumberOptions": {
             "negativeNumbers": "Allow negative numbers",

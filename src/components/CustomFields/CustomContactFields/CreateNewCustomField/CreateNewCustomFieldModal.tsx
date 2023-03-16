@@ -1,5 +1,5 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Checkbox, Divider, Flex, Input, Modal, Stack } from '@mantine/core'
+import { Button, Checkbox, Divider, Flex, Input, Modal, NumberInput, Stack } from '@mantine/core'
 import { notifications } from '@mantine/notifications'
 import { FieldsType } from '@prisma/client'
 import { useTranslations } from 'next-intl'
@@ -120,6 +120,36 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
                   })
                 }
               />
+            )}
+
+            {type.includes(FieldsType.RATING) && (
+              <>
+                <Input.Wrapper label={t('RatingOptions.starCount')} mb="sm">
+                  <NumberInput
+                    min={1}
+                    max={10}
+                    w="100px"
+                    defaultValue={5}
+                    disabled={watch('options').isNPS as boolean}
+                    onChange={(value) =>
+                      setValue('options', {
+                        ...watch('options'),
+                        ratingCount: Number(value)
+                      })
+                    }
+                  />
+                </Input.Wrapper>
+                <Checkbox
+                  size="xs"
+                  label={t('RatingOptions.isNps')}
+                  onChange={(e) =>
+                    setValue('options', {
+                      ...watch('options'),
+                      isNPS: e.currentTarget.checked
+                    })
+                  }
+                />
+              </>
             )}
 
             {showRequired(type) && (
