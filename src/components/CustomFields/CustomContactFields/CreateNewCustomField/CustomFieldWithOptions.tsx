@@ -2,18 +2,22 @@ import { DndContext, closestCenter } from '@dnd-kit/core'
 import type { DragEndEvent } from '@dnd-kit/core'
 import { SortableContext, verticalListSortingStrategy, useSortable } from '@dnd-kit/sortable'
 
-import { ActionIcon, Anchor, Card, Flex, rem, Stack, Text, TextInput } from '@mantine/core'
+import { ActionIcon, Anchor, Card, Flex, rem, Stack, Text, TextInput, Tooltip } from '@mantine/core'
 import { IconMenuOrder, IconX } from '@tabler/icons-react'
 import type { Control, UseFieldArrayRemove, UseFormRegister } from 'react-hook-form'
 import { useFieldArray } from 'react-hook-form'
 
 import type { FieldValidation } from './utils'
+import { useTranslations } from 'next-intl'
 
 interface CustomFieldWithOptionsProps {
   control: Control<FieldValidation>
   register: UseFormRegister<FieldValidation>
 }
 export const CustomFieldWithOptions = ({ control, register }: CustomFieldWithOptionsProps) => {
+  const t = useTranslations(
+    'Settings.CustomFields.Contacts.CreateNewCustomField.CustomFieldWithOptions'
+  )
   const { fields, append, remove, move } = useFieldArray({
     control,
     name: 'options.data'
@@ -21,16 +25,20 @@ export const CustomFieldWithOptions = ({ control, register }: CustomFieldWithOpt
 
   function handleDragEnd(event: DragEndEvent) {
     const { active, over } = event
-    if (active.id !== over?.id) {
-      move(active.id as number, over?.id as number)
-    }
+    move(active.id as number, over?.id as number)
   }
 
   return (
     <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCenter}>
       <Card withBorder mb="lg">
-        <Text mb="sm">Options</Text>
-        <Stack spacing="xs">
+        <Text>{t('options')}</Text>
+        <Text size="xs" color="dimmed">
+          {t('note')}
+        </Text>
+        <Text size="xs" color="dimmed">
+          {t('noteDragndrop')}
+        </Text>
+        <Stack spacing="xs" mt="md">
           <SortableContext
             items={fields.map((_, index: number) => index)}
             strategy={verticalListSortingStrategy}
@@ -49,10 +57,10 @@ export const CustomFieldWithOptions = ({ control, register }: CustomFieldWithOpt
             w="fit-content"
             component="button"
             type="button"
-            size="sm"
+            size="xs"
             onClick={() => append('')}
           >
-            Add another option
+            {t('addAnother')}
           </Anchor>
         </Stack>
       </Card>
@@ -66,6 +74,9 @@ interface DraggableProps {
   index: number
 }
 const Draggable = ({ field, register, remove, index }: DraggableProps) => {
+  const t = useTranslations(
+    'Settings.CustomFields.Contacts.CreateNewCustomField.CustomFieldWithOptions'
+  )
   const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
     id: index,
     transition: {
@@ -83,14 +94,27 @@ const Draggable = ({ field, register, remove, index }: DraggableProps) => {
       <TextInput
         w="100%"
         {...register(`options.data.${index}.value`)}
-        placeholder={`Option ${index + 1}`}
+        placeholder={`${t('optionPlaceholder')} ${index + 1}`}
       />
-      <ActionIcon onClick={() => remove(index)}>
-        <IconX size={rem(14)} />
-      </ActionIcon>
-      <ActionIcon id={field.id} {...listeners}>
-        <IconMenuOrder size={rem(14)} />
-      </ActionIcon>
+      <Tooltip label={t('delete')} withArrow withinPortal>
+        <ActionIcon onClick={() => remove(index)}>
+          <IconX size={rem(14)} />
+        </ActionIcon>
+      </Tooltip>
+      <Tooltip label={t('dragme')} withArrow withinPortal>
+        <ActionIcon
+          id={field.id}
+          sx={{
+            cursor: 'grab',
+            '&:active': {
+              cursor: 'grabbing'
+            }
+          }}
+          {...listeners}
+        >
+          <IconMenuOrder size={rem(14)} />
+        </ActionIcon>
+      </Tooltip>
     </Flex>
   )
 }

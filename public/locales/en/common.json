@@ -152,6 +152,15 @@
           "fieldNamePlaceholder": "Enter a name for the field",
           "fieldNameError": "Please enter a name for the field",
           "markAsRequired": "Mark this field as required",
+          "CustomFieldWithOptions": {
+            "options": "Options",
+            "note":"Hint: You can use emojis too! Eg.: '🇺🇸 USD'",
+            "addAnother": "Add another option",
+            "optionPlaceholder": "Option",
+            "noteDragndrop": "You can re-order the options by dragging and dropping them",
+            "dragme": "Drag me!",
+            "delete": "Remove Option"
+          },
           "NumberOptions": {
             "negativeNumbers": "Allow negative numbers",
             "decimalNumbers": "Allow decimal numbers"
