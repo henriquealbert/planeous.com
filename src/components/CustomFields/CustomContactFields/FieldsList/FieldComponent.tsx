@@ -32,7 +32,13 @@ export const FieldComponent = ({ field }: FieldComponentProps) => {
   )
 }
 
-const getField = (field: Field) => {
+interface FieldProps extends Field {
+  options: Record<string, never>
+}
+
+const getField = (_field: Field) => {
+  const field = _field as FieldProps // Prisma doesn't allow to add custom fields to the model
+
   switch (field.type) {
     case FieldsType.TEXT:
       return <TextField field={field} />
