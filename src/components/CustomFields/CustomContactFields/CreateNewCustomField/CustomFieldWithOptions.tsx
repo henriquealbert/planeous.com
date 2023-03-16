@@ -30,7 +30,7 @@ export const CustomFieldWithOptions = ({ control, register }: CustomFieldWithOpt
 
   return (
     <DndContext onDragEnd={handleDragEnd} collisionDetection={closestCenter}>
-      <Card withBorder mb="lg">
+      <Card withBorder>
         <Text>{t('options')}</Text>
         <Text size="xs" color="dimmed">
           {t('note')}

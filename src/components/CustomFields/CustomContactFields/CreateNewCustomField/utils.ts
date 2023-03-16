@@ -23,3 +23,19 @@ export const showRequired = (type: FieldsType) => {
       return true
   }
 }
+
+export const showOptions = (type: FieldsType) => {
+  switch (type) {
+    case FieldsType.CHECKBOX:
+      return true
+    case FieldsType.SELECT:
+      return true
+    case FieldsType.MULTI_SELECT:
+      return true
+    case FieldsType.CURRENCY:
+      return true
+
+    default:
+      return false
+  }
+}

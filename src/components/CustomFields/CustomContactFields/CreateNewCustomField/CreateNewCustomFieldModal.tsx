@@ -6,8 +6,7 @@ import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
 import { api } from 'utils/api'
 import type { FieldValidation } from './utils'
-import { showRequired } from './utils'
-import { createFieldValidation } from './utils'
+import { showOptions, showRequired, createFieldValidation } from './utils'
 import { SelectFieldType } from './SelectFieldType'
 import { CustomFieldWithOptions } from './CustomFieldWithOptions'
 
@@ -108,31 +107,24 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
               </>
             )}
 
+            {showOptions(type) && <CustomFieldWithOptions control={control} register={register} />}
             {type.includes(FieldsType.CURRENCY) && (
-              <>
-                <CustomFieldWithOptions control={control} register={register} />
-                <Checkbox
-                  size="xs"
-                  label={t('CurrencyOptions.format')}
-                  onChange={(e) =>
-                    setValue('options', {
-                      ...watch('options'),
-                      europeanFormat: e.currentTarget.checked
-                    })
-                  }
-                />
-              </>
+              <Checkbox
+                size="xs"
+                mt="md"
+                label={t('CurrencyOptions.format')}
+                onChange={(e) =>
+                  setValue('options', {
+                    ...watch('options'),
+                    europeanFormat: e.currentTarget.checked
+                  })
+                }
+              />
             )}
 
-            {type.includes(FieldsType.SELECT) && (
-              <>
-                <CustomFieldWithOptions control={control} register={register} />
-              </>
-            )}
-
-            {showRequired(type) ? (
+            {showRequired(type) && (
               <Checkbox {...register('required')} size="xs" label={t('markAsRequired')} />
-            ) : null}
+            )}
           </Stack>
           <Divider />
           <Flex justify="flex-end">
