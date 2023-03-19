@@ -16,17 +16,17 @@ export const DeletedFields = () => {
       <Card w="850px" p="xl" withBorder shadow="sm">
         <Text>{t('note')}</Text>
 
-        {data?.fields.length === 0 && (
+        {data?.fields.length === 0 ? (
           <Text mt="xl" color="dimmed" fz="sm">
             {t('noData')}
           </Text>
+        ) : (
+          <Stack mt="xl">
+            {data?.fields.map((field) => (
+              <FieldItem field={field} key={field.id} />
+            ))}
+          </Stack>
         )}
-
-        <Stack mt="xl">
-          {data?.fields.map((field) => (
-            <FieldItem field={field} key={field.id} />
-          ))}
-        </Stack>
       </Card>
     </div>
   )
