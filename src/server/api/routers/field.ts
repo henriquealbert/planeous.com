@@ -1,5 +1,4 @@
 import { createFieldValidation } from 'components/CustomFields/CustomContactFields/CreateNewCustomField/utils'
-import { z } from 'zod'
 import { createTRPCRouter, protectedProcedure } from '../trpc'
 
 export const fieldRouter = createTRPCRouter({
