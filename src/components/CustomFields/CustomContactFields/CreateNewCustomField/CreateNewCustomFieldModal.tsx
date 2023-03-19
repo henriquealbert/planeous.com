@@ -8,7 +8,7 @@ import {
   Modal,
   NumberInput,
   Stack,
-  Title
+  Text
 } from '@mantine/core'
 import { notifications } from '@mantine/notifications'
 import { FieldsType } from '@prisma/client'
@@ -66,7 +66,7 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
         })
       },
       onSuccess: async () => {
-        await utils.field.listAll.refetch()
+        await utils.field.listAllActive.refetch()
         handleClose()
         notifications.show({
           message: t('createCustomFieldSuccess'),
@@ -83,9 +83,9 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
       opened={opened}
       onClose={handleClose}
       title={
-        <Title fz="xl" order={2}>
+        <Text fz="xl" fw="bold">
           {t('createModalTitle')}
-        </Title>
+        </Text>
       }
       padding="xl"
       size="lg"

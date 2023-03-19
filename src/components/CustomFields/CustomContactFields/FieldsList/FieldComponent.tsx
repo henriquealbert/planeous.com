@@ -1,74 +1,70 @@
-import { Input } from '@mantine/core'
+import { Anchor, Box, Input, Text } from '@mantine/core'
 import type { Field } from '@prisma/client'
-import { FieldsType } from '@prisma/client'
+import { modals } from '@mantine/modals'
 
-import {
-  CheckboxField,
-  ContactLinkField,
-  CurrencyField,
-  DatetimeField,
-  EmailField,
-  FileField,
-  MultiSelectField,
-  NumberField,
-  PhoneField,
-  RatingField,
-  SegmentedControlField,
-  SelectField,
-  TextAreaField,
-  TextField,
-  UrlField
-} from 'components/Fields'
+import { useState } from 'react'
+import { useStyles } from './FieldComponent.styles'
+import { api } from 'utils/api'
+import { getField } from './utils'
+import { useTranslations } from 'next-intl'
 
 interface FieldComponentProps {
   field: Field
 }
 
 export const FieldComponent = ({ field }: FieldComponentProps) => {
+  const t = useTranslations('Settings.CustomFields.Contacts')
+  const [hover, setHover] = useState<boolean>(false)
+  const { classes } = useStyles({ hover })
+
+  const { mutateAsync: deleteField } = api.field.delete.useMutation()
+  const utils = api.useContext()
+
+  const deleteFieldModal = () =>
+    modals.openConfirmModal({
+      title: t('DeleteFieldModal.title'),
+      children: (
+        <>
+          <Text
+            size="sm"
+            dangerouslySetInnerHTML={{
+              __html: t('DeleteFieldModal.description', {
+                name: `<b>${field.name}</b>`
+              })
+            }}
+          />
+          <Text size="sm">{t('DeleteFieldModal.note')}</Text>
+        </>
+      ),
+      labels: { confirm: t('DeleteFieldModal.yes'), cancel: t('DeleteFieldModal.no') },
+      confirmProps: { color: 'red' },
+      onConfirm: async () => {
+        await deleteField({ id: field.id })
+        await utils.field.invalidate()
+      }
+    })
+
   return (
-    <Input.Wrapper label={field.name || ''} withAsterisk={field.required}>
-      {getField(field)}
-    </Input.Wrapper>
+    <Box
+      className={classes.wrapper}
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+    >
+      <Input.Wrapper
+        label={field.name || ''}
+        withAsterisk={field.required}
+        className={classes.input}
+      >
+        {getField(field)}
+      </Input.Wrapper>
+      <Box className={classes.hoverComponent}>
+        <Anchor mr="xl" component="button">
+          {t('HoverActions.edit')}
+        </Anchor>
+        <Anchor component="button" onClick={deleteFieldModal}>
+          {t('HoverActions.delete')}
+        </Anchor>
+      </Box>
+    </Box>
   )
-}
-
-interface FieldProps extends Field {
-  options: Record<string, never>
-}
-
-const getField = (_field: Field) => {
-  const field = _field as FieldProps // Prisma doesn't allow to add custom fields to the model
-
-  switch (field.type) {
-    case FieldsType.TEXT:
-      return <TextField field={field} />
-    case FieldsType.NUMBER:
-      return <NumberField field={field} />
-    case FieldsType.TEXTAREA:
-      return <TextAreaField field={field} />
-    case FieldsType.CURRENCY:
-      return <CurrencyField field={field} />
-    case FieldsType.DATETIME:
-      return <DatetimeField field={field} />
-    case FieldsType.SELECT:
-      return <SelectField field={field} />
-    case FieldsType.MULTI_SELECT:
-      return <MultiSelectField field={field} />
-    case FieldsType.CHECKBOX:
-      return <CheckboxField field={field} />
-    case FieldsType.CONTACT_LINK:
-      return <ContactLinkField field={field} />
-    case FieldsType.SEGMENTED_CONTROL:
-      return <SegmentedControlField field={field} />
-    case FieldsType.EMAIL:
-      return <EmailField field={field} />
-    case FieldsType.PHONE:
-      return <PhoneField field={field} />
-    case FieldsType.URL:
-      return <UrlField field={field} />
-    case FieldsType.FILE:
-      return <FileField field={field} />
-    case FieldsType.RATING:
-      return <RatingField field={field} />
-  }
 }
