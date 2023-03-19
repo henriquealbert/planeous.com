@@ -90,7 +90,7 @@ const Draggable = ({ field, register, remove, index }: DraggableProps) => {
   }
 
   return (
-    <Flex align="center" key={field.id} gap={rem(4)} ref={setNodeRef} style={style} {...attributes}>
+    <Flex align="center" gap={rem(4)} ref={setNodeRef} style={style} {...attributes}>
       <TextInput
         w="100%"
         {...register(`options.data.${index}.value`)}

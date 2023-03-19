@@ -26,7 +26,7 @@ interface FieldComponentProps {
 
 export const FieldComponent = ({ field }: FieldComponentProps) => {
   return (
-    <Input.Wrapper label={field.name} withAsterisk={field.required}>
+    <Input.Wrapper label={field.name || ''} withAsterisk={field.required}>
       {getField(field)}
     </Input.Wrapper>
   )
