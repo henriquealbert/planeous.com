@@ -203,7 +203,7 @@
         "title": "Deleted Fields",
         "note": "These fields aren't used in your CRM at all. If you see a field in this section, the data is effectively deleted, although you can restore the field later.",
         "noData": "You have no deleted fields.",
-        "deletedOn": "deleted on {date} at {time} —",
+        "deletedOn": "{fieldType} deleted on {date} at {time} —",
         "restore": "restore"
       },
       "FieldsType": {

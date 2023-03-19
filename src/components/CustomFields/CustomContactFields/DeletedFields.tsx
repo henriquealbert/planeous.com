@@ -49,8 +49,8 @@ const FieldItem = ({ field }: { field: Field }) => {
       </Text>
       <Flex gap={6} align="center">
         <Text fz="xs" color="dimmed">
-          {t(`FieldsType.${field.type}`)}{' '}
           {t('DeletedFields.deletedOn', {
+            fieldType: t(`FieldsType.${field.type}`),
             date: dayjs(field.updatedAt).format('DD MMMM YYYY'),
             time: dayjs(field.updatedAt).format('HH:mm')
           })}
