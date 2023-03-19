@@ -51,6 +51,7 @@
     "react-hook-form": "^7.43.7",
     "string-to-color": "^2.2.2",
     "superjson": "1.12.2",
+    "uuid": "^9.0.0",
     "zod": "^3.21.4",
     "zustand": "^4.3.6"
   },
@@ -60,6 +61,7 @@
     "@types/papaparse": "^5.3.7",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
+    "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
     "@typescript-eslint/parser": "^5.55.0",
     "eslint": "^8.36.0",

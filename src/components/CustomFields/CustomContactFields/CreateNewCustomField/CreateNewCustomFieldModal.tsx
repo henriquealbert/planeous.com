@@ -1,9 +1,20 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Button, Checkbox, Divider, Flex, Input, Modal, NumberInput, Stack } from '@mantine/core'
+import {
+  Button,
+  Checkbox,
+  Divider,
+  Flex,
+  Input,
+  Modal,
+  NumberInput,
+  Stack,
+  Title
+} from '@mantine/core'
 import { notifications } from '@mantine/notifications'
 import { FieldsType } from '@prisma/client'
 import { useTranslations } from 'next-intl'
 import { useForm } from 'react-hook-form'
+
 import { api } from 'utils/api'
 import type { FieldValidation } from './utils'
 import { showOptions, showRequired, createFieldValidation } from './utils'
@@ -68,7 +79,17 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
   })
 
   return (
-    <Modal opened={opened} onClose={handleClose} title={t('createModalTitle')} padding="xl">
+    <Modal
+      opened={opened}
+      onClose={handleClose}
+      title={
+        <Title fz="xl" order={2}>
+          {t('createModalTitle')}
+        </Title>
+      }
+      padding="xl"
+      size="lg"
+    >
       <form onSubmit={onSubmit}>
         <Stack spacing="lg">
           <Input.Wrapper

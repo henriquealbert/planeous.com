@@ -1,5 +1,6 @@
 import { Flex, NativeSelect, NumberInput } from '@mantine/core'
 import type { Field } from '@prisma/client'
+import { generateId } from 'utils/generateId'
 import { currencyFormatter, currencyParser } from './utils'
 
 interface FieldProps extends Field {
@@ -15,7 +16,7 @@ interface CurrencyFieldProps {
 export const CurrencyField = ({ field }: CurrencyFieldProps) => {
   const data =
     field.options.data?.map((option) => ({
-      value: option.value,
+      value: option.value || generateId(),
       label: option.value
     })) || []
   const europeanFormat = !!field.options?.europeanFormat

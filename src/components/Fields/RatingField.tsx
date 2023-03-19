@@ -1,3 +1,4 @@
+import type { MantineTheme } from '@mantine/core'
 import { Rating, rem, useMantineTheme } from '@mantine/core'
 import type { Field } from '@prisma/client'
 import {
@@ -19,10 +20,17 @@ interface RatingFieldProps {
 export const RatingField = ({ field }: RatingFieldProps) => {
   const isNPS = field.options?.isNPS
   const count = field.options?.ratingCount || 5
+  const theme = useMantineTheme()
+
   return (
     <>
       {isNPS ? (
-        <Rating emptySymbol={EmptyIcon} fullSymbol={FullIcon} highlightSelectedOnly size="md" />
+        <Rating
+          emptySymbol={EmptyIcon}
+          fullSymbol={(val) => FullIcon(val, theme)}
+          highlightSelectedOnly
+          size="md"
+        />
       ) : (
         <Rating value={3.5} fractions={2} count={count} size="lg" />
       )}
@@ -48,9 +56,8 @@ const EmptyIcon = (value: number) => {
   }
 }
 
-const FullIcon = (value: number) => {
+const FullIcon = (value: number, theme: MantineTheme) => {
   const defaultProps = { size: rem(28), stroke: 1.5 }
-  const theme = useMantineTheme()
 
   switch (value) {
     case 1:
