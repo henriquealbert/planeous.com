@@ -5,7 +5,6 @@ import type { Field } from '@prisma/client'
 
 interface FieldProps extends Field {
   options: {
-    data?: { value: string }[]
     europeanFormat?: boolean
     withRange?: boolean
     withTimePicker?: boolean
