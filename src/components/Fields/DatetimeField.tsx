@@ -34,7 +34,9 @@ export const DatetimeField = ({ field }: DatetimeFieldProps) => {
         clearable
         defaultValue={new Date()}
         valueFormat={valueFormat}
-        locale="en-US"
+        popoverProps={{
+          withinPortal: true
+        }}
       />
     )
   }
@@ -47,6 +49,9 @@ export const DatetimeField = ({ field }: DatetimeFieldProps) => {
       defaultValue={new Date()}
       valueFormat={valueFormat}
       type={field.options.withRange ? 'range' : 'default'}
+      popoverProps={{
+        withinPortal: true
+      }}
     />
   )
 }
