@@ -88,7 +88,7 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
         </Title>
       }
       padding="xl"
-      size="xl"
+      size="lg"
     >
       <form onSubmit={onSubmit}>
         <Stack spacing="lg">
