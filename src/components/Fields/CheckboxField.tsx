@@ -5,13 +5,16 @@ interface CheckboxFieldProps {
   field: Field
 }
 export const CheckboxField = ({ field }: CheckboxFieldProps) => {
+  const options = field.options as { data?: { value: string }[] }
+  const data = options.data?.map((option) => option.value) ?? []
+
   return (
-    <Checkbox.Group defaultValue={['react']}>
+    <Checkbox.Group>
       <Group mt="xs">
-        <Checkbox value="react" label="React" />
-        <Checkbox value="svelte" label="Svelte" />
-        <Checkbox value="ng" label="Angular" />
-        <Checkbox value="vue" label="Vue" />
+        {data.map((option) => (
+          <Checkbox key={option} value={option} label={option} />
+        ))}
+        {data.length === 0 && 'No options'}
       </Group>
     </Checkbox.Group>
   )
