@@ -5,7 +5,7 @@ import { FieldComponent } from './FieldComponent'
 
 export const FieldsList = () => {
   const t = useTranslations('Settings.CustomFields.Contacts.FieldsList')
-  const { data } = api.field.listAll.useQuery()
+  const { data } = api.field.listAllActive.useQuery()
 
   return (
     <Card withBorder p="xl" maw="850px" shadow="sm">

@@ -3,8 +3,11 @@ import { IconExternalLink } from '@tabler/icons-react'
 import type { Field } from '@prisma/client'
 import { useState } from 'react'
 
+interface FiedProps extends Field {
+  disabled: boolean
+}
 interface UrlFieldProps {
-  field: Field
+  field: FiedProps
 }
 export const UrlField = ({ field }: UrlFieldProps) => {
   const [value, setValue] = useState<string>('')
@@ -23,7 +26,7 @@ export const UrlField = ({ field }: UrlFieldProps) => {
         sx={(theme) => ({
           color: theme.colors.dark[0],
           cursor: 'pointer',
-          zIndex: 99,
+          zIndex: 1,
           width: 36,
           height: 36,
           display: 'flex',
@@ -44,6 +47,7 @@ export const UrlField = ({ field }: UrlFieldProps) => {
         value={value}
         onBlur={() => setValue(formatUrl(value))}
         onChange={(e) => setValue(e.currentTarget.value)}
+        disabled={field.disabled}
       />
     </Flex>
   )
