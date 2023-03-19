@@ -1,12 +1,16 @@
 import { Checkbox, Group } from '@mantine/core'
 import type { Field } from '@prisma/client'
 
+interface FieldProps extends Field {
+  options: {
+    data?: { value: string }[]
+  }
+}
 interface CheckboxFieldProps {
-  field: Field
+  field: FieldProps
 }
 export const CheckboxField = ({ field }: CheckboxFieldProps) => {
-  const options = field.options as { data?: { value: string }[] }
-  const data = options.data?.map((option) => option.value) ?? []
+  const data = field.options.data?.map((option) => option.value) ?? []
 
   return (
     <Checkbox.Group>

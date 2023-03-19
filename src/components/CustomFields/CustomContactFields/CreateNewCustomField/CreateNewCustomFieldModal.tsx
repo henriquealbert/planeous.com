@@ -152,6 +152,57 @@ export const CreateNewCustomFieldModal = ({ opened, close }: CreateNewCustomFiel
               </>
             )}
 
+            {type.includes(FieldsType.DATETIME) && (
+              <>
+                <Checkbox
+                  size="xs"
+                  mt="md"
+                  label={t('DateOptions.format')}
+                  onChange={(e) =>
+                    setValue('options', {
+                      ...watch('options'),
+                      europeanFormat: e.currentTarget.checked
+                    })
+                  }
+                />
+                <Checkbox
+                  size="xs"
+                  label={t('DateOptions.withRange')}
+                  onChange={(e) =>
+                    setValue('options', {
+                      ...watch('options'),
+                      withRange: e.currentTarget.checked
+                    })
+                  }
+                  disabled={watch('options').withTimePicker as boolean}
+                />
+                <Checkbox
+                  size="xs"
+                  label={t('DateOptions.includeTime')}
+                  onChange={(e) =>
+                    setValue('options', {
+                      ...watch('options'),
+                      withTimePicker: e.currentTarget.checked
+                    })
+                  }
+                  disabled={watch('options').withRange as boolean}
+                />
+
+                {watch('options').withTimePicker && (
+                  <Checkbox
+                    size="xs"
+                    label={t('DateOptions.withSeconds')}
+                    onChange={(e) =>
+                      setValue('options', {
+                        ...watch('options'),
+                        withSeconds: e.currentTarget.checked
+                      })
+                    }
+                  />
+                )}
+              </>
+            )}
+
             {showRequired(type) && (
               <Checkbox {...register('required')} size="xs" label={t('markAsRequired')} />
             )}

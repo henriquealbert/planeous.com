@@ -171,6 +171,12 @@
           },
           "CurrencyOptions":{
             "format": "Use European number format (9.999,99) instead of American (9,999.99)"
+          },
+          "DateOptions": {
+            "format": "Use European date format (DD/MM/YYYY) instead of American (MM/DD/YYYY)",
+            "withRange": "Use a date range",
+            "includeTime": "Include time",
+            "withSeconds": "Include seconds (13:00:00)"
           }
         },
         "FieldsList": {
