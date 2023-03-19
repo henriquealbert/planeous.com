@@ -185,6 +185,7 @@
       "FieldsType": {
         "fieldType": "Field type",
         "fieldTypePlaceholder": "Select a field type",
+        "emailPlaceholder": "Enter an email address",
         "TEXT": "Text (single-line)",
         "TEXTAREA": "Text Area (multi-line)",
         "NUMBER": "Number Field",
