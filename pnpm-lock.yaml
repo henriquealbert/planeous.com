@@ -51,7 +51,7 @@ specifiers:
   prisma: ^4.12.0
   react: 18.2.0
   react-dom: 18.2.0
-  react-hook-form: ^7.43.7
+  react-hook-form: ^7.43.9
   string-to-color: ^2.2.2
   superjson: 1.12.2
   tsx: ^3.12.6
@@ -65,7 +65,7 @@ dependencies:
   '@dnd-kit/sortable': 7.0.2_52scne4zmdeyjh2otzkgz2xfvu
   '@emotion/react': 11.10.6_pofolu2o2erjq4lhyzl3hqovzq
   '@emotion/server': 11.10.0
-  '@hookform/resolvers': 2.9.11_react-hook-form@7.43.7
+  '@hookform/resolvers': 2.9.11_react-hook-form@7.43.9
   '@mantine/core': 6.0.6_z6mkljgfz35cqw5xrleq7kjcbq
   '@mantine/dates': 6.0.6_7cbxwq2i6ifycwljiccut564ni
   '@mantine/dropzone': 6.0.6_feqrfkte3oaz5jjghkdwfk53i4
@@ -97,7 +97,7 @@ dependencies:
   papaparse: 5.4.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
-  react-hook-form: 7.43.7_react@18.2.0
+  react-hook-form: 7.43.9_react@18.2.0
   string-to-color: 2.2.2
   superjson: 1.12.2
   uuid: 9.0.0
@@ -662,12 +662,12 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@hookform/resolvers/2.9.11_react-hook-form@7.43.7:
+  /@hookform/resolvers/2.9.11_react-hook-form@7.43.9:
     resolution: {integrity: sha512-bA3aZ79UgcHj7tFV7RlgThzwSSHZgvfbt2wprldRkYBcMopdMvHyO17Wwp/twcJasNFischFfS7oz8Katz8DdQ==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
-      react-hook-form: 7.43.7_react@18.2.0
+      react-hook-form: 7.43.9_react@18.2.0
     dev: false
 
   /@humanwhocodes/config-array/0.11.8:
@@ -3593,8 +3593,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /react-hook-form/7.43.7_react@18.2.0:
-    resolution: {integrity: sha512-38yehQkQQ5uufaPKFScs7jhLE8n3+LG9H/BZfFAiBL2+7piDmw/BrdNJV4irzMaPnWZGhmGLHVICHXNVGIuXZg==}
+  /react-hook-form/7.43.9_react@18.2.0:
+    resolution: {integrity: sha512-AUDN3Pz2NSeoxQ7Hs6OhQhDr6gtF9YRuutGDwPQqhSUAHJSgGl2VeY3qN19MG0SucpjgDiuMJ4iC5T5uB+eaNQ==}
     engines: {node: '>=12.22.0'}
     peerDependencies:
       react: ^16.8.0 || ^17 || ^18
