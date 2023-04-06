@@ -40,13 +40,13 @@ specifiers:
   eslint-config-prettier: ^8.8.0
   eslint-plugin-prettier: ^4.2.1
   export-to-csv: ^0.2.1
-  immer: ^9.0.19
+  immer: ^9.0.21
   mantine-react-table: 0.9.5
   next: 13.2.4
   next-auth: ^4.20.1
   next-intl: ^2.11.0
   node-mailjet: ^6.0.2
-  papaparse: ^5.4.0
+  papaparse: ^5.4.1
   prettier: ^2.8.7
   prisma: ^4.12.0
   react: 18.2.0
@@ -58,7 +58,7 @@ specifiers:
   typescript: ^5.0.3
   uuid: ^9.0.0
   zod: ^3.21.4
-  zustand: ^4.3.6
+  zustand: ^4.3.7
 
 dependencies:
   '@dnd-kit/core': 6.0.8_biqbaboplfbrettd7655fr4n2y
@@ -88,13 +88,13 @@ dependencies:
   '@trpc/server': 10.19.1
   dayjs: 1.11.7
   export-to-csv: 0.2.1
-  immer: 9.0.19
+  immer: 9.0.21
   mantine-react-table: 0.9.5_76rpznncooajyhvzztbalobh7e
   next: 13.2.4_biqbaboplfbrettd7655fr4n2y
   next-auth: 4.20.1_ld2jel3hspngo3u5lti2kgl2sq
   next-intl: 2.11.0_next@13.2.4+react@18.2.0
   node-mailjet: 6.0.2
-  papaparse: 5.4.0
+  papaparse: 5.4.1
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
   react-hook-form: 7.43.7_react@18.2.0
@@ -102,7 +102,7 @@ dependencies:
   superjson: 1.12.2
   uuid: 9.0.0
   zod: 3.21.4
-  zustand: 4.3.6_immer@9.0.19+react@18.2.0
+  zustand: 4.3.7_immer@9.0.21+react@18.2.0
 
 devDependencies:
   '@total-typescript/ts-reset': 0.4.2
@@ -2779,8 +2779,8 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
-  /immer/9.0.19:
-    resolution: {integrity: sha512-eY+Y0qcsB4TZKwgQzLaE/lqYMlKhv5J9dyd2RhhtGhNo2njPXDqU9XPfcNfa3MIDsdtZt5KlkIsirlo4dHsWdQ==}
+  /immer/9.0.21:
+    resolution: {integrity: sha512-bc4NBHqOqSfRW7POMkHd51LvClaeMXpm8dx0e8oE2GORbq5aRK7Bxl4FyzVLdGtLmvLKL7BTDBG5ACQm4HWjTA==}
     dev: false
 
   /import-fresh/3.3.0:
@@ -3441,8 +3441,8 @@ packages:
       p-limit: 3.1.0
     dev: true
 
-  /papaparse/5.4.0:
-    resolution: {integrity: sha512-ZBQABWG09p+u8rFoJVl/GhgxZ5zy9Zh1Lu/LVc7VX5T4nljjC14/YTcpebYwqP218B9X307eBOP7Tuhoqv7v7w==}
+  /papaparse/5.4.1:
+    resolution: {integrity: sha512-HipMsgJkZu8br23pW15uvo6sib6wne/4woLZPlFf3rpDyMe9ywEXUsuD7+6K9PRkJlVT51j/sCOYDKGGS3ZJrw==}
     dev: false
 
   /parent-module/1.0.1:
@@ -4304,8 +4304,8 @@ packages:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
     dev: false
 
-  /zustand/4.3.6_immer@9.0.19+react@18.2.0:
-    resolution: {integrity: sha512-6J5zDxjxLE+yukC2XZWf/IyWVKnXT9b9HUv09VJ/bwGCpKNcaTqp7Ws28Xr8jnbvnZcdRaidztAPsXFBIqufiw==}
+  /zustand/4.3.7_immer@9.0.21+react@18.2.0:
+    resolution: {integrity: sha512-dY8ERwB9Nd21ellgkBZFhudER8KVlelZm8388B5nDAXhO/+FZDhYMuRnqDgu5SYyRgz/iaf8RKnbUs/cHfOGlQ==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       immer: '>=9.0'
@@ -4316,7 +4316,7 @@ packages:
       react:
         optional: true
     dependencies:
-      immer: 9.0.19
+      immer: 9.0.21
       react: 18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
     dev: false
