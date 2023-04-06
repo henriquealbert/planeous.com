@@ -100,5 +100,41 @@ export const fieldRouter = createTRPCRouter({
       })
 
       return { field }
+    }),
+  orderField: protectedProcedure
+    .input(
+      z.object({
+        prevId: z.string().min(1, { message: 'Previous ID is required' }),
+        prevOrder: z.number().min(1, { message: 'Previous order is required' }).or(z.null()),
+        nextId: z.string().min(1, { message: 'Next ID is required' }),
+        nextOrder: z.number().min(1, { message: 'Next order is required' }).or(z.null())
+      })
+    )
+    .mutation(async ({ ctx, input }) => {
+      const organizationId = ctx.session?.user?.organizationId
+      if (!organizationId) {
+        throw new Error('No organization ID')
+      }
+
+      const [prev, next] = await ctx.prisma.$transaction([
+        ctx.prisma.field.update({
+          where: {
+            id: input.prevId
+          },
+          data: {
+            order: input.nextOrder
+          }
+        }),
+        ctx.prisma.field.update({
+          where: {
+            id: input.nextId
+          },
+          data: {
+            order: input.prevOrder
+          }
+        })
+      ])
+
+      return { prev, next }
     })
 })

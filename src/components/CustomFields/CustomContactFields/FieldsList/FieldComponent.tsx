@@ -7,6 +7,7 @@ import { useStyles } from './FieldComponent.styles'
 import { api } from 'utils/api'
 import { getField } from './utils'
 import { useTranslations } from 'next-intl'
+import { useSortable } from '@dnd-kit/sortable'
 
 interface FieldComponentProps {
   field: Field
@@ -44,11 +45,36 @@ export const FieldComponent = ({ field }: FieldComponentProps) => {
       }
     })
 
+  const { attributes, listeners, setNodeRef, transform, transition } = useSortable({
+    id: field.id,
+    transition: {
+      duration: 150, // milliseconds
+      easing: 'cubic-bezier(0.25, 1, 0.5, 1)'
+    }
+  })
+  const style = {
+    transform: `translate3d(${transform?.x || 0}px, ${transform?.y || 0}px, 0)`,
+    transition
+  }
+
+  // TODO: FIX: Clicar no botão de deletar não funciona pq o drag and drop está interceptando o evento
+
   return (
     <Box
       className={classes.wrapper}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      ref={setNodeRef}
+      style={style}
+      id={field.id}
+      sx={{
+        cursor: 'grab',
+        '&:active': {
+          cursor: 'grabbing'
+        }
+      }}
+      {...attributes}
+      {...listeners}
     >
       <Input.Wrapper
         label={field.name || ''}

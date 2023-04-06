@@ -23,7 +23,6 @@ export const useStyles = createStyles((theme, { hover }: FieldComponentStyles) =
     width: '100%',
     zIndex: 99,
     justifyContent: 'center',
-    alignItems: 'center',
-    cursor: 'grab'
+    alignItems: 'center'
   }
 }))
