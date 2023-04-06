@@ -58,9 +58,9 @@
   },
   "devDependencies": {
     "@total-typescript/ts-reset": "^0.4.2",
-    "@types/node": "^18.15.3",
+    "@types/node": "^18.15.11",
     "@types/papaparse": "^5.3.7",
-    "@types/react": "^18.0.28",
+    "@types/react": "^18.0.33",
     "@types/react-dom": "^18.0.11",
     "@types/uuid": "^9.0.1",
     "@typescript-eslint/eslint-plugin": "^5.55.0",
@@ -72,7 +72,7 @@
     "prettier": "^2.8.4",
     "prisma": "^4.12.0",
     "tsx": "^3.12.5",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.3"
   },
   "ct3aMetadata": {
     "initVersion": "7.3.2"
