@@ -59,6 +59,7 @@ export const ContactList = ({ data }: ContactListProps) => {
       enableColumnOrdering
       enableStickyHeader
       enableRowSelection
+      enableFullScreenToggle={false}
       initialState={{
         pagination: {
           pageSize: 20,
