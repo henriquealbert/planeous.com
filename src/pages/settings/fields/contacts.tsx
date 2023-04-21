@@ -14,7 +14,7 @@ const FieldsPage: NextPage = () => {
     <PrivateRouteSettings
       pageTitle={t('title')}
       rightAction={
-        <Button variant="default" compact component={NextLink} href="/app/settings/fields">
+        <Button variant="default" compact component={NextLink} href="/settings/fields">
           {t('backBtn')}
         </Button>
       }

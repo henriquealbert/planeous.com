@@ -11,8 +11,8 @@ const FieldsPage: NextPage = () => {
   const t = useTranslations('Settings.CustomFields')
 
   const primaryRecords = [
-    { title: t('contacts'), href: '/app/settings/fields/contacts' },
-    { title: t('companies'), href: '/app/settings/fields/companies' }
+    { title: t('contacts'), href: '/settings/fields/contacts' },
+    { title: t('companies'), href: '/settings/fields/companies' }
   ]
   return (
     <PrivateRouteSettings pageTitle={t('title')}>

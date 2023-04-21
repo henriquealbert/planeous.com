@@ -51,7 +51,7 @@ export const useStore = create<Store>()(
           prompt('Create new contact modal')
         },
         handleImportCSV: () => {
-          void Router.push('/app/contacts/import')
+          void Router.push('/contacts/import')
         }
       },
       importContact: {

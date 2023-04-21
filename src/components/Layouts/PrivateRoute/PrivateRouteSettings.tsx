@@ -53,19 +53,19 @@ export const PrivateRouteSettings = ({
   const NAV_ITEMS = [
     {
       title: t('SidebarNav.profile'),
-      href: '/app/settings/profile'
+      href: '/settings/profile'
     },
     {
       title: t('SidebarNav.members'),
-      href: '/app/settings/members'
+      href: '/settings/members'
     },
     {
       title: t('SidebarNav.billing'),
-      href: '/app/settings/billing'
+      href: '/settings/billing'
     },
     {
       title: t('SidebarNav.customFields'),
-      href: '/app/settings/fields'
+      href: '/settings/fields'
     }
   ]
   return (

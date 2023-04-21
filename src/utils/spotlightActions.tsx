@@ -12,13 +12,13 @@ const actions: SpotlightAction[] = [
   {
     title: 'Home',
     description: 'Get to home page',
-    onTrigger: () => void Router.push('/app/'),
+    onTrigger: () => void Router.push('/'),
     icon: <IconHome size={18} />
   },
   {
     title: 'Contacts',
     description: 'Get to contacts page',
-    onTrigger: () => void Router.push('/app/contacts'),
+    onTrigger: () => void Router.push('/contacts'),
     icon: <IconAddressBook size={18} />
   },
   {
@@ -30,7 +30,7 @@ const actions: SpotlightAction[] = [
   {
     title: 'Dark Mode',
     description: 'Enable dark mode',
-    onTrigger: () => void Router.push('/app/contacts'),
+    onTrigger: () => void Router.push('/contacts'),
     icon: <IconMoonStars size={18} />
   }
 ]

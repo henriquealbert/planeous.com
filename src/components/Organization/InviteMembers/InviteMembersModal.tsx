@@ -18,7 +18,7 @@ export const InviteMembersModal = () => {
 
   const handleCloseModal = () => {
     closeModal()
-    void push('/app', {
+    void push('/', {
       query: {}
     })
   }

@@ -41,7 +41,7 @@ export const OnboardingForm = () => {
       onSuccess: async (data) => {
         await refetchUser()
         void push({
-          pathname: '/app',
+          pathname: '/',
           // If the organization is SOLO, we don't want to show the invite members modal
           query: { inviteMembers: data?.organization?.size !== 'solo' }
         })
