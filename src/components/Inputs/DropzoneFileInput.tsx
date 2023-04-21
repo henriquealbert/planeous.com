@@ -49,7 +49,7 @@ export const DropzoneFileInput = (props: DropzoneFileInputProps) => {
         <div style={{ pointerEvents: 'none' }}>
           <Group position="center">
             <Dropzone.Accept>
-              <IconDownload size={rem(50)} color={theme.colors.blue[6]} stroke={1.5} />
+              <IconDownload size={rem(50)} color={theme.colors.brand[6]} stroke={1.5} />
             </Dropzone.Accept>
             <Dropzone.Reject>
               <IconX size={rem(50)} color={theme.colors.red[6]} stroke={1.5} />
