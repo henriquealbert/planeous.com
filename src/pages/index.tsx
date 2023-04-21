@@ -1,21 +1,18 @@
-import { Flex, Title } from '@mantine/core'
-import { PublicRoute } from 'components/Layouts/PublicRoute/PublicRoute'
+import { ProtectedRoute } from 'components/Layouts/PrivateRoute/PrivateRoute'
+import { InviteMembersModal } from 'components/Organization/InviteMembers/InviteMembersModal'
 import type { GetStaticProps, NextPage } from 'next'
 import { getServerTranslation } from 'utils/serverTranslation'
-import { useTranslations } from 'next-intl'
 
-const HomePage: NextPage = () => {
-  const t = useTranslations('Home')
+const DashboardPage: NextPage = () => {
   return (
-    <PublicRoute>
-      <Flex direction="column" justify="center" align="center" h="100vh">
-        <Title order={1}>{t('title')}</Title>
-      </Flex>
-    </PublicRoute>
+    <ProtectedRoute pageTitle="Dashboard">
+      Content
+      <InviteMembersModal />
+    </ProtectedRoute>
   )
 }
 
-export default HomePage
+export default DashboardPage
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {

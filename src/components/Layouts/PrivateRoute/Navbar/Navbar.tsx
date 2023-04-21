@@ -11,9 +11,9 @@ export function Navbar() {
   const [active, setActive] = useState(pathname)
 
   const topLinksData = [
-    { icon: <IconHome2 size={24} />, label: t('home'), href: '/app' },
-    { icon: <IconAddressBook size={24} />, label: t('contacts'), href: '/app/contacts' },
-    { icon: <IconAdjustments size={24} />, label: t('settings'), href: '/app/settings/profile' }
+    { icon: <IconHome2 size={24} />, label: t('home'), href: '/' },
+    { icon: <IconAddressBook size={24} />, label: t('contacts'), href: '/contacts' },
+    { icon: <IconAdjustments size={24} />, label: t('settings'), href: '/settings/profile' }
   ]
 
   return (

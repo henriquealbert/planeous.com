@@ -14,14 +14,14 @@ export const MenuDropdown = () => {
         {
           icon: <IconReceipt size={14} stroke={1.5} />,
           label: t('billing'),
-          href: '/app/settings/billing',
+          href: '/settings/billing',
           onClick: () => undefined,
           color: ''
         },
         {
           icon: <IconAdjustments size={14} stroke={1.5} />,
           label: t('accountSettings'),
-          href: '/app/settings/profile',
+          href: '/settings/profile',
           onClick: () => undefined,
           color: ''
         }

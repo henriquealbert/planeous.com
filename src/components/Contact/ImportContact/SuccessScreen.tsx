@@ -48,7 +48,7 @@ export const SuccessScreen = () => {
           <Button
             w="100%"
             onClick={async () => {
-              await push('/app/contacts')
+              await push('/contacts')
               resetImport()
             }}
           >
