@@ -7,7 +7,7 @@ import { Header } from './Header/Header'
 interface ProtectedRouteProps {
   children: ReactNode
   pageTitle?: string
-  navbar?: ReactElement<any, string | JSXElementConstructor<any>> | undefined
+  navbar?: ReactElement<unknown, string | JSXElementConstructor<unknown>> | undefined
 }
 
 export const ProtectedRoute = ({
