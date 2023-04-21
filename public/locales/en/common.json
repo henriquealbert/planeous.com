@@ -154,7 +154,7 @@
           "markAsRequired": "Mark this field as required",
           "CustomFieldWithOptions": {
             "options": "Options",
-            "note":"Hint: You can use emojis too! Eg.: '🇺🇸 USD'",
+            "note": "Hint: You can use emojis too! Eg.: '🇺🇸 USD'",
             "addAnother": "Add another option",
             "optionPlaceholder": "Option",
             "noteDragndrop": "You can re-order the options by dragging and dropping them",
@@ -169,7 +169,7 @@
             "negativeNumbers": "Allow negative numbers",
             "decimalNumbers": "Allow decimal numbers"
           },
-          "CurrencyOptions":{
+          "CurrencyOptions": {
             "format": "Use European number format (9.999,99) instead of American (9,999.99)"
           },
           "DateOptions": {
@@ -189,7 +189,8 @@
         },
         "HoverActions": {
           "edit": "Edit field settings",
-          "delete": "Delete field"
+          "delete": "Delete field",
+          "dragme": "Drag me!"
         },
         "DeleteFieldModal": {
           "title": "Delete field",

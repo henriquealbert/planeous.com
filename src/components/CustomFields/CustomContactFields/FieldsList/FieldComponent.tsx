@@ -1,4 +1,4 @@
-import { Anchor, Box, Input, Text } from '@mantine/core'
+import { ActionIcon, Anchor, Box, Input, Text, Tooltip } from '@mantine/core'
 import type { Field } from '@prisma/client'
 import { modals } from '@mantine/modals'
 
@@ -8,6 +8,8 @@ import { api } from 'utils/api'
 import { getField } from './utils'
 import { useTranslations } from 'next-intl'
 import { useSortable } from '@dnd-kit/sortable'
+import { IconMenuOrder } from '@tabler/icons-react'
+import { rem } from '@mantine/core'
 
 interface FieldComponentProps {
   field: Field
@@ -57,8 +59,6 @@ export const FieldComponent = ({ field }: FieldComponentProps) => {
     transition
   }
 
-  // TODO: FIX: Clicar no botão de deletar não funciona pq o drag and drop está interceptando o evento
-
   return (
     <Box
       className={classes.wrapper}
@@ -66,30 +66,28 @@ export const FieldComponent = ({ field }: FieldComponentProps) => {
       onMouseLeave={() => setHover(false)}
       ref={setNodeRef}
       style={style}
-      id={field.id}
-      sx={{
-        cursor: 'grab',
-        '&:active': {
-          cursor: 'grabbing'
-        }
-      }}
       {...attributes}
-      {...listeners}
     >
-      <Input.Wrapper
-        label={field.name || ''}
-        withAsterisk={field.required}
-        className={classes.input}
-      >
-        {getField(field)}
-      </Input.Wrapper>
-      <Box className={classes.hoverComponent}>
-        <Anchor mr="xl" component="button">
-          {t('HoverActions.edit')}
-        </Anchor>
-        <Anchor component="button" onClick={deleteFieldModal}>
-          {t('HoverActions.delete')}
-        </Anchor>
+      <Box className={classes.wrapper}>
+        <Input.Wrapper
+          label={field.name || ''}
+          withAsterisk={field.required}
+          className={classes.input}
+        >
+          {getField(field)}
+        </Input.Wrapper>
+        <Box className={classes.hoverComponent}>
+          <Anchor component="button">{t('HoverActions.edit')}</Anchor>
+          <Anchor component="button" onClick={deleteFieldModal}>
+            {t('HoverActions.delete')}
+          </Anchor>
+
+          <Tooltip label={t('HoverActions.dragme')} withArrow withinPortal>
+            <ActionIcon id={field.id} className={classes.dragIcon} {...listeners}>
+              <IconMenuOrder size={rem(14)} />
+            </ActionIcon>
+          </Tooltip>
+        </Box>
       </Box>
     </Box>
   )
