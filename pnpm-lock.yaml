@@ -14,8 +14,8 @@ dependencies:
     specifier: ^11.10.0
     version: 11.10.0
   '@hookform/resolvers':
-    specifier: ^3.0.1
-    version: 3.0.1(react-hook-form@7.43.9)
+    specifier: ^3.1.0
+    version: 3.1.0(react-hook-form@7.43.9)
   '@mantine/core':
     specifier: ^6.0.8
     version: 6.0.8(@emotion/react@11.10.6)(@mantine/hooks@6.0.8)(@types/react@18.0.37)(react-dom@18.2.0)(react@18.2.0)
@@ -718,8 +718,8 @@ packages:
       tslib: 2.5.0
     dev: false
 
-  /@hookform/resolvers@3.0.1(react-hook-form@7.43.9):
-    resolution: {integrity: sha512-n5oOt0cLw9mQNW3/k9zWaPsNWQcc0k6Jpc7XUrg2Q/AqqsHp3IVa1juqHCxczXI6uXHBa69ILc4pdtsRGyuzsw==}
+  /@hookform/resolvers@3.1.0(react-hook-form@7.43.9):
+    resolution: {integrity: sha512-z0A8K+Nxq+f83Whm/ajlwE6VtQlp/yPHZnXw7XWVPIGm1Vx0QV8KThU3BpbBRfAZ7/dYqCKKBNnQh85BkmBKkA==}
     peerDependencies:
       react-hook-form: ^7.0.0
     dependencies:
