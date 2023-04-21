@@ -95,8 +95,8 @@ dependencies:
     specifier: ^4.22.1
     version: 4.22.1(next@13.3.0)(react-dom@18.2.0)(react@18.2.0)
   next-intl:
-    specifier: ^2.12.0
-    version: 2.12.0(next@13.3.0)(react@18.2.0)
+    specifier: ^2.13.1
+    version: 2.13.1(next@13.3.0)(react@18.2.0)
   node-mailjet:
     specifier: ^6.0.2
     version: 6.0.2
@@ -1528,10 +1528,6 @@ packages:
       '@typescript-eslint/types': 5.59.0
       eslint-visitor-keys: 3.4.0
     dev: true
-
-  /accept-language-parser@1.5.0:
-    resolution: {integrity: sha512-QhyTbMLYo0BBGg1aWbeMG4ekWtds/31BrEU+DONOg/7ax23vxpL03Pb7/zBmha2v7vdD3AyzZVWBVGEZxKOXWw==}
-    dev: false
 
   /acorn-jsx@5.3.2(acorn@8.8.2):
     resolution: {integrity: sha512-rq9s+JNhf0IChjtDXxllJ7g41oZk5SlXtp0LHwyA5cejwn7vKmKp4pPri6YEePv2PU65sAsegbXtIinmDFDXgQ==}
@@ -3254,6 +3250,11 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
+  /negotiator@0.6.3:
+    resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
+    engines: {node: '>= 0.6'}
+    dev: false
+
   /next-auth@4.22.1(next@13.3.0)(react-dom@18.2.0)(react@18.2.0):
     resolution: {integrity: sha512-NTR3f6W7/AWXKw8GSsgSyQcDW6jkslZLH8AiZa5PQ09w1kR8uHtR9rez/E9gAq/o17+p0JYHE8QjF3RoniiObA==}
     peerDependencies:
@@ -3279,17 +3280,18 @@ packages:
       uuid: 8.3.2
     dev: false
 
-  /next-intl@2.12.0(next@13.3.0)(react@18.2.0):
-    resolution: {integrity: sha512-UWKLA3BIsezFo/OJelGYmJL3BsztApo2mgvmwHMDbTsuBJx0x4SaIIPapnPHPzMhUbppZIbY70xNIULHwn++hg==}
+  /next-intl@2.13.1(next@13.3.0)(react@18.2.0):
+    resolution: {integrity: sha512-3XUZ7c123QHgQGcz5UUkTtakJdLETBlcHcdHop43iVToOpsezxvMZW6jxWwuHTRvkElfNPy1fhHwzBo/mhVVvQ==}
     engines: {node: '>=10'}
     peerDependencies:
       next: ^10.0.0 || ^11.0.0 || ^12.0.0 || ^13.0.0
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
     dependencies:
-      accept-language-parser: 1.5.0
+      '@formatjs/intl-localematcher': 0.2.32
+      negotiator: 0.6.3
       next: 13.3.0(react-dom@18.2.0)(react@18.2.0)
       react: 18.2.0
-      use-intl: 2.12.0(react@18.2.0)
+      use-intl: 2.13.1(react@18.2.0)
     dev: false
 
   /next@13.3.0(react-dom@18.2.0)(react@18.2.0):
@@ -4219,8 +4221,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /use-intl@2.12.0(react@18.2.0):
-    resolution: {integrity: sha512-LcmAqn78o6Ii9wsLERKAXI9QfiSVBzY3u+mSh6YCLUKhDhr7WHqTBfhEV1gZvdwy7mydhwWQUyQ9Zy5XHuUOAQ==}
+  /use-intl@2.13.1(react@18.2.0):
+    resolution: {integrity: sha512-za8vb9UtKyFuDWbc+Iceqnz1KOAGwm9cTaBjW5af6e7ZcAdwADUwsz9M/8M9VDl5gKKQ/o+3TJcKdi+ieOKhfQ==}
     engines: {node: '>=10'}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
