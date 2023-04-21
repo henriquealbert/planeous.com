@@ -35,7 +35,7 @@ export const MenuDropdown = () => {
           label: t('logout'),
           href: '',
           onClick: () => void signOut(),
-          color: 'blue'
+          color: 'brand.4'
         }
       ]
     }

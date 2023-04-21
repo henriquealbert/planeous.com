@@ -1,8 +1,11 @@
 import { Box, createStyles, Divider, Flex, Header as MantineHeader } from '@mantine/core'
-import { ColorSchemeControl, MantineLogo, SearchControl } from '@mantine/ds'
 import { AvatarMenu } from './AvatarMenu'
 import { useSpotlight } from '@mantine/spotlight'
 import { Navbar } from '../Navbar/Navbar'
+import { PlaneousLogo } from 'components/PlaneousLogo'
+import NextLink from 'next/link'
+import { ColorSchemeControl } from 'components/ColorSchemeControl'
+import { SearchControl } from 'components/SearchControl'
 
 const useStyles = createStyles((theme) => ({
   header: {
@@ -26,7 +29,7 @@ const useStyles = createStyles((theme) => ({
   },
   colorSchemeControl: {
     svg: {
-      color: theme.colorScheme === 'dark' ? theme.colors.yellow[5] : theme.colors.blue[8]
+      color: theme.colorScheme === 'dark' ? theme.colors.yellow[5] : theme.colors.brand[8]
     }
   }
 }))
@@ -38,7 +41,9 @@ export const Header = () => {
   return (
     <MantineHeader height={60} className={classes.header}>
       <Flex className={classes.logo}>
-        <MantineLogo type="mark" size={30} />
+        <NextLink href="/" passHref style={{ height: 0 }}>
+          <PlaneousLogo size={34} />
+        </NextLink>
         <Divider mx="md" size="sm" orientation="vertical" />
         <Navbar />
       </Flex>

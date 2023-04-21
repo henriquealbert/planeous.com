@@ -19,7 +19,6 @@ import {
   ScrollArea,
   rem
 } from '@mantine/core'
-import { MantineLogo } from '@mantine/ds'
 import { useDisclosure } from '@mantine/hooks'
 import NextLink from 'next/link'
 import type { TablerIconsProps } from '@tabler/icons-react'
@@ -32,6 +31,7 @@ import {
   IconFingerprint,
   IconNotification
 } from '@tabler/icons-react'
+import { PlaneousLogo } from 'components/PlaneousLogo'
 
 const useStyles = createStyles((theme) => ({
   link: {
@@ -155,8 +155,9 @@ export function HeaderMegaMenu() {
     <Box w="100%">
       <Header height={60} px="md">
         <Group position="apart" sx={{ height: '100%' }}>
-          <MantineLogo size={30} />
-
+          <NextLink href="/" passHref>
+            <PlaneousLogo size={34} />
+          </NextLink>
           <Group sx={{ height: '100%' }} spacing={0} className={classes.hiddenMobile}>
             <a href="#" className={classes.link}>
               Home
