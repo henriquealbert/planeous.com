@@ -21,9 +21,19 @@ export const useStyles = createStyles((theme, { hover }: FieldComponentStyles) =
     inset: '0px',
     border: `2px dashed ${theme.colors.gray[1]}`,
     width: '100%',
-    zIndex: 99,
+    zIndex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    cursor: 'grab'
+    gap: theme.spacing.md
+  },
+  dragIcon: {
+    cursor: 'grab',
+    '&:active': {
+      cursor: 'grabbing'
+    },
+    color: theme.colors.brand[5],
+    '&:hover': {
+      backgroundColor: theme.colors.dark[4]
+    }
   }
 }))
