@@ -86,8 +86,8 @@ dependencies:
     specifier: ^10.0.2
     version: 10.0.2
   mantine-react-table:
-    specifier: 1.0.0-beta.3
-    version: 1.0.0-beta.3(@emotion/react@11.11.0)(@mantine/core@6.0.11)(@mantine/dates@6.0.11)(@mantine/hooks@6.0.11)(@tabler/icons-react@2.20.0)(react-dom@18.2.0)(react@18.2.0)
+    specifier: 1.0.0-beta.8
+    version: 1.0.0-beta.8(@emotion/react@11.11.0)(@mantine/core@6.0.11)(@mantine/dates@6.0.11)(@mantine/hooks@6.0.11)(@tabler/icons-react@2.20.0)(react-dom@18.2.0)(react@18.2.0)
   next:
     specifier: 13.4.3
     version: 13.4.3(react-dom@18.2.0)(react@18.2.0)
@@ -1267,14 +1267,14 @@ packages:
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
 
-  /@tanstack/react-table@8.8.5(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-g/t21E/ICHvaCOJOhsDNr5QaB/6aDQEHFbx/YliwwU/CJThMqG+dS28vnToIBV/5MBgpeXoGRi2waDJVJlZrtg==}
+  /@tanstack/react-table@8.9.1(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-yHs2m6lk5J5RNcu2dNtsDGux66wNXZjEgzxos6MRCX8gL+nqxeW3ZglqP6eANN0bGElPnjvqiUHGQvdACOr3Cw==}
     engines: {node: '>=12'}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
     dependencies:
-      '@tanstack/table-core': 8.8.5
+      '@tanstack/table-core': 8.9.1
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
@@ -1288,8 +1288,8 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@tanstack/table-core@8.8.5:
-    resolution: {integrity: sha512-Xnwa1qxpgvSW7ozLiexmKp2PIYcLBiY/IizbdGriYCL6OOHuZ9baRhrrH51zjyz+61ly6K59rmt6AI/3RR+97Q==}
+  /@tanstack/table-core@8.9.1:
+    resolution: {integrity: sha512-2+R83n8vMZND0q3W1lSiF7co9nFbeWbjAErFf27xwbeA9E0wtUu5ZDfgj+TZ6JzdAEQAgfxkk/QNFAKiS8E4MA==}
     engines: {node: '>=12'}
     dev: false
 
@@ -2820,9 +2820,9 @@ packages:
     engines: {node: '>=6'}
     dev: false
 
-  /highlight-words@1.2.1:
-    resolution: {integrity: sha512-FtF50tuaaYathtSPFk5FwGf0Zex5iqNsTx/OsVM6mdsB3xqs5nM+PAoPWs/gIUxGF3/Qqu2v86sAUenTh6oL3Q==}
-    engines: {node: '>= 12', npm: '>= 6'}
+  /highlight-words@1.2.2:
+    resolution: {integrity: sha512-Mf4xfPXYm8Ay1wTibCrHpNWeR2nUMynMVFkXCi4mbl+TEgmNOe+I4hV7W3OCZcSvzGL6kupaqpfHOemliMTGxQ==}
+    engines: {node: '>= 16', npm: '>= 8'}
     dev: false
 
   /hoist-non-react-statics@3.3.2:
@@ -3256,8 +3256,8 @@ packages:
     dependencies:
       yallist: 4.0.0
 
-  /mantine-react-table@1.0.0-beta.3(@emotion/react@11.11.0)(@mantine/core@6.0.11)(@mantine/dates@6.0.11)(@mantine/hooks@6.0.11)(@tabler/icons-react@2.20.0)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-iV8L8YTt0Y3vNCuX0T3p95Z95u/mqD3LWuQN+Ij2OIhV8tLpWXC/ZCnxOdKptczUl//SaHTfe5ZaVdttQNpieg==}
+  /mantine-react-table@1.0.0-beta.8(@emotion/react@11.11.0)(@mantine/core@6.0.11)(@mantine/dates@6.0.11)(@mantine/hooks@6.0.11)(@tabler/icons-react@2.20.0)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-um2yN96NXSh7IBYCOxCY4d+zbPiJDiD2u1jAVPOiaKuLysvR9tP2fw2CdlFhfyM2BQD8xjJv+IlTyL602yo2Hw==}
     engines: {node: '>=14'}
     peerDependencies:
       '@emotion/react': '>=11'
@@ -3274,9 +3274,9 @@ packages:
       '@mantine/hooks': 6.0.11(react@18.2.0)
       '@tabler/icons-react': 2.20.0(react@18.2.0)
       '@tanstack/match-sorter-utils': 8.8.4
-      '@tanstack/react-table': 8.8.5(react-dom@18.2.0)(react@18.2.0)
+      '@tanstack/react-table': 8.9.1(react-dom@18.2.0)(react@18.2.0)
       '@tanstack/react-virtual': 3.0.0-beta.54(react@18.2.0)
-      highlight-words: 1.2.1
+      highlight-words: 1.2.2
       react: 18.2.0
       react-dom: 18.2.0(react@18.2.0)
     dev: false
