@@ -83,8 +83,8 @@ dependencies:
     specifier: ^0.2.1
     version: 0.2.1
   immer:
-    specifier: ^10.0.1
-    version: 10.0.1
+    specifier: ^10.0.2
+    version: 10.0.2
   mantine-react-table:
     specifier: 1.0.0-beta.3
     version: 1.0.0-beta.3(@emotion/react@11.11.0)(@mantine/core@6.0.11)(@mantine/dates@6.0.11)(@mantine/hooks@6.0.11)(@tabler/icons-react@2.20.0)(react-dom@18.2.0)(react@18.2.0)
@@ -125,8 +125,8 @@ dependencies:
     specifier: ^3.21.4
     version: 3.21.4
   zustand:
-    specifier: ^4.3.7
-    version: 4.3.7(immer@10.0.1)(react@18.2.0)
+    specifier: ^4.3.8
+    version: 4.3.8(immer@10.0.2)(react@18.2.0)
 
 devDependencies:
   '@total-typescript/ts-reset':
@@ -2885,8 +2885,8 @@ packages:
     engines: {node: '>= 4'}
     dev: true
 
-  /immer@10.0.1:
-    resolution: {integrity: sha512-zg++jJLsKKTwXGeSYIw0HgChSYQGtu0UDTnbKx5aGLYgte4CwTmH9eJDYyQ6FheyUtBe+lQW9FrGxya1G+Dtmg==}
+  /immer@10.0.2:
+    resolution: {integrity: sha512-Rx3CqeqQ19sxUtYV9CU911Vhy8/721wRFnJv3REVGWUmoAcIwzifTsdmJte/MV+0/XpM35LZdQMBGkRIoLPwQA==}
     dev: false
 
   /import-fresh@3.3.0:
@@ -4530,8 +4530,8 @@ packages:
     resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
     dev: false
 
-  /zustand@4.3.7(immer@10.0.1)(react@18.2.0):
-    resolution: {integrity: sha512-dY8ERwB9Nd21ellgkBZFhudER8KVlelZm8388B5nDAXhO/+FZDhYMuRnqDgu5SYyRgz/iaf8RKnbUs/cHfOGlQ==}
+  /zustand@4.3.8(immer@10.0.2)(react@18.2.0):
+    resolution: {integrity: sha512-4h28KCkHg5ii/wcFFJ5Fp+k1J3gJoasaIbppdgZFO4BPJnsNxL0mQXBSFgOgAdCdBj35aDTPvdAJReTMntFPGg==}
     engines: {node: '>=12.7.0'}
     peerDependencies:
       immer: '>=9.0'
@@ -4542,7 +4542,7 @@ packages:
       react:
         optional: true
     dependencies:
-      immer: 10.0.1
+      immer: 10.0.2
       react: 18.2.0
       use-sync-external-store: 1.2.0(react@18.2.0)
     dev: false
